@@ -1,20 +1,104 @@
-<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
-<title>DETAIL GRAM ｜ モック2案</title>
-<style>body{margin:0;font-family:'Yu Gothic',system-ui,sans-serif;background:#f4f5f6;color:#14171a;line-height:1.7}
-.w{max-width:900px;margin:0 auto;padding:48px 22px 70px}h1{font-size:20px;margin:0 0 6px}
-.s{font-size:12px;color:#78808a;margin-bottom:30px}
-.c{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-a.card{display:block;border:1px solid #c9ced4;background:#fff;padding:22px;text-decoration:none;color:inherit;transition:.25s}
-a.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(20,30,50,.12)}
-a.card b{display:block;font-size:15px;margin-bottom:8px}a.card span{font-size:12.5px;color:#68707a}
-.n{margin-top:26px;font-size:11.5px;color:#78808a;border-left:3px solid #1f4f6b;background:#eaf1f6;padding:9px 12px}
-@media(max-width:700px){.c{grid-template-columns:1fr}}</style></head><body>
-<div class="w"><h1>DETAIL GRAM ｜ トップページ モック（2案）</h1>
-<div class="s">MEGURIWA / 2026-07-13 ・ Shopify（Horizon）実装前提のデザイン検討用</div>
-<div class="c">
-<a class="card" href="a.html"><b>A案 ｜ 墨・工房のシネマ</b><span>黒地に製品が浮かぶ。工房の工程を章立てで見せ、ディテールへ寄っていく。ブランドの世界観を強く出す方向。</span></a>
-<a class="card" href="b.html"><b>B案 ｜ 白・図録／エディトリアル</b><span>明るい紙面。製品を図録の索引のように整然と並べる。B2B（取扱店・バイヤー）が見やすい方向。</span></a>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>DETAIL GRAM ｜ トップページ デザイン案（2案）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{ --paper:#eceef0; --ink:#14171a; --sub:#6b7280; --line:#c9ced4; --accent:#1f4f6b; }
+  *{box-sizing:border-box}
+  body{ margin:0; background:var(--paper); color:var(--ink);
+    font-family:'Inter',system-ui,'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; line-height:1.8 }
+  .w{ width:min(940px,92vw); margin:0 auto; padding:54px 0 80px }
+  .eyebrow{ font-size:11px; letter-spacing:.22em; color:var(--accent); margin-bottom:10px }
+  h1{ font-family:'Shippori Mincho',serif; font-weight:500; font-size:clamp(1.35rem,1rem+1.1vw,1.9rem);
+    margin:0 0 14px; letter-spacing:.05em }
+  .intro{ font-size:14px; color:#3b444d; margin:0 0 8px }
+  .ask{ font-size:14px; background:#fff; border:1px solid var(--line); border-left:3px solid var(--accent);
+    padding:16px 18px; margin:22px 0 34px }
+  .ask b{ color:var(--accent) }
+
+  .cards{ display:grid; grid-template-columns:1fr 1fr; gap:22px }
+  a.card{ display:flex; flex-direction:column; background:#fff; border:1px solid var(--line);
+    text-decoration:none; color:inherit; transition:transform .25s, box-shadow .25s; overflow:hidden }
+  a.card:hover{ transform:translateY(-3px); box-shadow:0 12px 28px rgba(20,30,50,.13) }
+  .thumb{ height:132px; display:flex; align-items:center; justify-content:center;
+    font-family:'Shippori Mincho',serif; letter-spacing:.2em; font-size:13px }
+  .thumb.a{ background:#0e0f11; color:#e8e6e2 }
+  .thumb.b{ background:#f6f7f8; color:#14171a; border-bottom:1px solid var(--line) }
+  .cbody{ padding:20px 22px 24px }
+  .cbody b{ display:block; font-size:15px; margin-bottom:4px }
+  .cbody .tag{ display:inline-block; font-size:10.5px; letter-spacing:.1em; color:var(--accent);
+    border:1px solid var(--accent); padding:1px 8px; margin-bottom:10px }
+  .cbody p{ font-size:13px; color:#4b545e; margin:0 0 12px }
+  .cbody .fit{ font-size:12px; color:var(--sub); border-top:1px solid var(--line); padding-top:10px; margin:0 }
+  .cbody .open{ margin-top:14px; font-size:12.5px; color:var(--accent); letter-spacing:.06em }
+
+  .look{ margin-top:38px; background:#fff; border:1px solid var(--line); padding:22px 24px }
+  .look h2{ font-family:'Shippori Mincho',serif; font-weight:500; font-size:15px; margin:0 0 12px; letter-spacing:.06em }
+  .look ol{ margin:0; padding-left:1.2em; font-size:13.5px; color:#3b444d }
+  .look li{ margin:7px 0 }
+  .note{ margin-top:26px; font-size:12px; color:var(--sub); background:#e4e8ec; border:1px solid var(--line); padding:14px 16px }
+  .note b{ color:#3b444d }
+  .foot{ margin-top:30px; font-size:11px; color:var(--sub); text-align:center }
+  @media(max-width:760px){ .cards{ grid-template-columns:1fr } }
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="eyebrow">DETAIL GRAM ｜ WEB RENEWAL</div>
+  <h1>トップページのデザイン案（2案）</h1>
+  <p class="intro">先日ご確認いただいたサイトマップ（構成）をもとに、トップページを2つの方向で作りました。<br>どちらも中身（載せるもの）は同じです。<b>違うのは「何を主役にするか」</b>です。</p>
+
+  <div class="ask">
+    <b>ご相談したいこと：</b>どちらの方向で作り込んでいくか。<br>
+    A＝ブランドの世界観を前に出す ／ B＝製品を探しやすく見せる。<br>
+    「Aのこの部分は好き、Bのここが良い」といった混ぜ方のご意見でも大丈夫です。
+  </div>
+
+  <div class="cards">
+    <a class="card" href="a.html">
+      <div class="thumb a">A ｜ 墨・工房</div>
+      <div class="cbody">
+        <span class="tag">世界観 重視</span>
+        <b>黒を背景に、製品と工房を見せる</b>
+        <p>暗い背景に眼鏡が浮かびます。鯖江の工程（削る・彩る・仕上げる）を物語として見せ、フレームのディテールに寄っていく仕掛けを入れています。</p>
+        <p class="fit">向いている：ブランドの空気感を伝えたい／写真で魅せたい</p>
+        <div class="open">A案を見る →</div>
+      </div>
+    </a>
+    <a class="card" href="b.html">
+      <div class="thumb b">B ｜ 白・図録</div>
+      <div class="cbody">
+        <span class="tag">見やすさ 重視</span>
+        <b>白い紙面に、製品を整然と並べる</b>
+        <p>明るい背景で、製品を図録（カタログ）のように並べます。型番・ライン・価格が一覧で追え、取扱店やバイヤーの方が探しやすい構成です。</p>
+        <p class="fit">向いている：卸・取扱店への見せ方／商品数を見せたい</p>
+        <div class="open">B案を見る →</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="look">
+    <h2>見ていただきたい3つのポイント</h2>
+    <ol>
+      <li><b>全体の雰囲気</b>：ディテールグラムらしいのはどちらか。</li>
+      <li><b>製品の見え方</b>：眼鏡が魅力的に見えるか。並べ方・大きさはどうか。</li>
+      <li><b>取扱店・バイヤーへの導線</b>：お店の方が必要な情報にたどり着けそうか。</li>
+    </ol>
+  </div>
+
+  <div class="note">
+    <b>写真について：</b>眼鏡の写真はお預かりした実物を使っています。<br>
+    <b>ヒーロー（一番上の大きな画像）・工房・着用イメージは、位置を示すための仮画像（グレーの枠）です。</b>本番は撮影またはAI生成で差し替えます。写真が入ると印象は大きく変わりますので、いまは「配置と流れ」を中心にご覧ください。<br>
+    細かい文言・色味・余白もこれから調整していきます。
+  </div>
+
+  <div class="foot">MEGURIWA ／ 2026-07-13 ・ Shopify（Horizon）での実装を前提に制作</div>
 </div>
-<div class="n">※ 商品写真は実素材。ヒーロー・工房・着用カットはダミー（本番は撮影／AI生成で差し替え）。<br>※ 構造はサイトマップ確定版どおり。Horizonのセクション単位で分割して制作しています。</div>
-</div></body></html>
+</body>
+</html>
