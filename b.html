@@ -59,19 +59,34 @@
   .sec-head h2{ font-family:var(--serif); font-weight:500; font-size:clamp(1.2rem,.9rem+.9vw,1.75rem); margin:0; letter-spacing:.07em }
   .sec-head .en{ margin-left:auto; font-size:10.5px; letter-spacing:.22em; color:var(--sub) }
 
-  /* --- 固有の仕掛け：図録インデックス（型番が索引のように並ぶ） --- */
-  .index{ border-top:1px solid var(--line) }
-  .row{ display:grid; grid-template-columns:5.5em 1fr 8em 7em 1.6em; align-items:center; gap:18px;
-    padding:14px 4px; border-bottom:1px solid var(--line); transition:background .2s, padding-left .25s }
-  .row:hover{ background:var(--paper-2); padding-left:12px }
-  .row .thumb{ width:74px; background:#fff; border:1px solid var(--line) }
-  .row .thumb img{ width:100%; aspect-ratio:4/3; object-fit:contain; padding:4px; mix-blend-mode:multiply }
-  .row .name{ font-size:13.5px; letter-spacing:.08em }
-  .row .name em{ display:block; font-style:normal; font-size:11px; color:var(--sub); letter-spacing:.02em; margin-top:3px }
-  .row .line{ font-size:11px; color:var(--sub); letter-spacing:.1em }
-  .row .price{ font-size:12.5px; text-align:right; color:var(--sub) }
-  .row .arw{ color:var(--sub); text-align:right; transition:transform .25s }
-  .row:hover .arw{ transform:translateX(5px); color:var(--ink) }
+  /* --- 固有の仕掛け：図録カード（標本のように罫線で囲い、番号を打つ） --- */
+  .grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px }
+  .card{ background:#fff; border:1px solid var(--line); display:block; transition:transform .25s, box-shadow .25s }
+  .card:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(20,30,50,.10) }
+  .card figure{ margin:0; position:relative; border-bottom:1px solid var(--line) }
+  .card img{ width:100%; aspect-ratio:4/3; object-fit:contain; padding:14px; mix-blend-mode:multiply }
+  .card .no{ position:absolute; top:8px; left:9px; font-family:var(--serif); font-size:10px; letter-spacing:.14em; color:var(--sub) }
+  .card .body{ padding:12px 13px 14px }
+  .card .name{ font-size:13px; letter-spacing:.08em }
+  .card .sub{ font-size:10.5px; color:var(--sub); margin-top:3px; letter-spacing:.02em }
+  .card .foot{ display:flex; justify-content:space-between; align-items:baseline; margin-top:10px; padding-top:9px; border-top:1px solid var(--line) }
+  .card .line{ font-size:10px; color:var(--sub); letter-spacing:.1em }
+  .card .price{ font-size:12px; color:var(--ink) }
+  .card .tag{ display:inline-block; margin-top:6px; font-size:9.5px; letter-spacing:.1em; color:var(--accent); border:1px solid var(--accent); padding:1px 6px }
+
+  /* --- NEWS / MEDIA（受賞・掲載＝B2Bの信頼づけ） --- */
+  .media{ background:var(--paper-2); border-block:1px solid var(--line) }
+  .awards{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:30px }
+  .awards span{ border:1px solid var(--line); background:#fff; padding:9px 14px; font-size:11.5px; letter-spacing:.06em; color:#3b444d }
+  .awards span b{ color:var(--accent); font-weight:600; margin-right:6px }
+  .news .nrow{ display:grid; grid-template-columns:6.5em 7.5em 1fr 1.4em; gap:14px; align-items:baseline;
+    padding:13px 2px; border-bottom:1px solid var(--line); font-size:13px; transition:padding-left .25s }
+  .news .nrow:first-child{ border-top:1px solid var(--line) }
+  .news .nrow:hover{ padding-left:9px }
+  .news .d{ font-size:11.5px; color:var(--sub); letter-spacing:.06em }
+  .news .c{ font-size:10px; letter-spacing:.1em; color:var(--accent); border:1px solid var(--accent); padding:2px 0; text-align:center }
+  .news .arw{ color:var(--sub); text-align:right }
+  .news .nrow:hover .arw{ color:var(--ink) }
 
   /* --- BRAND：紙面の2段組 --- */
   .brand{ background:var(--paper-2); border-block:1px solid var(--line) }
@@ -108,8 +123,9 @@
   @media(max-width:900px){
     .hero-in,.gates,.brand-in,.two{ grid-template-columns:1fr }
     .steps{ grid-template-columns:1fr }
-    .row{ grid-template-columns:4.4em 1fr 5.4em 1.4em; }
-    .row .line{ display:none }
+    .grid{ grid-template-columns:repeat(2,1fr) }
+    .news .nrow{ grid-template-columns:5.4em 6.2em 1fr; }
+    .news .arw{ display:none }
     .dg-nav{ display:none }
   }
 </style>
@@ -149,36 +165,46 @@
     <div class="sec-head" data-br="reveal">
       <span class="no">01</span><h2>製品図録</h2><span class="en">PRODUCT INDEX</span>
     </div>
-    <div class="index" data-br="stagger" data-br-step="0.05">
-      <a class="row" href="#">
-        <span class="thumb r-frame"><img src="assets/products/DG0025.jpg" alt="DG0025"></span>
-        <span class="name">DG0025<em>チタン／6色展開</em></span>
-        <span class="line">DETAIL GRAM</span><span class="price">¥52,000</span><span class="arw">→</span>
+    <div class="grid" data-br="stagger" data-br-step="0.06">
+      <a class="card r-frame" href="#">
+        <figure><span class="no">No.01</span><img src="assets/products/DG0025.jpg" alt="DG0025"></figure>
+        <div class="body"><div class="name">DG0025</div><div class="sub">チタン／6色展開</div>
+          <div class="foot"><span class="line">DETAIL GRAM</span><span class="price">¥52,000</span></div></div>
       </a>
-      <a class="row" href="#">
-        <span class="thumb r-frame"><img src="assets/products/DG0015.jpg" alt="DG0015"></span>
-        <span class="name">DG0015<em>メガネ大賞 デザイン部門 受賞</em></span>
-        <span class="line">quadro</span><span class="price">¥52,000</span><span class="arw">→</span>
+      <a class="card r-frame" href="#">
+        <figure><span class="no">No.02</span><img src="assets/products/DG0015.jpg" alt="DG0015"></figure>
+        <div class="body"><div class="name">DG0015</div><div class="sub">Line series</div><span class="tag">メガネ大賞</span>
+          <div class="foot"><span class="line">quadro</span><span class="price">¥52,000</span></div></div>
       </a>
-      <a class="row" href="#">
-        <span class="thumb r-frame"><img src="assets/products/PE001.jpg" alt="PE001"></span>
-        <span class="name">PE001<em>10周年記念モデル</em></span>
-        <span class="line">pellicule</span><span class="price">¥72,000</span><span class="arw">→</span>
+      <a class="card r-frame" href="#">
+        <figure><span class="no">No.03</span><img src="assets/products/PE001.jpg" alt="PE001"></figure>
+        <div class="body"><div class="name">PE001</div><div class="sub">10周年記念モデル</div><span class="tag">10th</span>
+          <div class="foot"><span class="line">pellicule</span><span class="price">¥72,000</span></div></div>
       </a>
-      <a class="row" href="#">
-        <span class="thumb r-frame"><img src="assets/products/TH004.jpg" alt="TH004"></span>
-        <span class="name">TH004<em>デザイナーライン／新作</em></span>
-        <span class="line">TAKAHIRO HASHIMOTO</span><span class="price">¥47,000</span><span class="arw">→</span>
+      <a class="card r-frame" href="#">
+        <figure><span class="no">No.04</span><img src="assets/products/TH004.jpg" alt="TH004"></figure>
+        <div class="body"><div class="name">TH004</div><div class="sub">デザイナーライン</div><span class="tag">NEW</span>
+          <div class="foot"><span class="line">TAKAHIRO HASHIMOTO</span><span class="price">¥47,000</span></div></div>
       </a>
-      <a class="row" href="#">
-        <span class="thumb r-frame"><img src="assets/products/DG0010.jpg" alt="DG0010"></span>
-        <span class="name">DG0010<em>14色展開</em></span>
-        <span class="line">quadro</span><span class="price">¥39,000</span><span class="arw">→</span>
+      <a class="card r-frame" href="#">
+        <figure><span class="no">No.05</span><img src="assets/products/DG0010.jpg" alt="DG0010"></figure>
+        <div class="body"><div class="name">DG0010</div><div class="sub">14色展開</div>
+          <div class="foot"><span class="line">quadro</span><span class="price">¥39,000</span></div></div>
       </a>
-      <a class="row" href="#">
-        <span class="thumb r-frame"><img src="assets/products/DG0008.jpg" alt="DG0008"></span>
-        <span class="name">DG0008<em>FC七宝</em></span>
-        <span class="line">DETAIL GRAM</span><span class="price">¥52,000</span><span class="arw">→</span>
+      <a class="card r-frame" href="#">
+        <figure><span class="no">No.06</span><img src="assets/products/DG0008.jpg" alt="DG0008"></figure>
+        <div class="body"><div class="name">DG0008</div><div class="sub">FC七宝</div>
+          <div class="foot"><span class="line">DETAIL GRAM</span><span class="price">¥52,000</span></div></div>
+      </a>
+      <a class="card r-frame" href="#">
+        <figure><span class="no">No.07</span><img src="assets/products/DG0009.jpg" alt="DG0009"></figure>
+        <div class="body"><div class="name">DG0009</div><div class="sub">6色展開</div>
+          <div class="foot"><span class="line">DETAIL GRAM</span><span class="price">¥38,000</span></div></div>
+      </a>
+      <a class="card r-frame" href="#">
+        <figure><span class="no">No.08</span><img src="assets/products/TH001.jpg" alt="TH001"></figure>
+        <div class="body"><div class="name">TH001</div><div class="sub">デザイナーライン</div>
+          <div class="foot"><span class="line">TAKAHIRO HASHIMOTO</span><span class="price">¥47,000</span></div></div>
       </a>
     </div>
   </div>
@@ -213,6 +239,27 @@
         <span class="n">02</span><h4>彩る</h4><p>FC七宝。焼き付けた色は褪せず、金属のままの温度で発色する。</p></div>
       <div class="step"><figure><img src="assets/dummy/studio-b.svg" alt="設計（ダミー）"></figure>
         <span class="n">03</span><h4>仕上げる</h4><p>最後は掛けて確かめる。眼鏡は顔の上で完成する道具だから。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: news / media（受賞・掲載＝信頼づけ） ===== -->
+<!--        → detailgram-home-media.liquid -->
+<section class="dg-section media">
+  <div class="dg-wrap sec">
+    <div class="sec-head" data-br="reveal">
+      <span class="no">03</span><h2>受賞とメディア</h2><span class="en">NEWS / MEDIA</span>
+    </div>
+    <div class="awards" data-br="stagger" data-br-step="0.06">
+      <span><b>受賞</b>メガネ大賞 デザイン部門（DG0015）</span>
+      <span><b>出展</b>SILMO PARIS</span>
+      <span><b>出展</b>M.E.E（Meets Eyewear Exhibition）</span>
+      <span><b>掲載</b>本格眼鏡大全</span>
+    </div>
+    <div class="news" data-br="reveal">
+      <a class="nrow" href="#"><span class="d">2026.06</span><span class="c">NEWS</span><span>新作 DG0026 / DG0027 / DG0028 を発表しました</span><span class="arw">→</span></a>
+      <a class="nrow" href="#"><span class="d">2026.05</span><span class="c">MEDIA</span><span>10周年記念モデル pellicule PE001 / PE002 について</span><span class="arw">→</span></a>
+      <a class="nrow" href="#"><span class="d">2026.04</span><span class="c">EVENT</span><span>展示会への出展予定のお知らせ</span><span class="arw">→</span></a>
     </div>
   </div>
 </section>
