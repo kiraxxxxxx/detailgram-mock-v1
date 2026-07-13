@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="HERO ｜ 製品と余白">
+  <rect width="100%" height="100%" fill="#e8e6e2"/>
+  <filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/>
+    <feColorMatrix type="saturate" values="0"/></filter>
+  <rect width="100%" height="100%" filter="url(#n)" opacity="0.06"/>
+  <text x="50%" y="494" fill="#0e0f11" fill-opacity="0.55" font-family="system-ui,sans-serif" font-size="38" letter-spacing="3" text-anchor="middle">HERO ｜ 製品と余白</text>
+  <text x="50%" y="520" fill="#0e0f11" fill-opacity="0.30" font-family="system-ui,sans-serif" font-size="25" letter-spacing="1" text-anchor="middle">DUMMY — 差し替え前提（静物・引きの余白）</text>
+</svg>

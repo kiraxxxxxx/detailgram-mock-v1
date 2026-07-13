@@ -1,0 +1,38 @@
+/* ============================================================
+   DETAIL GRAM ｜ モック共通スタイル（A案 / B案 共用ベース）
+   2026-07-13 [ディテールち]
+   前提: Horizon = スキーマ方式（テーマ非破壊）
+        → セクション単位で分割。各 .dg-section が
+          将来 detailgram-{page}-{section}.liquid 1本に対応する。
+   規範: 初期提案にクリーム/生成り系を使わない（notes 2026-07-10 ボスGO）
+   ============================================================ */
+
+/* ---- セクション境界（＝Liquid 1本の単位。monolith厳禁の可視化） ---- */
+.dg-section { position: relative; }
+
+/* ---- リセット ---- */
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; margin: 0; padding: 0; }
+
+/* ---- 共通レイアウト ---- */
+.dg-wrap { width: min(1200px, 92vw); margin-inline: auto; }
+.dg-narrow { width: min(760px, 90vw); margin-inline: auto; }
+
+/* ---- セクション見出し（声量の強弱: 900はヒーローのみ / 見出しは600-700） ---- */
+.dg-h2 { font-weight: 700; line-height: 1.3; margin: 0; }
+.dg-lead { line-height: 1.9; opacity: .78; }
+
+/* ---- 角丸は要素の性質ごとに変える（全要素同値の禁止・ズボラップ知見） ---- */
+.r-frame { border-radius: 2px; }   /* 製品＝硬質 */
+.r-card  { border-radius: 10px; }  /* 情報カード＝柔らかい */
+.r-pill  { border-radius: 999px; } /* ボタン */
+
+/* ---- アクセシビリティ ---- */
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }

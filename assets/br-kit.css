@@ -1,0 +1,276 @@
+/* ================================================================
+   br-kit.css ｜ web-design-master 表現技法キット v0.2
+   2026-07-10 [うぇぶこ] ｜ 発注: handoff/KICKOFF_technique_catalog_20260710.md
+   v0.2: 13-18追加（glass/grain/sheen/tilt/chars/ondark・PRISM KIT観測の自庫化
+         =trends_log_202607 2026-07-10・コード未閲覧の完全自前実装）
+   台帳: technique/catalog.md ／ 実演: technique/catalog.html
+   契約: 依存ゼロ（純CSS/vanilla）・reduced-motionで全停止・1技は最小実装
+   呼び出し: data-br="技名"（JS連動技）／ .br-技名（純CSS技）
+   ================================================================ */
+
+/* ---- 安全弁① reduced-motion 一括停止（全技共通・最上部で宣言） ---- */
+@media (prefers-reduced-motion: reduce) {
+  [data-br], [data-br] > * {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+  [data-br="ink-fill"] { background-position: 0 0 !important; }
+  .br-scroll-drive-bar, .br-scroll-drive-view { animation: none !important; }
+  .br-scroll-drive-bar { display: none; }
+  .br-cinema > .br-cinema-scene, .br-cinema > img { animation: none !important; }
+  .br-char { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .br-sheen::after { display: none; }
+  [data-br="tilt"] { transform: none !important; }
+}
+/* ---- 安全弁② no-JSフォールバック：初期非表示は .br-js（kit.jsが付与）配下のみ ---- */
+
+/* ================================================================
+   01 br-reveal ｜ スクロールで下から24pxフェードイン（一度だけ）
+   出典: notes.md 2026-05-09（LEP・クロードデザイン分析より自庫化） */
+.br-js [data-br="reveal"] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+[data-br="reveal"].is-in { opacity: 1; transform: none; }
+
+/* ================================================================
+   02 br-eyebrow ｜ 番号付きeyebrow（01 — Vision）CSSカウンタで自動連番
+   親に .br-eyebrow-group（counter-reset）・各ラベルに .br-eyebrow
+   出典: notes.md 2026-05-09（ナンバリングeyebrow） */
+.br-eyebrow-group { counter-reset: br-eyebrow; }
+.br-eyebrow {
+  counter-increment: br-eyebrow;
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--br-eyebrow-ink, #8a94a0);
+}
+.br-eyebrow::before { content: counter(br-eyebrow, decimal-leading-zero) " — "; }
+
+/* ================================================================
+   03 br-newsrow ｜ 日付/カテゴリ/タイトル/矢印の構造化ニュース行
+   出典: notes.md 2026-05-09（ニュース行コンポーネント） */
+.br-newsrow {
+  display: grid;
+  grid-template-columns: 6.5em auto 1fr auto;
+  gap: 1.2em;
+  align-items: baseline;
+  padding: 1.05em .2em;
+  border-bottom: 1px solid var(--br-rule, #e2e6ea);
+  text-decoration: none;
+  color: inherit;
+}
+.br-newsrow .br-date { font-size: .82em; color: #8a94a0; font-variant-numeric: tabular-nums; }
+.br-newsrow .br-cat {
+  font-size: .68em; letter-spacing: .08em;
+  border: 1px solid currentColor; border-radius: 999px;
+  padding: .25em .95em; justify-self: start;
+  color: var(--br-cat-ink, #43678c);
+}
+.br-newsrow .br-arrow { color: #b0b8c0; transition: transform .3s ease; }
+.br-newsrow:hover .br-arrow { transform: translateX(6px); }
+@media (max-width: 640px) {
+  .br-newsrow { grid-template-columns: auto auto 1fr; }
+  .br-newsrow .br-title { grid-column: 1 / -1; }
+}
+
+/* ================================================================
+   04 br-lift ｜ カードhover浮き（translateY -3px + shadow・-5px以上は大げさ）
+   出典: notes.md 2026-05-29（ほじょナビ一覧ページ） */
+.br-lift { transition: transform .25s ease, box-shadow .25s ease; }
+.br-lift:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0, 0, 0, .12); }
+
+/* ================================================================
+   05 br-ink-fill ｜ 視界に入ると文字に色が満ちる（background-clip:text）
+   出典: MDN background-clip https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip */
+.br-js [data-br="ink-fill"] {
+  background: linear-gradient(90deg, var(--br-ink, #1c2530) 50%, var(--br-ink-base, #ccd3d9) 50%)
+              100% 0 / 200.5% 100% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: background-position 1.4s cubic-bezier(.22, .61, .36, 1);
+}
+[data-br="ink-fill"].is-in { background-position: 0 0; }
+
+/* ================================================================
+   06 br-unmask ｜ マスク開きで現れる（clip-path inset遷移）
+   既定=左→右。data-br-axis="y" で下→上。
+   出典: MDN clip-path https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path */
+.br-js [data-br="unmask"] {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path .9s cubic-bezier(.22, .61, .36, 1);
+}
+.br-js [data-br="unmask"][data-br-axis="y"] { clip-path: inset(100% 0 0 0); }
+/* is-inはmodifier変種より必ず後置＋同等以上の詳細度にする（axis変種に負けない） */
+.br-js [data-br="unmask"].is-in,
+[data-br="unmask"].is-in { clip-path: inset(0 0 0 0) !important; }
+
+/* ================================================================
+   07 br-scroll-drive ｜ スクロール連動アニメ（animation-timeline: scroll()/view()）
+   対応: Chrome/Edge 115+・Firefox 155+・Safari 26+（caniuse 2026-07時点 約84%）
+   非対応ブラウザ: @supportsで無効＝バーは非表示・view要素は普通に表示（安全degrade）
+   出典: MDN https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll-driven_animations */
+.br-scroll-drive-bar {
+  position: fixed; top: 0; left: 0; z-index: 99;
+  width: 100%; height: 3px;
+  background: var(--br-accent, #c96a32);
+  transform: scaleX(0); transform-origin: 0 50%;
+}
+@supports (animation-timeline: scroll()) {
+  @keyframes br-grow-x { to { transform: scaleX(1); } }
+  .br-scroll-drive-bar { animation: br-grow-x linear both; animation-timeline: scroll(root); }
+  @keyframes br-view-in {
+    from { opacity: .12; transform: translateY(30px) scale(.97); }
+    to   { opacity: 1;  transform: none; }
+  }
+  .br-scroll-drive-view {
+    animation: br-view-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+  }
+}
+
+/* ================================================================
+   08 br-sticky-story ｜ sticky区間でパネルが積み重なるスクロールテリング骨格（純CSS）
+   各パネルが同じtopに貼り付き、次のパネルが上に被さっていく
+   出典: MDN position(sticky) https://developer.mozilla.org/en-US/docs/Web/CSS/position */
+.br-sticky-story { --br-panel-h: 78vh; }
+.br-sticky-story .br-panel {
+  position: sticky;
+  top: calc((100vh - var(--br-panel-h)) / 2);
+  min-height: var(--br-panel-h);
+  display: grid; place-items: center;
+  border-radius: 14px; overflow: hidden;
+}
+.br-sticky-story .br-panel + .br-panel { margin-top: 4vh; }
+
+/* ================================================================
+   09 br-fluid-type ｜ clamp()流体タイポ（vw連動・上下限付き）
+   カスタム変数で下限/傾き/上限を案件ごとに調整
+   出典: MDN clamp https://developer.mozilla.org/en-US/docs/Web/CSS/clamp */
+.br-fluid-type {
+  font-size: clamp(var(--br-fluid-min, 1.2rem),
+                   calc(var(--br-fluid-base, .9rem) + var(--br-fluid-slope, 2.6vw)),
+                   var(--br-fluid-max, 3.4rem));
+  line-height: 1.25;
+}
+
+/* ================================================================
+   10 br-cinema ｜ フルワイド21:9レターボックス＋ゆっくりズーム
+   中身は img でも .br-cinema-scene（CSS背景）でも可
+   出典: 一般技法（transform scale＋overflow）＋notes.md画像比率ルール(21:9=シネマティック) */
+.br-cinema { position: relative; overflow: hidden; aspect-ratio: 21 / 9; background: #000; }
+.br-cinema::before, .br-cinema::after {
+  content: ""; position: absolute; left: 0; right: 0;
+  height: 7%; background: #000; z-index: 2;
+}
+.br-cinema::before { top: 0; }
+.br-cinema::after { bottom: 0; }
+.br-cinema > .br-cinema-scene, .br-cinema > img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover;
+  animation: br-cinema-zoom 16s ease-in-out infinite alternate;
+}
+@keyframes br-cinema-zoom { from { transform: scale(1); } to { transform: scale(1.08); } }
+
+/* ================================================================
+   11 br-stagger ｜ 子要素の時間差リビール（delayはkit.jsが子に自動付与）
+   data-br-step="0.12" で間隔調整（既定0.09s）
+   出典: 一般技法（transition-delayカスケード）MDN transition-delay */
+.br-js [data-br="stagger"] > * {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+[data-br="stagger"].is-in > * { opacity: 1; transform: none; }
+
+/* ================================================================
+   12 br-counter ｜ 数値カウントアップ（実装はbr-kit.js・CSSは桁揺れ防止のみ） */
+.br-js [data-br="counter"] { font-variant-numeric: tabular-nums; }
+
+/* ================================================================
+   13 br-glass ｜ すりガラス3段濁度（グラスモーフィズム・純CSS）
+   data-br-glass="light|media|dark"（既定=light相当）。背後に色/映像があるほど効く
+   出典: 一般技法（backdrop-filter）＋PRISM KIT観測（trends_log 2026-07-10・自前実装） */
+.br-glass {
+  --br-glass-bg: rgba(255, 255, 255, .34);
+  background: var(--br-glass-bg);
+  -webkit-backdrop-filter: blur(22px) saturate(1.15);
+  backdrop-filter: blur(22px) saturate(1.15);
+  border: 1px solid rgba(255, 255, 255, .45);
+  border-radius: 16px;
+  box-shadow: 0 18px 44px rgba(20, 30, 45, .10);
+}
+.br-glass[data-br-glass="media"] { --br-glass-bg: rgba(255, 255, 255, .17); }
+.br-glass[data-br-glass="dark"] {
+  --br-glass-bg: rgba(16, 22, 30, .40);
+  border-color: rgba(255, 255, 255, .14);
+  color: #f2f4f6;
+}
+/* 安全劣化: backdrop-filter非対応はほぼ不透明で可読性を守る */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .br-glass { background: rgba(255, 255, 255, .93); }
+  .br-glass[data-br-glass="dark"] { background: rgba(16, 22, 30, .94); }
+}
+
+/* ================================================================
+   14 br-grain ｜ 極薄フィルムグレイン常駐レイヤー（純CSS・SVGノイズdata URI）
+   body直下に <div class="br-grain" aria-hidden="true"></div> 1枚。
+   data-br-local を付けると親要素スコープ（親にposition:relative）
+   出典: 一般技法（feTurbulence）＋PRISM KIT観測（trends_log 2026-07-10・自前実装） */
+.br-grain {
+  position: fixed; inset: 0; z-index: 98;
+  pointer-events: none;
+  opacity: var(--br-grain-opacity, .05);
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 260px 260px;
+}
+.br-grain[data-br-local] { position: absolute; z-index: 3; }
+
+/* ================================================================
+   15 br-sheen ｜ hoverで斜めの光が一瞬走る（純CSS）
+   出典: 一般技法（gradient sweep）＋PRISM KIT観測（trends_log 2026-07-10・自前実装） */
+.br-sheen { position: relative; overflow: hidden; }
+.br-sheen::after {
+  content: ""; position: absolute; top: -60%; bottom: -60%; left: 0; width: 34%;
+  background: linear-gradient(105deg, transparent 0%, rgba(255, 255, 255, .5) 50%, transparent 100%);
+  transform: translateX(-160%) rotate(8deg);
+  opacity: 0; pointer-events: none;
+}
+.br-sheen:hover::after {
+  opacity: 1;
+  transform: translateX(460%) rotate(8deg);
+  transition: transform .85s ease;
+}
+
+/* ================================================================
+   16 br-tilt ｜ ポインタ追従の微チルト（JS駆動・rAF指数追従）
+   pointer:fineのみ発動（タッチ端末は静止）・reduced-motionで停止＝kit.js側で分岐
+   出典: 一般技法（perspective+rAF lerp）＋PRISM KIT観測（trends_log 2026-07-10・自前実装） */
+[data-br="tilt"] { will-change: transform; }
+
+/* ================================================================
+   17 br-chars ｜ 見出しの文字分割リビール（1字ずつ時差で浮かぶ）
+   テキストのみの要素に使う（子要素があると分割対象外）。分割はkit.jsが実行
+   出典: 一般技法（span分割+delayカスケード）＋PRISM KIT観測（trends_log 2026-07-10・自前実装） */
+.br-js [data-br="chars"] .br-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(.55em);
+  transition: opacity .55s ease, transform .55s ease;
+}
+[data-br="chars"].is-in .br-char { opacity: 1; transform: none; }
+
+/* ================================================================
+   18 br-ondark ｜ 章単位ダーク反転（data-br-dark章が画面中央帯に入ると
+   bodyに .br-on-dark が立つ→ページ側はCSS変数を反転させる契約。検知はkit.js）
+   kitはクラスの上げ下げと滑らかな色遷移だけ提供・何を反転させるかはページの変数設計
+   出典: 一般技法（IO+クラス切替）＋PRISM KIT観測（trends_log 2026-07-10・自前実装） */
+.br-ondark-sync { transition: background-color .6s ease, color .6s ease, border-color .6s ease; }

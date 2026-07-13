@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1250" width="1000" height="1250" role="img" aria-label="WEARING">
+  <rect width="100%" height="100%" fill="#dcdad6"/>
+  <g fill="#0e0f11" fill-opacity="0.13">
+    <circle cx="500" cy="575" r="250"/>
+    <path d="M75,1250 a425,375 0 0 1 850,0 z"/>
+  </g>
+  <g stroke="#0e0f11" stroke-opacity="0.45" stroke-width="3" fill="none">
+    <rect x="250" y="569" width="212" height="143" rx="4"/>
+    <rect x="537" y="569" width="212" height="143" rx="4"/>
+    <path d="M463,577 h75"/>
+  </g>
+  <filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/>
+    <feColorMatrix type="saturate" values="0"/></filter>
+  <rect width="100%" height="100%" filter="url(#n)" opacity="0.06"/>
+  <text x="50%" y="619" fill="#0e0f11" fill-opacity="0.55" font-family="system-ui,sans-serif" font-size="48" letter-spacing="3" text-anchor="middle">WEARING</text>
+  <text x="50%" y="645" fill="#0e0f11" fill-opacity="0.30" font-family="system-ui,sans-serif" font-size="31" letter-spacing="1" text-anchor="middle">DUMMY — 着用イメージ</text>
+</svg>
