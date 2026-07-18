@@ -69,9 +69,8 @@
   /* --- 固有の仕掛け：DETAILへ寄る（拡大鏡） --- */
   .detail{ background:var(--ink-2); border-block:1px solid var(--line) }
   .detail-in{ display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center; padding:88px 0 }
-  .lens{ position:relative; overflow:hidden; background:#fff }
-  .lens img{ width:100%; transform:scale(1); transition:transform 1.6s cubic-bezier(.2,.7,.2,1) }
-  .lens.is-in img{ transform:scale(1.45) }
+  .lens{ position:relative; overflow:hidden; background:#0b0c0e }
+  .lens img{ width:100%; display:block }
   .lens::after{ content:""; position:absolute; inset:0; box-shadow:inset 0 0 0 1px rgba(0,0,0,.08) }
   /* --- 着用写真スライド（BRANDセクション左） --- */
   .wear-slider{ position:relative; overflow:hidden; background:#0b0c0e; aspect-ratio:3/4 }
@@ -169,7 +168,7 @@
 <!-- ===== SECTION: hero  → detailgram-home-hero.liquid ===== -->
 <section class="dg-section hero">
   <div class="br-cinema">
-    <img src="assets/dummy/hero-a.svg" alt="鯖江の工房（ダミー）">
+    <img src="assets/dummy/scene_hero.jpg" alt="鯖江の工房（ダミー）">
   </div>
   <div class="hero-copy">
     <h1 data-br="chars">機能の上に立つ、引き算</h1>
@@ -222,23 +221,17 @@
 <!--        → detailgram-home-brand.liquid -->
 <section class="dg-section detail">
   <div class="dg-wrap detail-in">
-    <div class="wear-slider r-frame" data-br="reveal">
-      <div class="ws-track">
-        <img src="assets/wearing/wear_fx_01.jpg" alt="着用イメージ（AI生成・仮）">
-        <img src="assets/wearing/wear_fx_03.jpg" alt="着用イメージ（AI生成・仮）">
-        <img src="assets/wearing/wear_fx_02.jpg" alt="着用イメージ（AI生成・仮）">
-        <img src="assets/wearing/wear_fx_05.jpg" alt="着用イメージ（AI生成・仮）">
-        <img src="assets/wearing/wear_fx_04.jpg" alt="着用イメージ（AI生成・仮）">
-      </div>
-      <div class="ws-dots" aria-hidden="true"></div>
+    <div class="lens r-frame" data-br="reveal">
+      <img src="assets/wearing/wear_fx_01.jpg" alt="着用イメージ（AI生成・仮）">
       <span class="ws-note">着用イメージ（AI生成・仮）</span>
     </div>
     <div>
       <span class="no" style="font-family:var(--serif);color:var(--accent);font-size:13px;letter-spacing:.2em">02 ｜ BRAND</span>
       <h3 data-br="reveal" style="margin-top:14px">名前の理由は、細部にある。</h3>
-      <p data-br="reveal" data-br-delay=".1s">DETAIL（詳細）と GRAM（重さ）。<br>掛けたときに消えてしまうほどの軽さと、指先が触れる場所の精度。</p>
-      <p data-br="reveal" data-br-delay=".2s">design：埼玉／製造：鯖江。企画から仕上げまで、すべての工程を日本国内で。</p>
-      <div class="spec" data-br="reveal" data-br-delay=".3s"><span>TITANIUM</span><span>FC 七宝</span><span>MADE IN SABAE</span></div>
+      <p data-br="reveal" data-br-delay=".1s">掛けたときに消えてしまうほどの軽さと、指先が触れる場所の精度。名前は、そのふたつからできています。</p>
+      <p data-br="reveal" data-br-delay=".2s">企画・デザインは埼玉のアトリエで。製造は福井・鯖江で、削り出しから七宝、仕上げまで全工程を日本国内で行っています。</p>
+      <p data-br="reveal" data-br-delay=".3s">流行のかたちを追いかけるより、掛ける人の輪郭を邪魔しないことを選んできました。引き算の結果として残ったものが、このブランドのかたちです。</p>
+      <div class="spec" data-br="reveal" data-br-delay=".4s"><span>TITANIUM</span><span>FC 七宝</span><span>MADE IN SABAE</span></div>
     </div>
   </div>
 </section>
@@ -251,15 +244,15 @@
     </div>
     <div class="br-sticky-story" style="--br-panel-h:74vh">
       <div class="br-panel panel r-card">
-        <img src="assets/dummy/craft-1.svg" alt="削り出し（ダミー）">
+        <img src="assets/dummy/scene_craft1.jpg" alt="削り出し（ダミー）">
         <div class="tx"><span class="n">01</span><h3>削る</h3><p>チタンの塊から、掛け心地の芯になる形を出す。数値ではなく、手の記憶が決める領域がある。</p></div>
       </div>
       <div class="br-panel panel r-card">
-        <img src="assets/dummy/craft-2.svg" alt="七宝（ダミー）">
+        <img src="assets/dummy/scene_craft2.jpg" alt="七宝（ダミー）">
         <div class="tx"><span class="n">02</span><h3>彩る</h3><p>FC七宝。焼き付けた色は褪せず、金属のままの温度で発色する。ここだけは急げない。</p></div>
       </div>
       <div class="br-panel panel r-card">
-        <img src="assets/dummy/craft-3.svg" alt="仕上げ（ダミー）">
+        <img src="assets/dummy/scene_craft3.jpg" alt="仕上げ（ダミー）">
         <div class="tx"><span class="n">03</span><h3>仕上げる</h3><p>最後は、掛けて確かめる。眼鏡は顔の上で完成する道具だから。</p></div>
       </div>
     </div>
@@ -290,13 +283,13 @@
 <!-- ===== SECTION: stockist / business → 各liquid 1本ずつ ===== -->
 <section class="dg-section two">
   <div data-br="reveal">
-    <img class="r-card" src="assets/dummy/stockist.svg" alt="店頭（ダミー）">
+    <img class="r-card" src="assets/dummy/scene_stockist.jpg" alt="店頭（ダミー）">
     <h3>試せる店を探す</h3>
     <p>眼鏡は、掛けてみないと分からない。全国の取扱店と、海外の取扱先を掲載しています。</p>
     <a class="btn r-pill" href="#">STOCKIST を見る</a>
   </div>
   <div data-br="reveal" data-br-delay=".1s">
-    <img class="r-card" src="assets/dummy/oem.svg" alt="OEM（ダミー）">
+    <img class="r-card" src="assets/dummy/scene_oem.jpg" alt="OEM（ダミー）">
     <h3>取扱店・バイヤーの方へ</h3>
     <p>新規お取扱いのご相談、カタログ・価格表の請求。OEM・デザイン受託も承っています。</p>
     <a class="btn r-pill" href="#">お問い合わせ</a>
