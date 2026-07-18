@@ -69,8 +69,8 @@
   /* --- 固有の仕掛け：DETAILへ寄る（拡大鏡） --- */
   .detail{ background:var(--ink-2); border-block:1px solid var(--line) }
   .detail-in{ display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center; padding:88px 0 }
-  .lens{ position:relative; overflow:hidden; background:#0b0c0e }
-  .lens img{ width:100%; display:block }
+  .lens{ position:relative; overflow:hidden; background:#0b0c0e; aspect-ratio:4/5; max-height:560px }
+  .lens img{ width:100%; height:100%; object-fit:cover; object-position:center 32%; display:block }
   .lens::after{ content:""; position:absolute; inset:0; box-shadow:inset 0 0 0 1px rgba(0,0,0,.08) }
   /* --- 着用写真スライド（BRANDセクション左） --- */
   .wear-slider{ position:relative; overflow:hidden; background:#0b0c0e; aspect-ratio:3/4 }
@@ -87,7 +87,7 @@
   /* --- CRAFT：積み重なる章（br-sticky-story） --- */
   .craft{ background:#0b0c0e }
   .panel{ display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--line); overflow:hidden; background:#0b0c0e }
-  .panel img{ width:100%; height:100%; object-fit:cover; min-height:340px }
+  .panel img{ width:100%; height:100%; object-fit:cover; min-height:340px; max-height:460px }
   .panel .tx{ padding:44px; display:flex; flex-direction:column; justify-content:center; gap:12px }
   .panel .n{ font-family:var(--serif); color:var(--accent); font-size:12px; letter-spacing:.2em }
   .panel h3{ font-family:var(--serif); font-weight:500; font-size:1.4rem; margin:0 }
@@ -242,7 +242,7 @@
     <div class="sec-head" data-br="reveal">
       <span class="no">02</span><h2>つくり方が、かたちを決める</h2><span class="en">CRAFT</span>
     </div>
-    <div class="br-sticky-story" style="--br-panel-h:74vh">
+    <div class="br-sticky-story" style="--br-panel-h:auto">
       <div class="br-panel panel r-card">
         <img src="assets/dummy/scene_craft1.jpg" alt="削り出し（ダミー）">
         <div class="tx"><span class="n">01</span><h3>削る</h3><p>チタンの塊から、掛け心地の芯になる形を出す。数値ではなく、手の記憶が決める領域がある。</p></div>
