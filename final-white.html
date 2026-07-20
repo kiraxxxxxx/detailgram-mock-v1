@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>DETAIL GRAM ｜ トップページ 白背景版</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/br-kit.css">
+<link rel="stylesheet" href="assets/dg-base.css">
+<style>
+  /* ===== A案：墨地 × 工房のシネマ ==========================
+     地色＝墨/オフブラック（生成り禁止ルール準拠）
+     固有の仕掛け＝"DETAIL"＝ディテールへ寄る（拡大鏡セクション）
+     ======================================================= */
+  :root{
+    --ink:#eef0f2; --ink-2:#e4e7ea; --paper:#16181c; --paper-dim:#6b7280;
+    --line:#c9ced4; --accent:#a07d2c; /* 真鍮(白地で沈むので少し濃く) */
+    --sans:'Inter',system-ui,'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+    --serif:'Shippori Mincho','Hiragino Mincho ProN',serif;
+  }
+  body{ background:var(--ink); color:var(--paper); font-family:var(--sans); }
+
+  /* --- ヘッダー（Horizonのheader-groupは触らない前提。見た目確認用） --- */
+  .dg-header{ position:sticky; top:0; z-index:50; display:flex; align-items:center; gap:28px;
+    padding:16px 4vw; border-bottom:1px solid var(--line); background:rgba(238,240,242,.82); backdrop-filter:blur(14px); }
+  .dg-logo{ font-family:var(--serif); font-size:19px; letter-spacing:.22em; }
+  .dg-nav{ display:flex; gap:22px; margin-left:auto; font-size:12.5px; letter-spacing:.08em; }
+  .dg-nav a{ opacity:.72 } .dg-nav a:hover{ opacity:1 }
+  .dg-nav .is-store{ opacity:1; border:1px solid var(--line); padding:6px 14px; }
+
+  /* --- HERO：写真1枚を映画のカットに（br-cinema） --- */
+  .hero{ position:relative; }
+  .hero .br-cinema{ background:#000 }
+  .hero-copy{ position:absolute; inset:auto 0 12% 0; text-align:center; color:#f4f2ee; text-shadow:0 2px 20px rgba(0,0,0,.5); }
+  .hero-copy h1{ font-family:var(--serif); font-weight:500; margin:0 0 14px;
+    font-size:clamp(1.6rem,.9rem+2.4vw,3.1rem); letter-spacing:.06em; }
+  .hero-copy p{ margin:0; font-size:13px; letter-spacing:.18em; opacity:.66 }
+  .hero-scroll{ position:absolute; left:50%; bottom:18px; width:1px; height:40px; background:linear-gradient(var(--paper),transparent) }
+
+  /* --- 2導線 --- */
+  .gates{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border-block:1px solid var(--line) }
+  .gate{ background:var(--ink); padding:38px 4vw; display:flex; flex-direction:column; gap:8px; transition:background .3s }
+  .gate:hover{ background:var(--ink-2) }
+  .gate .k{ font-size:11px; letter-spacing:.2em; color:var(--accent) }
+  .gate .t{ font-family:var(--serif); font-size:1.25rem }
+  .gate .d{ font-size:12.5px; opacity:.6; line-height:1.8 }
+  .gate .go{ margin-top:6px; font-size:12px; opacity:.8 }
+
+  /* --- セクション共通 --- */
+  .sec{ padding:96px 0 }
+  .sec-head{ display:flex; align-items:baseline; gap:16px; margin-bottom:40px }
+  .sec-head .no{ font-family:var(--serif); color:var(--accent); font-size:13px; letter-spacing:.2em }
+  .sec-head h2{ font-family:var(--serif); font-weight:500; font-size:clamp(1.3rem,.9rem+1.1vw,2rem); letter-spacing:.08em; margin:0 }
+  .sec-head .en{ margin-left:auto; font-size:11px; letter-spacing:.22em; opacity:.4 }
+
+  /* --- PRODUCT --- */
+  .lines{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:26px; font-size:12px }
+  .lines span{ border:1px solid var(--line); padding:7px 15px; opacity:.75 }
+  .lines span:first-child{ border-color:var(--accent); color:var(--accent); opacity:1 }
+  .grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px }
+  .item figure{ margin:0; background:#fff; overflow:hidden }
+  .item img{ width:100%; aspect-ratio:4/3; object-fit:contain; padding:10px; mix-blend-mode:multiply }
+  .item .m{ display:flex; justify-content:space-between; margin-top:10px; font-size:12px }
+  .item .m .c{ letter-spacing:.1em } .item .m .p{ opacity:.55 }
+
+  /* --- 固有の仕掛け：DETAILへ寄る（拡大鏡） --- */
+  .detail{ background:var(--ink-2); border-block:1px solid var(--line) }
+  .detail-in{ display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center; padding:88px 0 }
+  .lens{ position:relative; overflow:hidden; background:#e4e7ea; aspect-ratio:4/5; max-height:560px }
+  .lens img{ width:100%; height:100%; object-fit:cover; object-position:center 32%; display:block }
+  .lens::after{ content:""; position:absolute; inset:0; box-shadow:inset 0 0 0 1px rgba(0,0,0,.08) }
+  /* --- 着用写真スライド（BRANDセクション左） --- */
+  .wear-slider{ position:relative; overflow:hidden; background:#e4e7ea; aspect-ratio:3/4 }
+  .ws-track{ display:flex; width:100%; height:100%; transition:transform .8s cubic-bezier(.6,.01,.2,1) }
+  .ws-track img{ width:100%; height:100%; flex:0 0 100%; object-fit:cover }
+  .ws-dots{ position:absolute; left:0; right:0; bottom:14px; display:flex; gap:7px; justify-content:center; z-index:2 }
+  .ws-dots i{ width:6px; height:6px; border-radius:999px; background:rgba(255,255,255,.4); display:block; transition:.3s }
+  .ws-dots i.on{ background:#fff; width:18px; border-radius:3px }
+  .ws-note{ position:absolute; top:10px; right:12px; font-family:var(--mono); font-size:9.5px; letter-spacing:.08em; color:rgba(255,255,255,.7); background:rgba(0,0,0,.35); padding:2px 8px; border-radius:3px; z-index:2 }
+  .detail h3{ font-family:var(--serif); font-weight:500; font-size:1.6rem; margin:0 0 18px; letter-spacing:.06em }
+  .detail p{ line-height:2.1; font-size:14px; opacity:.72; margin:0 0 12px }
+  .detail .spec{ margin-top:22px; display:flex; gap:26px; font-size:11.5px; letter-spacing:.12em; opacity:.55 }
+
+  /* --- CRAFT：積み重なる章（br-sticky-story） --- */
+  .craft{ background:#e4e7ea }
+  .panel{ display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--line); overflow:hidden; background:#e4e7ea }
+  .panel img{ width:100%; height:100%; object-fit:cover; min-height:300px }
+  .panel .tx{ padding:44px; display:flex; flex-direction:column; justify-content:center; gap:12px }
+  .panel .n{ font-family:var(--serif); color:var(--accent); font-size:12px; letter-spacing:.2em }
+  .panel h3{ font-family:var(--serif); font-weight:500; font-size:1.4rem; margin:0 }
+  .panel p{ font-size:13px; line-height:2; opacity:.66; margin:0 }
+
+  /* --- NEWS / MEDIA（受賞・掲載＝B2Bの信頼づけ） --- */
+  .media{ background:var(--ink-2); border-block:1px solid var(--line) }
+  .awards{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:30px }
+  .awards span{ border:1px solid var(--line); padding:10px 15px; font-size:11.5px; letter-spacing:.06em; opacity:.8 }
+  .awards span b{ color:var(--accent); font-weight:500; margin-right:7px }
+  .news .nrow{ display:grid; grid-template-columns:6.5em 7.5em 1fr 1.4em; gap:14px; align-items:baseline;
+    padding:14px 2px; border-bottom:1px solid var(--line); font-size:13px; transition:padding-left .25s }
+  .news .nrow:first-child{ border-top:1px solid var(--line) }
+  .news .nrow:hover{ padding-left:9px; background:rgba(255,255,255,.02) }
+  .news .d{ font-size:11.5px; opacity:.5; letter-spacing:.06em }
+  .news .c{ font-size:10px; letter-spacing:.1em; color:var(--accent); border:1px solid var(--accent); padding:2px 0; text-align:center }
+  .news .arw{ opacity:.5; text-align:right }
+  .news .nrow:hover .arw{ opacity:1 }
+
+  /* --- PRODUCT（黒背景のまま・カードだけ白が浮かぶ） --- */
+  .zuroku{ background:var(--ink); color:var(--paper) }
+  .z-lines{ display:flex; gap:8px; flex-wrap:wrap; margin:22px 0 26px; font-size:12px }
+  .z-lines span{ border:1px solid var(--line); padding:6px 13px; opacity:.72 }
+  .z-lines span:first-child{ border-color:var(--accent); color:var(--accent); opacity:1 }
+  .z-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px }
+  .z-card{ background:#fff; border:1px solid #e3e5e8; display:block; transition:transform .25s, box-shadow .25s }
+  .z-card:hover{ transform:translateY(-3px); box-shadow:0 12px 26px rgba(20,30,50,.14) }
+  .z-card figure{ margin:0; position:relative; border-bottom:1px solid #e3e5e8 }
+  .z-card img{ width:100%; aspect-ratio:4/3; object-fit:contain; padding:14px; mix-blend-mode:multiply }
+  .z-no{ position:absolute; top:8px; left:9px; font-family:var(--serif); font-size:10px; letter-spacing:.14em; color:#8a929c }
+  .z-body{ padding:12px 13px 14px; color:#14171a }
+  .z-name{ font-size:13px; letter-spacing:.08em }
+  .z-sub{ font-size:10.5px; color:#6b7280; margin-top:3px }
+  .z-tag{ display:inline-block; margin-top:6px; font-size:9.5px; letter-spacing:.1em; color:#1f4f6b; border:1px solid #1f4f6b; padding:1px 6px }
+  .z-foot{ display:flex; justify-content:space-between; align-items:baseline; margin-top:10px; padding-top:9px; border-top:1px solid #e3e5e8 }
+  .z-line{ font-size:10px; color:#6b7280; letter-spacing:.1em }
+  .z-price{ font-size:12px; color:#14171a }
+  .z-more{ margin-top:30px; text-align:center }
+  .z-more a{ display:inline-block; border:1px solid var(--paper); padding:12px 30px; font-size:12.5px; letter-spacing:.08em; opacity:.85 }
+  .z-more a:hover{ background:var(--paper); color:var(--ink); opacity:1 }
+
+  /* --- STOCKIST / BUSINESS --- */
+  .two{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line) }
+  .two > div{ background:var(--ink); padding:52px 40px }
+  .two img{ width:100%; aspect-ratio:16/9; object-fit:cover; margin-bottom:20px; filter:grayscale(.3) }
+  .two h3{ font-family:var(--serif); font-weight:500; font-size:1.25rem; margin:0 0 12px }
+  .two p{ font-size:13px; line-height:2; opacity:.65; margin:0 0 18px }
+  .btn{ display:inline-block; border:1px solid var(--paper); padding:11px 24px; font-size:12px; letter-spacing:.1em }
+  .btn:hover{ background:var(--paper); color:var(--ink) }
+
+  /* --- FOOTER --- */
+  .dg-footer{ border-top:1px solid var(--line); padding:56px 4vw 34px; font-size:12px }
+  .f-top{ display:flex; gap:40px; flex-wrap:wrap; margin-bottom:34px }
+  .f-top .b{ font-family:var(--serif); font-size:16px; letter-spacing:.2em; margin-right:auto }
+  .f-top a{ opacity:.62 } .f-top a:hover{ opacity:1 }
+  .f-bot{ display:flex; justify-content:space-between; opacity:.35; font-size:11px }
+
+  @media(max-width:900px){
+    .grid{ grid-template-columns:repeat(2,1fr) }
+    .z-grid{ grid-template-columns:repeat(2,1fr) }
+    .gates,.detail-in,.panel,.two{ grid-template-columns:1fr }
+    .dg-nav{ display:none }
+  }
+</style>
+</head>
+<body>
+<div class="br-grain" aria-hidden="true" style="display:none"></div>
+
+<!-- ===== header（Horizon: header-group は触らない／確認用） ===== -->
+<header class="dg-header">
+  <span class="dg-logo">DETAIL GRAM</span>
+  <nav class="dg-nav">
+    <a href="#">Brand</a><a href="#">Product</a><a href="#">Stockist</a>
+    <a href="#">取扱店・バイヤーの方へ</a><a href="#" class="is-store">Store</a><a href="#">Contact</a>
+  </nav>
+</header>
+
+<!-- ===== SECTION: hero  → detailgram-home-hero.liquid ===== -->
+<section class="dg-section hero">
+  <div class="br-cinema">
+    <img src="assets/dummy/scene_hero.jpg" alt="鯖江の工房（ダミー）">
+  </div>
+  <div class="hero-copy">
+    <h1 data-br="chars">機能の上に立つ、引き算</h1>
+    <p data-br="reveal" data-br-delay=".5s">ALL MADE IN SABAE, JAPAN</p>
+  </div>
+  <span class="hero-scroll"></span>
+</section>
+
+<!-- ===== SECTION: gates（2導線） → detailgram-home-gates.liquid ===== -->
+<section class="dg-section gates" data-br="stagger">
+  <a class="gate" href="#">
+    <span class="k">FOR CUSTOMERS</span>
+    <span class="t">眼鏡を見る／試せる店を探す</span>
+    <span class="d">かたちと色を見て、近くの取扱店で掛けてみる。</span>
+    <span class="go">→ Product / Stockist</span>
+  </a>
+  <a class="gate" href="#">
+    <span class="k">FOR BUSINESS</span>
+    <span class="t">取扱店・バイヤーの方へ</span>
+    <span class="d">お取扱いのご相談、カタログ請求、OEM・デザイン受託。</span>
+    <span class="go">→ For Business</span>
+  </a>
+</section>
+
+<!-- ===== SECTION: product（白の製品図録を移植＝黒基調の中の"白い島") ===== -->
+<!--        → detailgram-home-product.liquid -->
+<section class="dg-section sec zuroku">
+  <div class="dg-wrap">
+    <div class="sec-head" data-br="reveal">
+      <span class="no">01</span><h2>かたちを見る</h2><span class="en">PRODUCT INDEX</span>
+    </div>
+    <div class="z-lines" data-br="reveal">
+      <span>DETAIL GRAM</span><span>quadro</span><span>pellicule</span><span>TAKAHIRO HASHIMOTO</span>
+    </div>
+    <div class="z-grid" data-br="stagger" data-br-step="0.06">
+      <a class="z-card" href="#"><figure><span class="z-no">No.01</span><img src="assets/products/DG0025.jpg" alt="DG0025"></figure><div class="z-body"><div class="z-name">DG0025</div><div class="z-sub">チタン／6色展開</div><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥52,000</span></div></div></a>
+      <a class="z-card" href="#"><figure><span class="z-no">No.02</span><img src="assets/products/DG0015.jpg" alt="DG0015"></figure><div class="z-body"><div class="z-name">DG0015</div><div class="z-sub">Line series</div><span class="z-tag">メガネ大賞</span><div class="z-foot"><span class="z-line">quadro</span><span class="z-price">¥52,000</span></div></div></a>
+      <a class="z-card" href="#"><figure><span class="z-no">No.03</span><img src="assets/products/PE001.jpg" alt="PE001"></figure><div class="z-body"><div class="z-name">PE001</div><div class="z-sub">10周年記念モデル</div><span class="z-tag">10th</span><div class="z-foot"><span class="z-line">pellicule</span><span class="z-price">¥72,000</span></div></div></a>
+      <a class="z-card" href="#"><figure><span class="z-no">No.04</span><img src="assets/products/TH004.jpg" alt="TH004"></figure><div class="z-body"><div class="z-name">TH004</div><div class="z-sub">デザイナーライン</div><span class="z-tag">NEW</span><div class="z-foot"><span class="z-line">TAKAHIRO HASHIMOTO</span><span class="z-price">¥47,000</span></div></div></a>
+      <a class="z-card" href="#"><figure><span class="z-no">No.05</span><img src="assets/products/DG0010.jpg" alt="DG0010"></figure><div class="z-body"><div class="z-name">DG0010</div><div class="z-sub">14色展開</div><div class="z-foot"><span class="z-line">quadro</span><span class="z-price">¥39,000</span></div></div></a>
+      <a class="z-card" href="#"><figure><span class="z-no">No.06</span><img src="assets/products/DG0008.jpg" alt="DG0008"></figure><div class="z-body"><div class="z-name">DG0008</div><div class="z-sub">FC七宝</div><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥52,000</span></div></div></a>
+      <a class="z-card" href="#"><figure><span class="z-no">No.07</span><img src="assets/products/DG0009.jpg" alt="DG0009"></figure><div class="z-body"><div class="z-name">DG0009</div><div class="z-sub">6色展開</div><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥38,000</span></div></div></a>
+      <a class="z-card" href="#"><figure><span class="z-no">No.08</span><img src="assets/products/TH001.jpg" alt="TH001"></figure><div class="z-body"><div class="z-name">TH001</div><div class="z-sub">デザイナーライン</div><div class="z-foot"><span class="z-line">TAKAHIRO HASHIMOTO</span><span class="z-price">¥47,000</span></div></div></a>
+    </div>
+    <div class="z-more" data-br="reveal"><a href="#">すべての製品を見る（37型）→</a></div>
+  </div>
+</section>
+
+<!-- ===== SECTION: brand（＝Brand/About。着用写真スライド＋ブランドの由来） ===== -->
+<!--        → detailgram-home-brand.liquid -->
+<section class="dg-section detail">
+  <div class="dg-wrap detail-in">
+    <div class="lens r-frame" data-br="reveal">
+      <img src="assets/wearing/wear_fx_01.jpg" alt="着用イメージ（AI生成・仮）">
+      <span class="ws-note">着用イメージ（AI生成・仮）</span>
+    </div>
+    <div>
+      <span class="no" style="font-family:var(--serif);color:var(--accent);font-size:13px;letter-spacing:.2em">02 ｜ BRAND</span>
+      <h3 data-br="reveal" style="margin-top:14px">名前の理由は、細部にある。</h3>
+      <p data-br="reveal" data-br-delay=".1s">掛けたときに消えてしまうほどの軽さと、指先が触れる場所の精度。名前は、そのふたつからできています。</p>
+      <p data-br="reveal" data-br-delay=".2s">企画・デザインは埼玉のアトリエで。製造は福井・鯖江で、削り出しから七宝、仕上げまで全工程を日本国内で行っています。</p>
+      <p data-br="reveal" data-br-delay=".3s">流行のかたちを追いかけるより、掛ける人の輪郭を邪魔しないことを選んできました。引き算の結果として残ったものが、このブランドのかたちです。</p>
+      <div class="spec" data-br="reveal" data-br-delay=".4s"><span>TITANIUM</span><span>FC 七宝</span><span>MADE IN SABAE</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: craft（工程の章立て・積層） → detailgram-home-craft.liquid ===== -->
+<section class="dg-section sec craft">
+  <div class="dg-wrap">
+    <div class="sec-head" data-br="reveal">
+      <span class="no">02</span><h2>つくり方が、かたちを決める</h2><span class="en">CRAFT</span>
+    </div>
+    <div class="br-sticky-story" style="--br-panel-h:clamp(400px,52vh,520px)">
+      <div class="br-panel panel r-card">
+        <img src="assets/dummy/scene_craft1.jpg" alt="削り出し（ダミー）">
+        <div class="tx"><span class="n">01</span><h3>削る</h3><p>チタンの塊から、掛け心地の芯になる形を出す。数値ではなく、手の記憶が決める領域がある。</p></div>
+      </div>
+      <div class="br-panel panel r-card">
+        <img src="assets/dummy/scene_craft2.jpg" alt="七宝（ダミー）">
+        <div class="tx"><span class="n">02</span><h3>彩る</h3><p>FC七宝。焼き付けた色は褪せず、金属のままの温度で発色する。ここだけは急げない。</p></div>
+      </div>
+      <div class="br-panel panel r-card">
+        <img src="assets/dummy/scene_craft3.jpg" alt="仕上げ（ダミー）">
+        <div class="tx"><span class="n">03</span><h3>仕上げる</h3><p>最後は、掛けて確かめる。眼鏡は顔の上で完成する道具だから。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: news / media（受賞・掲載＝信頼づけ） ===== -->
+<!--        → detailgram-home-media.liquid -->
+<section class="dg-section media">
+  <div class="dg-wrap sec">
+    <div class="sec-head" data-br="reveal">
+      <span class="no">03</span><h2>受賞とメディア</h2><span class="en">NEWS / MEDIA</span>
+    </div>
+    <div class="awards" data-br="stagger" data-br-step="0.06">
+      <span><b>受賞</b>メガネ大賞 デザイン部門（DG0015）</span>
+      <span><b>出展</b>SILMO PARIS</span>
+      <span><b>出展</b>M.E.E（Meets Eyewear Exhibition）</span>
+      <span><b>掲載</b>本格眼鏡大全</span>
+    </div>
+    <div class="news" data-br="reveal">
+      <a class="nrow" href="#"><span class="d">2026.06</span><span class="c">NEWS</span><span>新作 DG0026 / DG0027 / DG0028 を発表しました</span><span class="arw">→</span></a>
+      <a class="nrow" href="#"><span class="d">2026.05</span><span class="c">MEDIA</span><span>10周年記念モデル pellicule PE001 / PE002 について</span><span class="arw">→</span></a>
+      <a class="nrow" href="#"><span class="d">2026.04</span><span class="c">EVENT</span><span>展示会への出展予定のお知らせ</span><span class="arw">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: stockist / business → 各liquid 1本ずつ ===== -->
+<section class="dg-section two">
+  <div data-br="reveal">
+    <img class="r-card" src="assets/dummy/scene_stockist.jpg" alt="店頭（ダミー）">
+    <h3>試せる店を探す</h3>
+    <p>眼鏡は、掛けてみないと分からない。全国の取扱店と、海外の取扱先を掲載しています。</p>
+    <a class="btn r-pill" href="#">STOCKIST を見る</a>
+  </div>
+  <div data-br="reveal" data-br-delay=".1s">
+    <img class="r-card" src="assets/dummy/scene_oem.jpg" alt="OEM（ダミー）">
+    <h3>取扱店・バイヤーの方へ</h3>
+    <p>新規お取扱いのご相談、カタログ・価格表の請求。OEM・デザイン受託も承っています。</p>
+    <a class="btn r-pill" href="#">お問い合わせ</a>
+  </div>
+</section>
+
+<!-- ===== footer（Horizon: footer-group は触らない／確認用） ===== -->
+<footer class="dg-footer">
+  <div class="f-top">
+    <span class="b">DETAIL GRAM</span>
+    <a href="#">Brand</a><a href="#">Product</a><a href="#">Stockist</a>
+    <a href="#">取扱店・バイヤーの方へ</a><a href="#">Store</a><a href="#">Contact（採用も）</a><a href="#">Instagram</a>
+  </div>
+  <div class="f-bot"><span>© DETAIL GRAM</span><span>白背景版 ｜ デザイン検討用・仮画像あり</span></div>
+  <div style="margin-top:18px;padding:12px 14px;border:1px solid var(--line);font-size:11px;line-height:1.9;opacity:.72">
+    <b style="color:var(--accent);font-weight:500">※ 画像について</b>：眼鏡の写真は実物です。ヒーロー（最上部）・工房・店頭の画像は<b>位置を示す仮画像</b>で、本番は撮影／AI生成で差し替えます。文言・色味・余白も調整中です。
+  </div>
+</footer>
+
+<script src="assets/br-kit.js"></script>
+<script>
+  /* 着用写真スライド：自動送り＋ドット（reduced-motionは自動送りしない） */
+  (function(){
+    var track = document.querySelector('.ws-track');
+    if(!track) return;
+    var imgs = track.querySelectorAll('img');
+    var dotsWrap = document.querySelector('.ws-dots');
+    var i = 0, n = imgs.length;
+    for(var k=0;k<n;k++){ var d=document.createElement('i'); if(k===0)d.className='on'; dotsWrap.appendChild(d); }
+    var dots = dotsWrap.querySelectorAll('i');
+    function go(x){ i=(x+n)%n; track.style.transform='translateX(-'+(i*100)+'%)';
+      dots.forEach(function(d,j){ d.className = j===i?'on':''; }); }
+    var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduce){ setInterval(function(){ go(i+1); }, 3200); }
+  })();
+</script>
+</body>
+</html>
