@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Store ｜ DETAIL GRAM（下層モック）</title>
+<title>Store ｜ DETAIL GRAM ONLINE STORE（下層モック）</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -12,34 +12,80 @@
 <link rel="stylesheet" href="assets/dg-base.css">
 <link rel="stylesheet" href="assets/dg-sub.css">
 <style>
-  /* Store（サングラスDTC）専用 */
-  .concept{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center }
-  .concept .im{ background:#0b0c0e; overflow:hidden; aspect-ratio:4/3 }
-  .concept .im img{ width:100%; height:100%; object-fit:cover }
-  .concept h2{ font-family:var(--serif); font-weight:500; font-size:1.5rem; margin:0 0 16px }
-  .concept p{ font-size:13.5px; line-height:2.1; opacity:.7; margin:0 0 12px }
+  /* ============ Store＝ショップトップ体裁（他下層と意図的に変える） ============
+     黒＝サイトの枠（header/footer/ヒーロー帯）／白＝売り場（フロア）
+     商品ファースト・購入ガイドまで1画面の縦動線 */
 
-  .s-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px }
-  .s-card{ background:#fff; border:1px solid #e3e5e8; display:block; transition:transform .25s, box-shadow .25s }
-  .s-card:hover{ transform:translateY(-3px); box-shadow:0 14px 30px rgba(0,0,0,.5) }
-  .s-card figure{ margin:0; position:relative; border-bottom:1px solid #e3e5e8 }
-  .s-card img{ width:100%; aspect-ratio:4/3; object-fit:contain; padding:14px; mix-blend-mode:multiply; background:#fff }
-  .s-no{ position:absolute; top:8px; left:9px; font-family:var(--serif); font-size:10px; letter-spacing:.14em; color:#8a929c }
-  .s-body{ padding:12px 13px 14px; color:#14171a }
-  .s-name{ font-size:13px; letter-spacing:.08em }
-  .s-sub{ font-size:10.5px; color:#6b7280; margin-top:3px }
-  .s-foot{ display:flex; justify-content:space-between; align-items:baseline; margin-top:10px; padding-top:9px; border-top:1px solid #e3e5e8 }
-  .s-tag{ display:inline-block; margin-top:6px; font-size:9.5px; letter-spacing:.1em; color:#6b4f1f; border:1px solid #b08b3e; padding:1px 6px }
-  .s-price{ font-size:12px; color:#14171a }
-  .s-cart{ font-size:10.5px; letter-spacing:.1em; color:#6b7280 }
+  /* --- お知らせバー --- */
+  .notice{ background:var(--accent); color:#14130e; font-size:11.5px; letter-spacing:.08em;
+    text-align:center; padding:8px 4vw; }
 
-  .faq{ border-top:1px solid var(--line) }
-  .faq-row{ padding:18px 2px; border-bottom:1px solid var(--line) }
-  .faq-row b{ display:block; font-weight:500; font-size:13.5px; margin-bottom:6px }
-  .faq-row b::before{ content:"Q. "; color:var(--accent); font-family:var(--serif) }
-  .faq-row p{ margin:0; font-size:12.5px; line-height:2; opacity:.62 }
+  /* --- ショップヒーロー（コンパクト・商品へ落とす） --- */
+  .shop-hero{ position:relative; overflow:hidden; border-bottom:1px solid var(--line) }
+  .shop-hero .bg{ position:absolute; inset:0 }
+  .shop-hero .bg img{ width:100%; height:100%; object-fit:cover; opacity:.5 }
+  .shop-hero .bg::after{ content:""; position:absolute; inset:0;
+    background:linear-gradient(90deg, rgba(14,15,17,.92) 30%, rgba(14,15,17,.35)) }
+  .shop-hero .in{ position:relative; padding:72px 0 64px; max-width:560px }
+  .shop-hero .k{ font-size:11px; letter-spacing:.24em; color:var(--accent) }
+  .shop-hero h1{ font-family:var(--serif); font-weight:500; margin:14px 0 12px;
+    font-size:clamp(1.5rem,1rem+1.6vw,2.3rem); letter-spacing:.08em }
+  .shop-hero p{ margin:0 0 22px; font-size:13px; line-height:2; opacity:.75 }
 
-  @media(max-width:900px){ .concept{ grid-template-columns:1fr } .s-grid{ grid-template-columns:repeat(2,1fr) } }
+  /* --- 白い売り場（フロア） --- */
+  .floor{ background:#f2f2f0; color:#14171a }
+  .floor .dg-wrap{ padding:46px 0 72px }
+
+  /* 商品ファースト：フィルタ行 */
+  .shop-bar{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:26px }
+  .shop-bar .cnt{ font-size:12px; color:#6b7280; margin-right:auto }
+  .shop-bar .f{ display:flex; gap:8px; flex-wrap:wrap; font-size:11.5px }
+  .shop-bar .f span{ border:1px solid #c9ccd1; background:#fff; padding:7px 14px; letter-spacing:.06em; color:#3a3f46; cursor:default }
+  .shop-bar .f span.on{ border-color:#14171a; color:#14171a }
+  .shop-bar select{ border:1px solid #c9ccd1; background:#fff; color:#3a3f46; font-family:inherit;
+    font-size:11.5px; padding:7px 10px; border-radius:2px }
+
+  /* 商品グリッド（EC調・カート導線を前に） */
+  .shop-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px }
+  .p-card{ background:#fff; border:1px solid #e3e5e8; display:flex; flex-direction:column; transition:box-shadow .25s }
+  .p-card:hover{ box-shadow:0 12px 28px rgba(20,23,26,.12) }
+  .p-card figure{ margin:0; position:relative; border-bottom:1px solid #eceef0 }
+  .p-card img{ width:100%; aspect-ratio:4/3; object-fit:contain; padding:18px; mix-blend-mode:multiply }
+  .p-badge{ position:absolute; top:10px; left:10px; font-size:9.5px; letter-spacing:.12em;
+    background:#14171a; color:#fff; padding:3px 8px }
+  .p-body{ padding:14px 15px 16px; display:flex; flex-direction:column; gap:6px; flex:1 }
+  .p-name{ font-size:13.5px; letter-spacing:.06em }
+  .p-sub{ font-size:11px; color:#6b7280 }
+  .p-colors{ display:flex; gap:5px; margin-top:2px }
+  .p-colors i{ width:12px; height:12px; border-radius:50%; border:1px solid rgba(0,0,0,.18); display:block }
+  .p-price{ font-size:14px; margin-top:6px }
+  .p-price small{ font-size:10px; color:#6b7280; margin-left:4px }
+  .p-cart{ margin-top:10px; text-align:center; border:1px solid #14171a; padding:11px 10px;
+    font-size:11.5px; letter-spacing:.14em; color:#14171a; transition:.2s }
+  .p-card:hover .p-cart{ background:#14171a; color:#fff }
+
+  /* 安心材料（ブランド事実のみ・盛らない） */
+  .assure{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#dcdee1;
+    border:1px solid #dcdee1; margin-top:40px }
+  .assure div{ background:#fff; padding:22px 20px; text-align:center }
+  .assure b{ display:block; font-family:var(--serif); font-weight:500; font-size:13px; letter-spacing:.08em; margin-bottom:6px }
+  .assure span{ font-size:11px; color:#6b7280; line-height:1.9 }
+
+  /* 購入ガイド */
+  .guide{ margin-top:40px; background:#fff; border:1px solid #e3e5e8; padding:30px 28px }
+  .guide h2{ font-family:var(--serif); font-weight:500; font-size:1.05rem; letter-spacing:.1em; margin:0 0 18px }
+  .guide dl{ margin:0; display:grid; grid-template-columns:9em 1fr; row-gap:12px; font-size:12.5px }
+  .guide dt{ color:#6b7280; letter-spacing:.06em }
+  .guide dd{ margin:0; line-height:1.9; color:#3a3f46 }
+
+  /* 眼鏡クロスセル帯（黒に戻す） */
+  .cross{ border-top:1px solid var(--line) }
+
+  @media(max-width:900px){
+    .shop-grid{ grid-template-columns:repeat(2,1fr) }
+    .assure{ grid-template-columns:1fr }
+    .guide dl{ grid-template-columns:1fr }
+  }
 </style>
 </head>
 <body>
@@ -54,64 +100,127 @@
   </nav>
 </header>
 
-<!-- ===== SECTION: page-head → detailgram-store-head.liquid ===== -->
-<section class="dg-section page-head">
-  <div class="bg"><img src="assets/dummy/hero_4.jpg" alt=""></div>
-  <div class="dg-wrap in">
-    <span class="crumb">ONLINE STORE</span>
-    <h1 data-br="chars">サングラスを、オンラインで。</h1>
-    <p class="lead" data-br="reveal" data-br-delay=".3s">オンラインストアでは、度付きレンズのフィッティングが不要なサングラスモデルをお届けします。フレームは、ディテールグラムの眼鏡と同じ設計・同じ鯖江の全工程日本製。眼鏡（度付き）は、お近くの取扱店でお求めください。</p>
-  </div>
+<!-- ===== SECTION: notice（お知らせバー） → detailgram-store-notice.liquid ===== -->
+<div class="dg-section notice">ONLINE STORE ではサングラスモデルを販売しています ｜ 度付き眼鏡はお近くの取扱店へ</div>
+
+<!-- ===== SECTION: shop-hero（コンパクト） → detailgram-store-hero.liquid ===== -->
+<section class="dg-section shop-hero">
+  <div class="bg"><img src="assets/wearing/wear_bk_m.jpg" alt=""></div>
+  <div class="dg-wrap"><div class="in">
+    <span class="k">DETAIL GRAM ONLINE STORE</span>
+    <h1 data-br="reveal">眼鏡と同じ設計の、サングラス。</h1>
+    <p data-br="reveal" data-br-delay=".1s">内側に締まるバネ性、2mmのテンプル段差、8割の人に似合う卵型。眼鏡で磨いた骨格設計をそのままに、掛けたその日から使えるサングラスをお届けします。</p>
+    <a class="btn r-pill" href="#floor" data-br="reveal" data-br-delay=".2s">ラインナップを見る ↓</a>
+  </div></div>
 </section>
 
-<!-- ===== SECTION: concept（なぜサングラスか） → detailgram-store-concept.liquid ===== -->
-<section class="dg-section sec">
-  <div class="dg-wrap concept">
-    <div class="im r-frame" data-br="reveal"><img src="assets/wearing/wear_bk_m.jpg" alt="着用イメージ（AI生成・仮）"></div>
-    <div>
-      <div class="sec-head" style="margin-bottom:20px"><span class="no">01</span><h2>眼鏡と同じ骨格設計</h2><span class="en">SUNGLASSES</span></div>
-      <p data-br="reveal">サングラスも、ずれたら意味がない。内側に締まるバネ性、2mmのテンプル段差、8割の人に似合う卵型。眼鏡で磨いた設計を、そのままサングラスに使っています。</p>
-      <p data-br="reveal" data-br-delay=".1s">度付きの眼鏡と違い、サングラスは掛けたその日から使えます。だからオンラインでお届けできる。それがこのストアの考え方です。</p>
-    </div>
-  </div>
-</section>
-
-<!-- ===== SECTION: items（商品グリッド） → detailgram-store-items.liquid ===== -->
-<section class="dg-section sec" style="padding-top:0">
+<!-- ===== SECTION: floor（白い売り場＝商品ファースト） → detailgram-store-items.liquid ===== -->
+<section class="dg-section floor" id="floor">
   <div class="dg-wrap">
-    <div class="sec-head" data-br="reveal"><span class="no">02</span><h2>ラインナップ</h2><span class="en">SUNGLASS COLLECTION</span></div>
-    <div class="s-grid" data-br="stagger" data-br-step="0.06">
-      <a class="s-card" href="#"><figure><span class="s-no">SG-01</span><img src="assets/products/DG0026.jpg" alt="サングラスモデル（仮）"></figure><div class="s-body"><div class="s-name">サングラスモデル（仮）</div><div class="s-sub">偏光レンズ／3色展開</div><span class="s-tag">SUNGLASS</span><div class="s-foot"><span class="s-price">¥（価格未定）</span><span class="s-cart">ADD TO CART</span></div></div></a>
-      <a class="s-card" href="#"><figure><span class="s-no">SG-02</span><img src="assets/products/DG0009.jpg" alt="サングラスモデル（仮）"></figure><div class="s-body"><div class="s-name">サングラスモデル（仮）</div><div class="s-sub">ライトカラーレンズ／3色展開</div><span class="s-tag">SUNGLASS</span><div class="s-foot"><span class="s-price">¥（価格未定）</span><span class="s-cart">ADD TO CART</span></div></div></a>
-      <a class="s-card" href="#"><figure><span class="s-no">SG-03</span><img src="assets/products/DG0015.jpg" alt="サングラスモデル（仮）"></figure><div class="s-body"><div class="s-name">サングラスモデル（仮）</div><div class="s-sub">偏光レンズ／3色展開</div><span class="s-tag">SUNGLASS</span><div class="s-foot"><span class="s-price">¥（価格未定）</span><span class="s-cart">ADD TO CART</span></div></div></a>
+
+    <div class="shop-bar" data-br="reveal">
+      <span class="cnt">SUNGLASS COLLECTION ｜ 全◯型（実装時に確定）</span>
+      <div class="f"><span class="on">すべて</span><span>偏光レンズ</span><span>ライトカラー</span></div>
+      <select aria-label="並び替え"><option>新着順</option><option>価格が安い順</option><option>価格が高い順</option></select>
     </div>
-    <div class="dg-note" data-br="reveal"><b>※ モックの表示範囲</b>：サングラス版の型番・写真・価格は未確定のため、眼鏡の写真を仮置きしています。掲載モデル・レンズ仕様・価格は橋本さんと確定後に流し込みます。カート機能は本実装（Shopify）で有効になります。</div>
+
+    <div class="shop-grid" data-br="stagger" data-br-step="0.06">
+      <a class="p-card r-frame" href="#">
+        <figure><span class="p-badge">SUNGLASS</span><img src="assets/products/DG0026.jpg" alt="サングラスモデル（仮）"></figure>
+        <div class="p-body">
+          <span class="p-name">サングラスモデル（仮）SG-01</span>
+          <span class="p-sub">偏光レンズ／チタン</span>
+          <div class="p-colors"><i style="background:#2b2b2b"></i><i style="background:#6e4f35"></i><i style="background:#3a4a5a"></i></div>
+          <span class="p-price">¥（価格未定）<small>税込表記は実装時に確定</small></span>
+          <span class="p-cart">カートに入れる</span>
+        </div>
+      </a>
+      <a class="p-card r-frame" href="#">
+        <figure><span class="p-badge">SUNGLASS</span><img src="assets/products/DG0009.jpg" alt="サングラスモデル（仮）"></figure>
+        <div class="p-body">
+          <span class="p-name">サングラスモデル（仮）SG-02</span>
+          <span class="p-sub">ライトカラーレンズ／チタン</span>
+          <div class="p-colors"><i style="background:#8a6a4f"></i><i style="background:#4a4a4a"></i><i style="background:#7a8290"></i></div>
+          <span class="p-price">¥（価格未定）<small>税込表記は実装時に確定</small></span>
+          <span class="p-cart">カートに入れる</span>
+        </div>
+      </a>
+      <a class="p-card r-frame" href="#">
+        <figure><span class="p-badge">SUNGLASS</span><img src="assets/products/DG0015.jpg" alt="サングラスモデル（仮）"></figure>
+        <div class="p-body">
+          <span class="p-name">サングラスモデル（仮）SG-03</span>
+          <span class="p-sub">偏光レンズ／チタン</span>
+          <div class="p-colors"><i style="background:#1f1f1f"></i><i style="background:#565c49"></i></div>
+          <span class="p-price">¥（価格未定）<small>税込表記は実装時に確定</small></span>
+          <span class="p-cart">カートに入れる</span>
+        </div>
+      </a>
+      <a class="p-card r-frame" href="#">
+        <figure><span class="p-badge">SUNGLASS</span><img src="assets/products/DG0025.jpg" alt="サングラスモデル（仮）"></figure>
+        <div class="p-body">
+          <span class="p-name">サングラスモデル（仮）SG-04</span>
+          <span class="p-sub">偏光レンズ／チタン</span>
+          <div class="p-colors"><i style="background:#5a4632"></i><i style="background:#2b2b2b"></i><i style="background:#6d6d6d"></i></div>
+          <span class="p-price">¥（価格未定）<small>税込表記は実装時に確定</small></span>
+          <span class="p-cart">カートに入れる</span>
+        </div>
+      </a>
+      <a class="p-card r-frame" href="#">
+        <figure><span class="p-badge">SUNGLASS</span><img src="assets/products/TH004.jpg" alt="サングラスモデル（仮）"></figure>
+        <div class="p-body">
+          <span class="p-name">サングラスモデル（仮）SG-05</span>
+          <span class="p-sub">ライトカラーレンズ／チタン</span>
+          <div class="p-colors"><i style="background:#3d3d3d"></i><i style="background:#8c7a5f"></i></div>
+          <span class="p-price">¥（価格未定）<small>税込表記は実装時に確定</small></span>
+          <span class="p-cart">カートに入れる</span>
+        </div>
+      </a>
+      <a class="p-card r-frame" href="#">
+        <figure><span class="p-badge">SUNGLASS</span><img src="assets/products/DG0010.jpg" alt="サングラスモデル（仮）"></figure>
+        <div class="p-body">
+          <span class="p-name">サングラスモデル（仮）SG-06</span>
+          <span class="p-sub">偏光レンズ／チタン</span>
+          <div class="p-colors"><i style="background:#6e4f35"></i><i style="background:#2f3a46"></i></div>
+          <span class="p-price">¥（価格未定）<small>税込表記は実装時に確定</small></span>
+          <span class="p-cart">カートに入れる</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- 安心材料＝ブランドの事実だけ（サービス系の約束は実装時に確定してから載せる） -->
+    <div class="assure" data-br="stagger" data-br-step="0.06">
+      <div><b>全工程日本製</b><span>福井・鯖江の工場で、削り出しから仕上げまで。</span></div>
+      <div><b>眼鏡と同じ骨格設計</b><span>内側に締まるバネ性と2mmテンプル段差で、ずれにくい。</span></div>
+      <div><b>長く使える一本</b><span>修理・調整のご相談を受け付けています。</span></div>
+    </div>
+
+    <!-- 購入ガイド -->
+    <div class="guide r-card" data-br="reveal">
+      <h2>お買い物ガイド ｜ GUIDE</h2>
+      <dl>
+        <dt>お支払い</dt><dd>クレジットカードほか（Shopify実装時に確定して掲載します）</dd>
+        <dt>送料・お届け</dt><dd>送料・お届け日数は実装時に確定して掲載します</dd>
+        <dt>返品・交換</dt><dd>返品ポリシーは橋本さんと確定のうえ掲載します</dd>
+        <dt>度付き眼鏡</dt><dd>フィッティングが必要なため、オンラインでは販売していません。<a href="stockist.html" style="text-decoration:underline">お近くの取扱店</a>でお求めください</dd>
+        <dt>修理・調整</dt><dd>お近くの取扱店、または<a href="contact.html" style="text-decoration:underline">お問い合わせ</a>からご相談ください</dd>
+      </dl>
+    </div>
+
+    <div class="dg-note" style="border-color:#c9ccd1; color:#3a3f46; opacity:1; background:#fff"><b style="color:#8a6d2f">※ モックの表示範囲</b>：サングラス版の型番・写真・価格・レンズ仕様は未確定のため、眼鏡の写真とダミー表記で枠を見せています。カート・並び替え・在庫連動は本実装（Shopify）で動作します。</div>
   </div>
 </section>
 
-<!-- ===== SECTION: faq（購入まわりの案内） → detailgram-store-faq.liquid ===== -->
-<section class="dg-section sec" style="padding-top:0">
-  <div class="dg-wrap">
-    <div class="sec-head" data-br="reveal"><span class="no">03</span><h2>ご購入にあたって</h2><span class="en">GUIDE</span></div>
-    <div class="faq" data-br="reveal">
-      <div class="faq-row"><b>度付きの眼鏡は買えますか？</b><p>度付きレンズはフィッティングが必要なため、オンラインでは販売していません。お近くの取扱店（Stockist）でお求めください。</p></div>
-      <div class="faq-row"><b>サイズが合うか不安です</b><p>全モデルに2mmのテンプル段差を入れ、実質1サイズ大きい設計にしています。それでもご不安な場合は、取扱店で近い型番をお試しいただくのが確実です。</p></div>
-      <div class="faq-row"><b>修理・調整はどこに頼めばいいですか？</b><p>お近くの取扱店、またはContactからご相談ください。長く使っていただくためのご相談を歓迎します。</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== SECTION: next → detailgram-store-next.liquid ===== -->
-<section class="dg-section two">
+<!-- ===== SECTION: cross（眼鏡をお探しの方へ＝黒帯へ戻す） → detailgram-store-cross.liquid ===== -->
+<section class="dg-section two cross">
   <div data-br="reveal">
-    <h3>眼鏡は、店頭で。</h3>
-    <p>度付きの眼鏡は、全国の取扱店でフィッティングとあわせて。</p>
-    <a class="btn r-pill" href="stockist.html">STOCKIST を見る</a>
+    <h3>度付きの眼鏡をお探しの方へ</h3>
+    <p>フレームのコレクションはProductでご覧いただけます。試着は全国の取扱店で。</p>
+    <a class="btn r-pill" href="product.html">PRODUCT を見る</a>
   </div>
   <div data-br="reveal" data-br-delay=".1s">
-    <h3>かたちを見る</h3>
-    <p>眼鏡のコレクションは、Productページからどうぞ。</p>
-    <a class="btn r-pill" href="product.html">PRODUCT を見る</a>
+    <h3>試せる店を探す</h3>
+    <p>サイズ感・掛け心地は、店頭でお確かめいただくのが確実です。</p>
+    <a class="btn r-pill" href="stockist.html">STOCKIST を見る</a>
   </div>
 </section>
 
@@ -122,7 +231,7 @@
     <a href="brand.html">Brand</a><a href="product.html">Product</a><a href="stockist.html">Stockist</a>
     <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="store.html">Store</a><a href="contact.html">Contact（採用も）</a><a href="https://www.instagram.com/detailgram_inc/" rel="noopener">Instagram</a>
   </div>
-  <div class="f-bot"><span>© DETAIL GRAM</span><span>下層モック ｜ Store（サングラスDTC） ｜ デザイン検討用・商品仮</span></div>
+  <div class="f-bot"><span>© DETAIL GRAM</span><span>下層モック ｜ Store（ショップトップ体裁） ｜ デザイン検討用・商品仮</span></div>
 </footer>
 
 <script src="assets/br-kit.js"></script>
