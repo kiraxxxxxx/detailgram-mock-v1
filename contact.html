@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Contact ｜ DETAIL GRAM（下層モック）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/br-kit.css">
+<link rel="stylesheet" href="assets/dg-base.css">
+<link rel="stylesheet" href="assets/dg-sub.css">
+<style>
+  /* Contact専用 */
+  .gate2{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); margin-bottom:56px }
+  .gate2 button{ background:var(--ink-2); border:0; color:var(--paper); font-family:inherit; cursor:pointer;
+    padding:30px 26px; text-align:left; display:flex; flex-direction:column; gap:8px; transition:background .3s }
+  .gate2 button:hover{ background:var(--ink) }
+  .gate2 button.on{ background:var(--ink); box-shadow:inset 0 -2px 0 var(--accent) }
+  .gate2 .k{ font-size:11px; letter-spacing:.2em; color:var(--accent) }
+  .gate2 .t{ font-family:var(--serif); font-size:1.15rem }
+  .gate2 .d{ font-size:12px; opacity:.6; line-height:1.8 }
+
+  form{ display:flex; flex-direction:column; gap:22px }
+  .field label{ display:block; font-size:11.5px; letter-spacing:.14em; opacity:.6; margin-bottom:8px }
+  .field label i{ font-style:normal; color:var(--accent); margin-left:6px }
+  .field input,.field select,.field textarea{ width:100%; background:var(--ink-2); border:1px solid var(--line);
+    color:var(--paper); font-family:inherit; font-size:14px; padding:13px 14px; border-radius:2px }
+  .field textarea{ min-height:150px; resize:vertical; line-height:1.9 }
+  .field input:focus,.field select:focus,.field textarea:focus{ outline:none; border-color:var(--accent) }
+  .frow{ display:grid; grid-template-columns:1fr 1fr; gap:18px }
+  .consent{ font-size:11.5px; opacity:.55; line-height:1.9 }
+  .submit{ align-self:flex-start }
+  .submit button{ font-family:inherit; cursor:pointer; background:none; color:var(--paper);
+    border:1px solid var(--paper); padding:13px 34px; font-size:12.5px; letter-spacing:.12em; border-radius:999px }
+  .submit button:hover{ background:var(--paper); color:var(--ink) }
+
+  .company{ width:100%; border-collapse:collapse; font-size:13px }
+  .company th,.company td{ border:1px solid var(--line); padding:13px 16px; text-align:left; font-weight:400 }
+  .company th{ width:11em; background:var(--ink-2); letter-spacing:.08em; font-size:12px; opacity:.85 }
+  .company td{ opacity:.75; line-height:1.9 }
+
+  .recruit{ background:var(--ink-2); border:1px solid var(--line); padding:36px 32px }
+  .recruit h3{ font-family:var(--serif); font-weight:500; font-size:1.2rem; margin:0 0 12px }
+  .recruit p{ font-size:13px; line-height:2; opacity:.66; margin:0 0 14px }
+
+  @media(max-width:900px){ .gate2,.frow{ grid-template-columns:1fr } }
+</style>
+</head>
+<body>
+<div class="br-grain" aria-hidden="true"></div>
+
+<!-- ===== header（Horizon: header-group は触らない／確認用） ===== -->
+<header class="dg-header">
+  <a class="dg-logo" href="final.html">DETAIL GRAM</a>
+  <nav class="dg-nav">
+    <a href="brand.html">Brand</a><a href="product.html">Product</a><a href="stockist.html">Stockist</a>
+    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="store.html" class="is-store">Store</a><a href="contact.html" class="is-current">Contact</a>
+  </nav>
+</header>
+
+<!-- ===== SECTION: page-head → detailgram-contact-head.liquid ===== -->
+<section class="dg-section page-head">
+  <div class="bg"><img src="assets/dummy/hero_3.jpg" alt=""></div>
+  <div class="dg-wrap in">
+    <span class="crumb">CONTACT</span>
+    <h1 data-br="chars">お問い合わせ</h1>
+    <p class="lead" data-br="reveal" data-br-delay=".3s">製品のこと、修理・調整のこと、お取扱いのご相談。どちらのお客様も、こちらの窓口からご連絡ください。内容を確認のうえ、メールでご返信します。</p>
+  </div>
+</section>
+
+<!-- ===== SECTION: form（B2B/B2C振り分け＋フォーム） → detailgram-contact-form.liquid ===== -->
+<section class="dg-section sec">
+  <div class="dg-narrow">
+    <div class="gate2" data-br="reveal" role="tablist" aria-label="お問い合わせの種類">
+      <button type="button" class="on" id="tab-c">
+        <span class="k">FOR CUSTOMERS</span>
+        <span class="t">個人のお客様</span>
+        <span class="d">製品について・修理／調整・取扱店のご案内 など</span>
+      </button>
+      <button type="button" id="tab-b">
+        <span class="k">FOR BUSINESS</span>
+        <span class="t">事業者様（取扱店・バイヤー・OEM）</span>
+        <span class="d">新規お取扱い・カタログ／価格表請求・OEMのご相談 など</span>
+      </button>
+    </div>
+
+    <form action="#" onsubmit="return false">
+      <div class="field" id="f-type">
+        <label>ご用件<i>必須</i></label>
+        <select id="sel-type">
+          <option>製品について</option>
+          <option>修理・調整について</option>
+          <option>取扱店のご案内</option>
+          <option>その他</option>
+        </select>
+      </div>
+      <div class="frow">
+        <div class="field"><label>お名前<i>必須</i></label><input type="text" placeholder="山田 太郎"></div>
+        <div class="field" id="f-company" style="display:none"><label>会社名・店舗名<i>必須</i></label><input type="text" placeholder="株式会社◯◯／◯◯メガネ店"></div>
+      </div>
+      <div class="field"><label>メールアドレス<i>必須</i></label><input type="email" placeholder="mail@example.com"></div>
+      <div class="field"><label>お問い合わせ内容<i>必須</i></label><textarea placeholder="ご自由にお書きください"></textarea></div>
+      <p class="consent">送信いただいた内容は、お問い合わせへの返信のためにのみ使用します。（プライバシーポリシーは本実装時に整備）</p>
+      <div class="submit" data-br="reveal"><button type="submit">送信する（モックのため送信されません）</button></div>
+    </form>
+    <div class="dg-note"><b>※ フォームについて</b>：本実装ではShopifyのフォーム＋自動振り分け（個人／事業者）で受け付け、info@detailgram.com に届きます。電話番号の掲載方針（メールのみ／代表番号取得）は確定後に反映します。</div>
+  </div>
+</section>
+
+<!-- ===== SECTION: company（会社概要） → detailgram-contact-company.liquid ===== -->
+<section class="dg-section sec" style="padding-top:0">
+  <div class="dg-narrow">
+    <div class="sec-head" data-br="reveal"><span class="no">01</span><h2>会社概要</h2><span class="en">COMPANY</span></div>
+    <table class="company" data-br="reveal">
+      <tr><th>社名</th><td>株式会社ディテールグラム</td></tr>
+      <tr><th>代表</th><td>橋本（メガネフレームデザイナー）</td></tr>
+      <tr><th>事業</th><td>アイウェアブランド「DETAIL GRAM」ほか4ラインの企画・デザイン・卸／OEM・デザイン受託</td></tr>
+      <tr><th>拠点</th><td>埼玉県さいたま市中央区（企画・デザイン／事務所兼ショールーム）</td></tr>
+      <tr><th>製造</th><td>福井県鯖江市（全工程日本製）</td></tr>
+      <tr><th>連絡先</th><td>info@detailgram.com</td></tr>
+    </table>
+    <p style="font-size:10.5px; opacity:.45; margin-top:12px">※所在地番地・設立年月日など詳細は本実装時に橋本さんと確定して掲載します。電話番号の扱いは方針決定待ち。</p>
+  </div>
+</section>
+
+<!-- ===== SECTION: recruit（Contactに内包） → detailgram-contact-recruit.liquid ===== -->
+<section class="dg-section sec" style="padding-top:0">
+  <div class="dg-narrow">
+    <div class="recruit r-card" data-br="reveal">
+      <h3>採用について ｜ RECRUIT</h3>
+      <p>ものづくりが好きな方、眼鏡が好きな方。募集の有無にかかわらず、一緒に働くことに関心のある方からのご連絡は、上のフォーム（ご用件＝その他）で受け付けています。</p>
+      <p style="font-size:11px; opacity:.45; margin:0">※募集要項は、募集開始時にこの枠へ掲載します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== footer（Horizon: footer-group は触らない／確認用） ===== -->
+<footer class="dg-footer">
+  <div class="f-top">
+    <span class="b">DETAIL GRAM</span>
+    <a href="brand.html">Brand</a><a href="product.html">Product</a><a href="stockist.html">Stockist</a>
+    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="store.html">Store</a><a href="contact.html">Contact（採用も）</a><a href="https://www.instagram.com/detailgram_inc/" rel="noopener">Instagram</a>
+  </div>
+  <div class="f-bot"><span>© DETAIL GRAM</span><span>下層モック ｜ Contact ｜ デザイン検討用・フォームはダミー</span></div>
+</footer>
+
+<script src="assets/br-kit.js"></script>
+<script>
+  /* B2B/B2C タブ切替（モック用の簡易動作） */
+  (function(){
+    var tc = document.getElementById('tab-c'), tb = document.getElementById('tab-b');
+    var comp = document.getElementById('f-company'), sel = document.getElementById('sel-type');
+    var optC = ['製品について','修理・調整について','取扱店のご案内','その他'];
+    var optB = ['新規お取扱いのご相談','カタログ・価格表のご請求','OEM・デザイン受託のご相談','展示会アポイント','その他'];
+    function setOpts(list){ sel.innerHTML = list.map(function(o){ return '<option>'+o+'</option>' }).join('') }
+    tc.addEventListener('click', function(){ tc.classList.add('on'); tb.classList.remove('on'); comp.style.display='none'; setOpts(optC) });
+    tb.addEventListener('click', function(){ tb.classList.add('on'); tc.classList.remove('on'); comp.style.display='';    setOpts(optB) });
+  })();
+</script>
+</body>
+</html>

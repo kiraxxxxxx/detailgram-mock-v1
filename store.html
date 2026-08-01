@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Store ｜ DETAIL GRAM（下層モック）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/br-kit.css">
+<link rel="stylesheet" href="assets/dg-base.css">
+<link rel="stylesheet" href="assets/dg-sub.css">
+<style>
+  /* Store（サングラスDTC）専用 */
+  .concept{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center }
+  .concept .im{ background:#0b0c0e; overflow:hidden; aspect-ratio:4/3 }
+  .concept .im img{ width:100%; height:100%; object-fit:cover }
+  .concept h2{ font-family:var(--serif); font-weight:500; font-size:1.5rem; margin:0 0 16px }
+  .concept p{ font-size:13.5px; line-height:2.1; opacity:.7; margin:0 0 12px }
+
+  .s-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px }
+  .s-card{ background:#fff; border:1px solid #e3e5e8; display:block; transition:transform .25s, box-shadow .25s }
+  .s-card:hover{ transform:translateY(-3px); box-shadow:0 14px 30px rgba(0,0,0,.5) }
+  .s-card figure{ margin:0; position:relative; border-bottom:1px solid #e3e5e8 }
+  .s-card img{ width:100%; aspect-ratio:4/3; object-fit:contain; padding:14px; mix-blend-mode:multiply; background:#fff }
+  .s-no{ position:absolute; top:8px; left:9px; font-family:var(--serif); font-size:10px; letter-spacing:.14em; color:#8a929c }
+  .s-body{ padding:12px 13px 14px; color:#14171a }
+  .s-name{ font-size:13px; letter-spacing:.08em }
+  .s-sub{ font-size:10.5px; color:#6b7280; margin-top:3px }
+  .s-foot{ display:flex; justify-content:space-between; align-items:baseline; margin-top:10px; padding-top:9px; border-top:1px solid #e3e5e8 }
+  .s-tag{ display:inline-block; margin-top:6px; font-size:9.5px; letter-spacing:.1em; color:#6b4f1f; border:1px solid #b08b3e; padding:1px 6px }
+  .s-price{ font-size:12px; color:#14171a }
+  .s-cart{ font-size:10.5px; letter-spacing:.1em; color:#6b7280 }
+
+  .faq{ border-top:1px solid var(--line) }
+  .faq-row{ padding:18px 2px; border-bottom:1px solid var(--line) }
+  .faq-row b{ display:block; font-weight:500; font-size:13.5px; margin-bottom:6px }
+  .faq-row b::before{ content:"Q. "; color:var(--accent); font-family:var(--serif) }
+  .faq-row p{ margin:0; font-size:12.5px; line-height:2; opacity:.62 }
+
+  @media(max-width:900px){ .concept{ grid-template-columns:1fr } .s-grid{ grid-template-columns:repeat(2,1fr) } }
+</style>
+</head>
+<body>
+<div class="br-grain" aria-hidden="true"></div>
+
+<!-- ===== header（Horizon: header-group は触らない／確認用） ===== -->
+<header class="dg-header">
+  <a class="dg-logo" href="final.html">DETAIL GRAM</a>
+  <nav class="dg-nav">
+    <a href="brand.html">Brand</a><a href="product.html">Product</a><a href="stockist.html">Stockist</a>
+    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="store.html" class="is-store is-current">Store</a><a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- ===== SECTION: page-head → detailgram-store-head.liquid ===== -->
+<section class="dg-section page-head">
+  <div class="bg"><img src="assets/dummy/hero_4.jpg" alt=""></div>
+  <div class="dg-wrap in">
+    <span class="crumb">ONLINE STORE</span>
+    <h1 data-br="chars">サングラスを、オンラインで。</h1>
+    <p class="lead" data-br="reveal" data-br-delay=".3s">オンラインストアでは、度付きレンズのフィッティングが不要なサングラスモデルをお届けします。フレームは、ディテールグラムの眼鏡と同じ設計・同じ鯖江の全工程日本製。眼鏡（度付き）は、お近くの取扱店でお求めください。</p>
+  </div>
+</section>
+
+<!-- ===== SECTION: concept（なぜサングラスか） → detailgram-store-concept.liquid ===== -->
+<section class="dg-section sec">
+  <div class="dg-wrap concept">
+    <div class="im r-frame" data-br="reveal"><img src="assets/wearing/wear_bk_m.jpg" alt="着用イメージ（AI生成・仮）"></div>
+    <div>
+      <div class="sec-head" style="margin-bottom:20px"><span class="no">01</span><h2>眼鏡と同じ骨格設計</h2><span class="en">SUNGLASSES</span></div>
+      <p data-br="reveal">サングラスも、ずれたら意味がない。内側に締まるバネ性、2mmのテンプル段差、8割の人に似合う卵型。眼鏡で磨いた設計を、そのままサングラスに使っています。</p>
+      <p data-br="reveal" data-br-delay=".1s">度付きの眼鏡と違い、サングラスは掛けたその日から使えます。だからオンラインでお届けできる。それがこのストアの考え方です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: items（商品グリッド） → detailgram-store-items.liquid ===== -->
+<section class="dg-section sec" style="padding-top:0">
+  <div class="dg-wrap">
+    <div class="sec-head" data-br="reveal"><span class="no">02</span><h2>ラインナップ</h2><span class="en">SUNGLASS COLLECTION</span></div>
+    <div class="s-grid" data-br="stagger" data-br-step="0.06">
+      <a class="s-card" href="#"><figure><span class="s-no">SG-01</span><img src="assets/products/DG0026.jpg" alt="サングラスモデル（仮）"></figure><div class="s-body"><div class="s-name">サングラスモデル（仮）</div><div class="s-sub">偏光レンズ／3色展開</div><span class="s-tag">SUNGLASS</span><div class="s-foot"><span class="s-price">¥（価格未定）</span><span class="s-cart">ADD TO CART</span></div></div></a>
+      <a class="s-card" href="#"><figure><span class="s-no">SG-02</span><img src="assets/products/DG0009.jpg" alt="サングラスモデル（仮）"></figure><div class="s-body"><div class="s-name">サングラスモデル（仮）</div><div class="s-sub">ライトカラーレンズ／3色展開</div><span class="s-tag">SUNGLASS</span><div class="s-foot"><span class="s-price">¥（価格未定）</span><span class="s-cart">ADD TO CART</span></div></div></a>
+      <a class="s-card" href="#"><figure><span class="s-no">SG-03</span><img src="assets/products/DG0015.jpg" alt="サングラスモデル（仮）"></figure><div class="s-body"><div class="s-name">サングラスモデル（仮）</div><div class="s-sub">偏光レンズ／3色展開</div><span class="s-tag">SUNGLASS</span><div class="s-foot"><span class="s-price">¥（価格未定）</span><span class="s-cart">ADD TO CART</span></div></div></a>
+    </div>
+    <div class="dg-note" data-br="reveal"><b>※ モックの表示範囲</b>：サングラス版の型番・写真・価格は未確定のため、眼鏡の写真を仮置きしています。掲載モデル・レンズ仕様・価格は橋本さんと確定後に流し込みます。カート機能は本実装（Shopify）で有効になります。</div>
+  </div>
+</section>
+
+<!-- ===== SECTION: faq（購入まわりの案内） → detailgram-store-faq.liquid ===== -->
+<section class="dg-section sec" style="padding-top:0">
+  <div class="dg-wrap">
+    <div class="sec-head" data-br="reveal"><span class="no">03</span><h2>ご購入にあたって</h2><span class="en">GUIDE</span></div>
+    <div class="faq" data-br="reveal">
+      <div class="faq-row"><b>度付きの眼鏡は買えますか？</b><p>度付きレンズはフィッティングが必要なため、オンラインでは販売していません。お近くの取扱店（Stockist）でお求めください。</p></div>
+      <div class="faq-row"><b>サイズが合うか不安です</b><p>全モデルに2mmのテンプル段差を入れ、実質1サイズ大きい設計にしています。それでもご不安な場合は、取扱店で近い型番をお試しいただくのが確実です。</p></div>
+      <div class="faq-row"><b>修理・調整はどこに頼めばいいですか？</b><p>お近くの取扱店、またはContactからご相談ください。長く使っていただくためのご相談を歓迎します。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: next → detailgram-store-next.liquid ===== -->
+<section class="dg-section two">
+  <div data-br="reveal">
+    <h3>眼鏡は、店頭で。</h3>
+    <p>度付きの眼鏡は、全国の取扱店でフィッティングとあわせて。</p>
+    <a class="btn r-pill" href="stockist.html">STOCKIST を見る</a>
+  </div>
+  <div data-br="reveal" data-br-delay=".1s">
+    <h3>かたちを見る</h3>
+    <p>眼鏡のコレクションは、Productページからどうぞ。</p>
+    <a class="btn r-pill" href="product.html">PRODUCT を見る</a>
+  </div>
+</section>
+
+<!-- ===== footer（Horizon: footer-group は触らない／確認用） ===== -->
+<footer class="dg-footer">
+  <div class="f-top">
+    <span class="b">DETAIL GRAM</span>
+    <a href="brand.html">Brand</a><a href="product.html">Product</a><a href="stockist.html">Stockist</a>
+    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="store.html">Store</a><a href="contact.html">Contact（採用も）</a><a href="https://www.instagram.com/detailgram_inc/" rel="noopener">Instagram</a>
+  </div>
+  <div class="f-bot"><span>© DETAIL GRAM</span><span>下層モック ｜ Store（サングラスDTC） ｜ デザイン検討用・商品仮</span></div>
+</footer>
+
+<script src="assets/br-kit.js"></script>
+</body>
+</html>

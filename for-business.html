@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>For Business ｜ DETAIL GRAM（下層モック）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/br-kit.css">
+<link rel="stylesheet" href="assets/dg-base.css">
+<link rel="stylesheet" href="assets/dg-sub.css">
+<style>
+  /* For Business専用 */
+  .biz-grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px }
+  .biz{ border:1px solid var(--line); background:var(--ink-2); padding:36px 32px; display:flex; flex-direction:column; gap:12px }
+  .biz .k{ font-size:11px; letter-spacing:.2em; color:var(--accent) }
+  .biz h3{ font-family:var(--serif); font-weight:500; font-size:1.25rem; margin:0 }
+  .biz p{ font-size:13px; line-height:2; opacity:.66; margin:0 }
+  .biz .go{ margin-top:auto; padding-top:14px }
+
+  .oem{ display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--line); overflow:hidden }
+  .oem .im{ min-height:340px; overflow:hidden; background:#0b0c0e }
+  .oem img{ width:100%; height:100%; object-fit:cover }
+  .oem .tx{ padding:46px 42px; background:var(--ink-2); display:flex; flex-direction:column; justify-content:center; gap:12px }
+  .oem .k{ font-size:11px; letter-spacing:.2em; color:var(--accent) }
+  .oem h3{ font-family:var(--serif); font-weight:500; font-size:1.4rem; margin:0 }
+  .oem p{ font-size:13px; line-height:2; opacity:.68; margin:0 }
+
+  .fair{ border-top:1px solid var(--line) }
+  .fair-row{ display:grid; grid-template-columns:8em 1fr 10em; gap:16px; align-items:baseline;
+    padding:16px 2px; border-bottom:1px solid var(--line); font-size:13.5px }
+  .fair-row .d{ font-size:11px; letter-spacing:.12em; color:var(--accent) }
+  .fair-row .note{ font-size:11.5px; opacity:.5; text-align:right }
+
+  .en-block{ background:var(--ink-2); border-block:1px solid var(--line) }
+  .en-block .in{ max-width:720px; margin-inline:auto; text-align:center; padding:76px 4vw }
+  .en-block h2{ font-family:var(--serif); font-weight:500; font-size:1.5rem; letter-spacing:.06em; margin:0 0 16px }
+  .en-block p{ font-size:13.5px; line-height:2.1; opacity:.7; margin:0 0 22px }
+
+  @media(max-width:900px){ .biz-grid,.oem{ grid-template-columns:1fr } .fair-row{ grid-template-columns:1fr } .fair-row .note{ text-align:left } }
+</style>
+</head>
+<body>
+<div class="br-grain" aria-hidden="true"></div>
+
+<!-- ===== header（Horizon: header-group は触らない／確認用） ===== -->
+<header class="dg-header">
+  <a class="dg-logo" href="final.html">DETAIL GRAM</a>
+  <nav class="dg-nav">
+    <a href="brand.html">Brand</a><a href="product.html">Product</a><a href="stockist.html">Stockist</a>
+    <a href="for-business.html" class="is-current">取扱店・バイヤーの方へ</a><a href="store.html" class="is-store">Store</a><a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- ===== SECTION: page-head → detailgram-business-head.liquid ===== -->
+<section class="dg-section page-head">
+  <div class="bg"><img src="assets/dummy/scene_craft1.jpg" alt=""></div>
+  <div class="dg-wrap in">
+    <span class="crumb">FOR BUSINESS</span>
+    <h1 data-br="chars">取扱店・バイヤーの方へ</h1>
+    <p class="lead" data-br="reveal" data-br-delay=".3s">ディテールグラムは、全国のメガネ専門店・百貨店のメガネサロンでお取り扱いいただいている、鯖江・全工程日本製のアイウェアブランドです。新規のお取扱い、カタログ・価格表のご請求、OEM・デザイン受託のご相談を承っています。</p>
+  </div>
+</section>
+
+<!-- ===== SECTION: menu（窓口4つ） → detailgram-business-menu.liquid ===== -->
+<section class="dg-section sec">
+  <div class="dg-wrap">
+    <div class="sec-head" data-br="reveal"><span class="no">01</span><h2>ご相談窓口</h2><span class="en">INQUIRIES</span></div>
+    <div class="biz-grid" data-br="stagger" data-br-step="0.07">
+      <div class="biz r-card">
+        <span class="k">WHOLESALE</span>
+        <h3>新規お取扱いのご相談</h3>
+        <p>小ロットからご相談いただけます。年2回の新型リリースにあわせた提案も可能です。まずはお気軽にお問い合わせください。</p>
+        <div class="go"><a class="btn r-pill" href="contact.html">お問い合わせへ</a></div>
+      </div>
+      <div class="biz r-card">
+        <span class="k">CATALOG</span>
+        <h3>カタログ・価格表のご請求</h3>
+        <p>最新コレクションのカタログと価格表をお送りします。事業者様向けの資料です。</p>
+        <div class="go"><a class="btn r-pill" href="contact.html">資料を請求する</a></div>
+      </div>
+      <div class="biz r-card">
+        <span class="k">EXHIBITION</span>
+        <h3>展示会でのご商談</h3>
+        <p>国内外の展示会に出展しています。会期中のご商談・アポイントのご希望も、お問い合わせからどうぞ。</p>
+        <div class="go"><a class="btn r-pill" href="contact.html">アポイントを取る</a></div>
+      </div>
+      <div class="biz r-card">
+        <span class="k">OVERSEAS</span>
+        <h3>海外のバイヤー様</h3>
+        <p>台湾をはじめ、アジア各地域でお取り扱いいただいています。English inquiries are welcome.</p>
+        <div class="go"><a class="btn r-pill" href="contact.html">Contact us</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: oem（OEM・デザイン受託） → detailgram-business-oem.liquid ===== -->
+<section class="dg-section sec" style="padding-top:0">
+  <div class="dg-wrap">
+    <div class="sec-head" data-br="reveal"><span class="no">02</span><h2>OEM・デザイン受託</h2><span class="en">OEM / ODM</span></div>
+    <div class="oem r-card" data-br="reveal">
+      <div class="im"><img src="assets/dummy/scene_oem.jpg" alt="OEM図面イメージ（仮画像）"></div>
+      <div class="tx">
+        <span class="k">DESIGN & MANUFACTURING</span>
+        <h3>デザインから鯖江での製造まで。</h3>
+        <p>自社ブランド10年の設計・製造知見をもとに、他社ブランドのアイウェアのデザイン・OEMを承ります。デザイナーライン「TAKAHIRO HASHIMOTO」を手がけるデザイナーが直接担当。日本人・アジア人の骨格に合う設計と、鯖江の工場ネットワークによる全工程日本製が強みです。</p>
+        <p style="font-size:11px; opacity:.45">※図面画像は仮です。実際のデザイン図面に差し替えます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: exhibition（出展歴・予定枠） → detailgram-business-fair.liquid ===== -->
+<section class="dg-section sec" style="padding-top:0">
+  <div class="dg-wrap">
+    <div class="sec-head" data-br="reveal"><span class="no">03</span><h2>展示会</h2><span class="en">EXHIBITIONS</span></div>
+    <div class="fair" data-br="reveal">
+      <div class="fair-row"><span class="d">出展歴</span><span>SILMO PARIS</span><span class="note">パリ</span></div>
+      <div class="fair-row"><span class="d">出展歴</span><span>M.E.E（Meets Eyewear Exhibition）</span><span class="note">東京</span></div>
+      <div class="fair-row"><span class="d">今後の予定</span><span>（出展が決まり次第、ここに掲載します）</span><span class="note">—</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: en（英語ブロック） → detailgram-business-en.liquid ===== -->
+<section class="dg-section en-block">
+  <div class="in">
+    <h2 data-br="reveal">DETAIL GRAM — Eyewear from Sabae, Japan</h2>
+    <p data-br="reveal" data-br-delay=".1s">Designer's eyewear brand, entirely made in Sabae, Japan. Designed for the Asian facial structure — spring hinges that hold inward, a 2mm temple step on every model, and egg-shaped lenses that suit most faces. Wholesale and OEM inquiries are welcome.</p>
+    <a class="btn gold r-pill" href="contact.html" data-br="reveal" data-br-delay=".2s">Contact us in English</a>
+    <p style="font-size:10.5px; opacity:.4; margin-top:18px">※英語対応の範囲（ページ全体を英訳するか、このブロックのみか）は要確認事項です（IA v2 未決）。</p>
+  </div>
+</section>
+
+<!-- ===== footer（Horizon: footer-group は触らない／確認用） ===== -->
+<footer class="dg-footer">
+  <div class="f-top">
+    <span class="b">DETAIL GRAM</span>
+    <a href="brand.html">Brand</a><a href="product.html">Product</a><a href="stockist.html">Stockist</a>
+    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="store.html">Store</a><a href="contact.html">Contact（採用も）</a><a href="https://www.instagram.com/detailgram_inc/" rel="noopener">Instagram</a>
+  </div>
+  <div class="f-bot"><span>© DETAIL GRAM</span><span>下層モック ｜ For Business ｜ デザイン検討用・仮画像あり</span></div>
+  <div class="dg-note"><b>※ 内容について</b>：ロット・取引条件などの文言は仮です。価格表のB2B限定化（会員エリア）の有無は未決事項（IA v2）。掲載前に橋本さんと確認します。</div>
+</footer>
+
+<script src="assets/br-kit.js"></script>
+</body>
+</html>

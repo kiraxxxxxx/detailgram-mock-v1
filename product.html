@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Product ｜ DETAIL GRAM（下層モック）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/br-kit.css">
+<link rel="stylesheet" href="assets/dg-base.css">
+<link rel="stylesheet" href="assets/dg-sub.css">
+<style>
+  /* Product一覧専用（白カード図録＝トップ「かたちを見る」準拠） */
+  .filters{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 14px; font-size:12px }
+  .filters button{ border:1px solid var(--line); background:none; color:var(--paper);
+    padding:7px 15px; cursor:pointer; letter-spacing:.06em; opacity:.72; font-family:inherit }
+  .filters button:hover{ opacity:1 }
+  .filters button.on{ border-color:var(--accent); color:var(--accent); opacity:1 }
+  .subfilters{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 30px; font-size:11px; opacity:.85 }
+  .subfilters span{ border:1px solid var(--line); padding:5px 12px; opacity:.55; letter-spacing:.08em }
+
+  .z-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px }
+  .z-card{ background:#fff; border:1px solid #e3e5e8; display:block; transition:transform .25s, box-shadow .25s }
+  .z-card:hover{ transform:translateY(-3px); box-shadow:0 14px 30px rgba(0,0,0,.5) }
+  .z-card figure{ margin:0; position:relative; border-bottom:1px solid #e3e5e8 }
+  .z-card img{ width:100%; aspect-ratio:4/3; object-fit:contain; padding:14px; mix-blend-mode:multiply; background:#fff }
+  .z-no{ position:absolute; top:8px; left:9px; font-family:var(--serif); font-size:10px; letter-spacing:.14em; color:#8a929c }
+  .z-body{ padding:12px 13px 14px; color:#14171a }
+  .z-name{ font-size:13px; letter-spacing:.08em }
+  .z-sub{ font-size:10.5px; color:#6b7280; margin-top:3px }
+  .z-tag{ display:inline-block; margin-top:6px; font-size:9.5px; letter-spacing:.1em; color:#1f4f6b; border:1px solid #1f4f6b; padding:1px 6px }
+  .z-foot{ display:flex; justify-content:space-between; align-items:baseline; margin-top:10px; padding-top:9px; border-top:1px solid #e3e5e8 }
+  .z-line{ font-size:10px; color:#6b7280; letter-spacing:.1em }
+  .z-price{ font-size:12px; color:#14171a }
+
+  .z-card.is-empty{ background:var(--ink-2); border:1px dashed var(--line) }
+  .z-card.is-empty figure{ border-bottom:1px dashed var(--line) }
+  .z-card.is-empty .ph{ aspect-ratio:4/3; display:flex; align-items:center; justify-content:center;
+    font-size:10.5px; letter-spacing:.14em; color:var(--paper-dim) }
+  .z-card.is-empty .z-body{ color:var(--paper) }
+  .z-card.is-empty .z-sub,.z-card.is-empty .z-line{ color:var(--paper-dim) }
+  .z-card.is-empty .z-price{ color:var(--paper) }
+  .z-card.is-empty .z-foot{ border-top:1px dashed var(--line) }
+
+  @media(max-width:900px){ .z-grid{ grid-template-columns:repeat(2,1fr) } }
+</style>
+</head>
+<body>
+<div class="br-grain" aria-hidden="true"></div>
+
+<!-- ===== header（Horizon: header-group は触らない／確認用） ===== -->
+<header class="dg-header">
+  <a class="dg-logo" href="final.html">DETAIL GRAM</a>
+  <nav class="dg-nav">
+    <a href="brand.html">Brand</a><a href="product.html" class="is-current">Product</a><a href="stockist.html">Stockist</a>
+    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="store.html" class="is-store">Store</a><a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- ===== SECTION: page-head → detailgram-product-head.liquid ===== -->
+<section class="dg-section page-head">
+  <div class="bg"><img src="assets/products/DG0025.jpg" alt="" style="object-fit:contain; background:#0b0c0e"></div>
+  <div class="dg-wrap in">
+    <span class="crumb">PRODUCT INDEX</span>
+    <h1 data-br="chars">かたちを見る</h1>
+    <p class="lead" data-br="reveal" data-br-delay=".3s">4つのライン、実働37型。玉型は8割の人に似合う卵型を基本に、気分やTPOで形と色を選べます。眼鏡は掛けてみないと分からないもの。気になる一本は、お近くの取扱店でお試しください。</p>
+  </div>
+</section>
+
+<!-- ===== SECTION: catalog（ライン切替＋図録グリッド） → detailgram-product-catalog.liquid ===== -->
+<section class="dg-section sec">
+  <div class="dg-wrap">
+    <div class="filters" data-br="reveal" role="tablist" aria-label="ラインで絞り込み">
+      <button class="on" data-line="all">すべて</button>
+      <button data-line="DETAIL GRAM">DETAIL GRAM</button>
+      <button data-line="quadro">quadro</button>
+      <button data-line="pellicule">pellicule</button>
+      <button data-line="TAKAHIRO HASHIMOTO">TAKAHIRO HASHIMOTO</button>
+    </div>
+    <div class="subfilters" data-br="reveal">
+      <span>NEW</span><span>受賞モデル</span><span>10周年</span><span>タイプ別（実装時）</span>
+    </div>
+
+    <div class="z-grid" data-br="stagger" data-br-step="0.05" id="grid">
+      <a class="z-card" href="product-detail.html" data-line="DETAIL GRAM"><figure><span class="z-no">DG0025</span><img src="assets/products/DG0025.jpg" alt="DG0025"></figure><div class="z-body"><div class="z-name">DG0025</div><div class="z-sub">チタン／6色展開</div><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥52,000</span></div></div></a>
+      <a class="z-card" href="product-detail.html" data-line="quadro"><figure><span class="z-no">DG0015</span><img src="assets/products/DG0015.jpg" alt="DG0015"></figure><div class="z-body"><div class="z-name">DG0015</div><div class="z-sub">5色展開</div><span class="z-tag">メガネ大賞</span><div class="z-foot"><span class="z-line">quadro</span><span class="z-price">¥52,000</span></div></div></a>
+      <a class="z-card" href="product-detail.html" data-line="pellicule"><figure><span class="z-no">PE001</span><img src="assets/products/PE001.jpg" alt="PE001"></figure><div class="z-body"><div class="z-name">PE001</div><div class="z-sub">10周年記念モデル／6色展開</div><span class="z-tag">10th</span><div class="z-foot"><span class="z-line">pellicule</span><span class="z-price">¥72,000</span></div></div></a>
+      <a class="z-card" href="product-detail.html" data-line="TAKAHIRO HASHIMOTO"><figure><span class="z-no">TH004</span><img src="assets/products/TH004.jpg" alt="TH004"></figure><div class="z-body"><div class="z-name">TH004</div><div class="z-sub">デザイナーライン／7色展開</div><span class="z-tag">NEW</span><div class="z-foot"><span class="z-line">TAKAHIRO HASHIMOTO</span><span class="z-price">¥47,000</span></div></div></a>
+      <a class="z-card" href="product-detail.html" data-line="quadro"><figure><span class="z-no">DG0010</span><img src="assets/products/DG0010.jpg" alt="DG0010"></figure><div class="z-body"><div class="z-name">DG0010</div><div class="z-sub">14色展開</div><div class="z-foot"><span class="z-line">quadro</span><span class="z-price">¥39,000</span></div></div></a>
+      <a class="z-card" href="product-detail.html" data-line="DETAIL GRAM"><figure><span class="z-no">DG0008</span><img src="assets/products/DG0008.jpg" alt="DG0008"></figure><div class="z-body"><div class="z-name">DG0008</div><div class="z-sub">FC七宝／12色展開</div><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥52,000</span></div></div></a>
+      <a class="z-card" href="product-detail.html" data-line="DETAIL GRAM"><figure><span class="z-no">DG0009</span><img src="assets/products/DG0009.jpg" alt="DG0009"></figure><div class="z-body"><div class="z-name">DG0009</div><div class="z-sub">6色展開</div><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥38,000</span></div></div></a>
+      <a class="z-card" href="product-detail.html" data-line="TAKAHIRO HASHIMOTO"><figure><span class="z-no">TH001</span><img src="assets/products/TH001.jpg" alt="TH001"></figure><div class="z-body"><div class="z-name">TH001</div><div class="z-sub">デザイナーライン／6色展開</div><div class="z-foot"><span class="z-line">TAKAHIRO HASHIMOTO</span><span class="z-price">¥47,000</span></div></div></a>
+      <a class="z-card" href="product-detail.html" data-line="DETAIL GRAM"><figure><span class="z-no">DG0001</span><img src="assets/products/DG0001.jpg" alt="DG0001"></figure><div class="z-body"><div class="z-name">DG0001</div><div class="z-sub">7色展開</div><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥52,000</span></div></div></a>
+      <a class="z-card" href="product-detail.html" data-line="DETAIL GRAM"><figure><span class="z-no">DG0026</span><img src="assets/products/DG0026.jpg" alt="DG0026"></figure><div class="z-body"><div class="z-name">DG0026</div><div class="z-sub">3色展開</div><span class="z-tag">NEW</span><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥53,000</span></div></div></a>
+      <a class="z-card is-empty" href="#" data-line="quadro"><figure><div class="ph">PHOTO COMING SOON</div></figure><div class="z-body"><div class="z-name">DG0030</div><div class="z-sub">4色展開（撮影予定）</div><div class="z-foot"><span class="z-line">quadro</span><span class="z-price">¥40,000</span></div></div></a>
+      <a class="z-card is-empty" href="#" data-line="pellicule"><figure><div class="ph">PHOTO COMING SOON</div></figure><div class="z-body"><div class="z-name">PE002</div><div class="z-sub">6色展開</div><div class="z-foot"><span class="z-line">pellicule</span><span class="z-price">¥63,000</span></div></div></a>
+    </div>
+
+    <div class="dg-note" data-br="reveal"><b>※ モックの表示範囲</b>：ここでは代表12型のみ掲載しています。本実装（Shopify）では掲載候補リスト（実働37型）を流し込み、ライン／新作／受賞／タイプのフィルタを動作させます。価格は参考上代・税抜表記の想定（表記方法は要確認）。</div>
+  </div>
+</section>
+
+<!-- ===== SECTION: next（試着導線） → detailgram-product-next.liquid ===== -->
+<section class="dg-section two">
+  <div data-br="reveal">
+    <h3>試せる店を探す</h3>
+    <p>サイズ感・掛け心地は、店頭で。全国の取扱店を掲載しています。</p>
+    <a class="btn r-pill" href="stockist.html">STOCKIST を見る</a>
+  </div>
+  <div data-br="reveal" data-br-delay=".1s">
+    <h3>Instagram＝型番別カタログ</h3>
+    <p>各型番のこだわりは、Instagramでも1本ずつ紹介しています。</p>
+    <a class="btn r-pill" href="https://www.instagram.com/detailgram_inc/" rel="noopener">Instagram を見る</a>
+  </div>
+</section>
+
+<!-- ===== footer（Horizon: footer-group は触らない／確認用） ===== -->
+<footer class="dg-footer">
+  <div class="f-top">
+    <span class="b">DETAIL GRAM</span>
+    <a href="brand.html">Brand</a><a href="product.html">Product</a><a href="stockist.html">Stockist</a>
+    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="store.html">Store</a><a href="contact.html">Contact（採用も）</a><a href="https://www.instagram.com/detailgram_inc/" rel="noopener">Instagram</a>
+  </div>
+  <div class="f-bot"><span>© DETAIL GRAM</span><span>下層モック ｜ Product ｜ デザイン検討用</span></div>
+</footer>
+
+<script src="assets/br-kit.js"></script>
+<script>
+  /* ラインフィルタ（モック用の簡易動作） */
+  (function(){
+    var btns = document.querySelectorAll('.filters button');
+    var cards = document.querySelectorAll('#grid .z-card');
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){
+        btns.forEach(function(x){ x.classList.remove('on') });
+        b.classList.add('on');
+        var line = b.getAttribute('data-line');
+        cards.forEach(function(c){
+          c.style.display = (line === 'all' || c.getAttribute('data-line') === line) ? '' : 'none';
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

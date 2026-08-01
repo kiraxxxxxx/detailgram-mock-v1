@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>DG0025 ｜ Product ｜ DETAIL GRAM（下層モック）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/br-kit.css">
+<link rel="stylesheet" href="assets/dg-base.css">
+<link rel="stylesheet" href="assets/dg-sub.css">
+<style>
+  /* 品番ページ専用（白の図録面×黒の物語面） */
+  .pd{ display:grid; grid-template-columns:1.15fr .85fr; gap:0; border-bottom:1px solid var(--line) }
+  .pd-gallery{ background:#fff; padding:40px; display:flex; flex-direction:column; gap:14px }
+  .pd-main{ border:1px solid #e3e5e8; position:relative }
+  .pd-main img{ width:100%; aspect-ratio:4/3; object-fit:contain; padding:24px; mix-blend-mode:multiply }
+  .pd-no{ position:absolute; top:10px; left:12px; font-family:var(--serif); font-size:11px; letter-spacing:.14em; color:#8a929c }
+  .pd-thumbs{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px }
+  .pd-thumbs .t{ border:1px solid #e3e5e8; cursor:pointer; background:#fff }
+  .pd-thumbs .t.on{ border-color:#14171a }
+  .pd-thumbs img{ width:100%; aspect-ratio:4/3; object-fit:contain; padding:8px; mix-blend-mode:multiply }
+  .pd-thumbs .t.ph{ display:flex; align-items:center; justify-content:center; aspect-ratio:4/3;
+    font-size:9px; letter-spacing:.12em; color:#8a929c; cursor:default }
+
+  .pd-info{ padding:52px 44px; display:flex; flex-direction:column; gap:0 }
+  .pd-line{ font-size:11px; letter-spacing:.2em; color:var(--accent) }
+  .pd-info h1{ font-family:var(--serif); font-weight:500; font-size:2rem; letter-spacing:.1em; margin:10px 0 4px }
+  .pd-price{ font-size:14px; opacity:.75; margin-bottom:26px }
+  .pd-info p.desc{ font-size:13.5px; line-height:2.1; opacity:.72; margin:0 0 22px }
+
+  .colors b, .sizes b{ display:block; font-size:11px; letter-spacing:.18em; opacity:.5; margin-bottom:10px }
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px }
+  .chips span{ border:1px solid var(--line); padding:6px 12px; font-size:11.5px; letter-spacing:.08em; opacity:.8 }
+  .chips span.on{ border-color:var(--accent); color:var(--accent); opacity:1 }
+
+  .pd-cta{ display:flex; gap:12px; flex-wrap:wrap; margin-top:8px }
+  .pd-meta{ margin-top:26px; border-top:1px solid var(--line); padding-top:18px; font-size:11.5px; line-height:2; opacity:.55 }
+
+  .spec-table{ width:100%; border-collapse:collapse; font-size:13px }
+  .spec-table th,.spec-table td{ border:1px solid var(--line); padding:13px 16px; text-align:left; font-weight:400 }
+  .spec-table th{ width:11em; background:var(--ink-2); letter-spacing:.08em; font-size:12px; opacity:.85 }
+  .spec-table td{ opacity:.75; line-height:1.9 }
+
+  .feature{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line) }
+  .feature > div{ background:var(--ink); padding:28px 26px }
+  .feature b{ display:block; font-family:var(--serif); font-weight:500; font-size:14px; margin-bottom:8px }
+  .feature p{ margin:0; font-size:12.5px; line-height:2; opacity:.62 }
+
+  .wear{ background:var(--ink-2); border-block:1px solid var(--line) }
+  .wear .in{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; padding:80px 0 }
+  .wear .im{ background:#0b0c0e; overflow:hidden; aspect-ratio:3/4; max-height:520px }
+  .wear .im img{ width:100%; height:100%; object-fit:cover }
+  .wear h2{ font-family:var(--serif); font-weight:500; font-size:1.5rem; margin:0 0 16px }
+  .wear p{ font-size:13.5px; line-height:2.1; opacity:.7; margin:0 0 12px }
+
+  @media(max-width:900px){
+    .pd,.wear .in,.feature{ grid-template-columns:1fr }
+    .pd-gallery{ padding:22px }
+  }
+</style>
+</head>
+<body>
+<div class="br-grain" aria-hidden="true"></div>
+
+<!-- ===== header（Horizon: header-group は触らない／確認用） ===== -->
+<header class="dg-header">
+  <a class="dg-logo" href="final.html">DETAIL GRAM</a>
+  <nav class="dg-nav">
+    <a href="brand.html">Brand</a><a href="product.html" class="is-current">Product</a><a href="stockist.html">Stockist</a>
+    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="store.html" class="is-store">Store</a><a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- ===== SECTION: product-main（図録面＝白×情報面＝黒） → detailgram-pdp-main.liquid ===== -->
+<section class="dg-section pd">
+  <div class="pd-gallery" data-br="reveal">
+    <div class="pd-main r-frame"><span class="pd-no">DG0025</span><img id="mainimg" src="assets/products/DG0025.jpg" alt="DG0025"></div>
+    <div class="pd-thumbs">
+      <button class="t on" type="button"><img src="assets/products/DG0025.jpg" alt="DG0025 カット1"></button>
+      <span class="t ph">SIDE（実装時）</span>
+      <span class="t ph">ANGLE（実装時）</span>
+      <span class="t ph">TOP（実装時）</span>
+    </div>
+  </div>
+  <div class="pd-info">
+    <span class="pd-line">DETAIL GRAM</span>
+    <h1 data-br="chars">DG0025</h1>
+    <div class="pd-price">¥52,000（参考上代・税抜）</div>
+    <p class="desc" data-br="reveal">チタンの一枚板を外側に使い、継ぎ目のないフロントに仕上げた一本。鎧は細く、マットと光沢の対比で、シンプルなまま静かな高級感を。8割の人に似合う卵型の玉型で、強度近視の方でも厚みが目立ちにくい設計です。</p>
+    <div class="colors" data-br="reveal" data-br-delay=".1s">
+      <b>COLOR ｜ 6色展開</b>
+      <div class="chips"><span class="on">BR</span><span>BSM</span><span>DB</span><span>GY</span><span>IRSV</span><span>VM</span></div>
+    </div>
+    <div class="pd-cta" data-br="reveal" data-br-delay=".2s">
+      <a class="btn r-pill" href="stockist.html">取扱店で試す</a>
+      <a class="btn gold r-pill" href="for-business.html">お取扱いのご相談（事業者様）</a>
+    </div>
+    <div class="pd-meta">素材：チタン ／ 製造：福井・鯖江（全工程日本製） ／ 全モデル共通の2mmテンプル段差<br>※カラーチップ・サイズ表・在庫連動は本実装（Shopify）で流し込みます。</div>
+  </div>
+</section>
+
+<!-- ===== SECTION: features（この型番のこだわり） → detailgram-pdp-features.liquid ===== -->
+<section class="dg-section sec">
+  <div class="dg-wrap">
+    <div class="sec-head" data-br="reveal"><span class="no">01</span><h2>この一本のディテール</h2><span class="en">DETAILS</span></div>
+    <div class="feature" data-br="stagger" data-br-step="0.06">
+      <div><b>内側に締まるバネ性</b><p>外す時に引く海外式ではなく、かけている時に内側へ締まる設計。アジアの骨格でもずれにくく、疲れにくい掛け心地です。</p></div>
+      <div><b>2mmのテンプル段差</b><p>実質1サイズ大きくなる段差で、こめかみと耳への圧迫を軽減。全モデル共通のこだわりです。</p></div>
+      <div><b>継ぎ目のない一枚板</b><p>外側にチタンの一枚板、内側にリム。レンズを入れても継ぎ目が見えません。</p></div>
+      <div><b>細く仕上げた鎧</b><p>フロントとテンプルの境目を細く。正面から見た時のスッキリ感をつくります。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: spec → detailgram-pdp-spec.liquid ===== -->
+<section class="dg-section sec" style="padding-top:0">
+  <div class="dg-wrap">
+    <div class="sec-head" data-br="reveal"><span class="no">02</span><h2>仕様</h2><span class="en">SPECIFICATION</span></div>
+    <table class="spec-table" data-br="reveal">
+      <tr><th>型番</th><td>DG0025</td></tr>
+      <tr><th>ライン</th><td>DETAIL GRAM</td></tr>
+      <tr><th>カラー</th><td>BR ／ BSM ／ DB ／ GY ／ IRSV ／ VM（6色）</td></tr>
+      <tr><th>素材</th><td>チタン</td></tr>
+      <tr><th>サイズ</th><td>（本実装時に流し込み：レンズ幅・ブリッジ幅・テンプル長）</td></tr>
+      <tr><th>製造</th><td>福井・鯖江（全工程日本製）</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ===== SECTION: wearing（着用イメージ） → detailgram-pdp-wearing.liquid ===== -->
+<section class="dg-section wear">
+  <div class="dg-wrap in">
+    <div class="im r-frame" data-br="reveal"><img src="assets/wearing/wear_wh_f.jpg" alt="着用イメージ（AI生成・仮）"></div>
+    <div>
+      <h2 data-br="reveal">気分で選ぶ、自分を表現する。</h2>
+      <p data-br="reveal" data-br-delay=".1s">ネクタイや洋服を替えるように、メガネも自分を表現するアイテム。人の印象を一番変えやすいのは、実はメガネだと私たちは思っています。</p>
+      <p data-br="reveal" data-br-delay=".2s">似合うかどうかは、掛けてみるのが一番の近道です。お近くの取扱店でお試しください。</p>
+      <p style="font-size:10.5px; opacity:.45; margin-top:16px">※着用イメージはAI生成の仮画像です</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: next → detailgram-pdp-next.liquid ===== -->
+<section class="dg-section two">
+  <div data-br="reveal">
+    <h3>ほかのかたちを見る</h3>
+    <p>4ライン・実働37型。かたちの一覧へ戻る。</p>
+    <a class="btn r-pill" href="product.html">PRODUCT INDEX へ</a>
+  </div>
+  <div data-br="reveal" data-br-delay=".1s">
+    <h3>試せる店を探す</h3>
+    <p>全国の取扱店・海外の取扱先を掲載しています。</p>
+    <a class="btn r-pill" href="stockist.html">STOCKIST を見る</a>
+  </div>
+</section>
+
+<!-- ===== footer（Horizon: footer-group は触らない／確認用） ===== -->
+<footer class="dg-footer">
+  <div class="f-top">
+    <span class="b">DETAIL GRAM</span>
+    <a href="brand.html">Brand</a><a href="product.html">Product</a><a href="stockist.html">Stockist</a>
+    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="store.html">Store</a><a href="contact.html">Contact（採用も）</a><a href="https://www.instagram.com/detailgram_inc/" rel="noopener">Instagram</a>
+  </div>
+  <div class="f-bot"><span>© DETAIL GRAM</span><span>下層モック ｜ Product 詳細（DG0025を例に） ｜ デザイン検討用</span></div>
+  <div class="dg-note"><b>※ このページについて</b>：品番ページのテンプレートです。DG0025を例にしています。サイド・アングル・トップの写真枠、サイズ表、カラーチップは本実装（Shopify）で型番ごとに流し込みます。</div>
+</footer>
+
+<script src="assets/br-kit.js"></script>
+</body>
+</html>

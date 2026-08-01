@@ -1,0 +1,72 @@
+/* ============================================================
+   DETAIL GRAM ｜ 下層ページ共通スタイル（黒基調＝確定版トップ準拠）
+   2026-08-01 [ディテールこ]
+   前提: Horizon = スキーマ方式（テーマ非破壊）
+        → 各 .dg-section が detailgram-{page}-{section}.liquid 1本に対応
+   規範: クリーム/生成り禁止・weight900はヒーローのみ・角丸は性質別
+   ============================================================ */
+
+:root{
+  --ink:#0e0f11; --ink-2:#16181c; --paper:#e8e6e2; --paper-dim:#a8a9ad;
+  --line:#2b2f35; --accent:#c8b273; /* 真鍮 */
+  --sans:'Inter',system-ui,'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  --serif:'Shippori Mincho','Hiragino Mincho ProN',serif;
+}
+body{ background:var(--ink); color:var(--paper); font-family:var(--sans); }
+
+/* ---- ヘッダー（Horizon: header-group は触らない前提。見た目確認用） ---- */
+.dg-header{ position:sticky; top:0; z-index:50; display:flex; align-items:center; gap:28px;
+  padding:16px 4vw; border-bottom:1px solid var(--line); background:rgba(14,15,17,.72); backdrop-filter:blur(14px); }
+.dg-logo{ font-family:var(--serif); font-size:19px; letter-spacing:.22em; }
+.dg-nav{ display:flex; gap:22px; margin-left:auto; font-size:12.5px; letter-spacing:.08em; }
+.dg-nav a{ opacity:.72 } .dg-nav a:hover{ opacity:1 }
+.dg-nav .is-store{ opacity:1; border:1px solid var(--line); padding:6px 14px; }
+.dg-nav .is-current{ opacity:1; color:var(--accent) }
+
+/* ---- 下層ページヘッダー（薄い帯ヒーロー） ---- */
+.page-head{ position:relative; border-bottom:1px solid var(--line); overflow:hidden }
+.page-head .bg{ position:absolute; inset:0; }
+.page-head .bg img{ width:100%; height:100%; object-fit:cover; opacity:.34; filter:grayscale(.25) }
+.page-head .bg::after{ content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(14,15,17,.4), rgba(14,15,17,.92)) }
+.page-head .in{ position:relative; padding:92px 0 56px }
+.page-head .crumb{ font-size:11px; letter-spacing:.2em; color:var(--accent); }
+.page-head h1{ font-family:var(--serif); font-weight:500; margin:14px 0 10px;
+  font-size:clamp(1.6rem,1rem+1.8vw,2.5rem); letter-spacing:.08em; }
+.page-head .lead{ margin:0; font-size:13.5px; line-height:2; opacity:.7; max-width:40em }
+
+/* ---- セクション共通 ---- */
+.sec{ padding:88px 0 }
+.sec-head{ display:flex; align-items:baseline; gap:16px; margin-bottom:40px }
+.sec-head .no{ font-family:var(--serif); color:var(--accent); font-size:13px; letter-spacing:.2em }
+.sec-head h2{ font-family:var(--serif); font-weight:500; font-size:clamp(1.3rem,.9rem+1.1vw,2rem); letter-spacing:.08em; margin:0 }
+.sec-head .en{ margin-left:auto; font-size:11px; letter-spacing:.22em; opacity:.4 }
+
+/* ---- ボタン ---- */
+.btn{ display:inline-block; border:1px solid var(--paper); padding:11px 24px; font-size:12px; letter-spacing:.1em }
+.btn:hover{ background:var(--paper); color:var(--ink) }
+.btn.gold{ border-color:var(--accent); color:var(--accent) }
+.btn.gold:hover{ background:var(--accent); color:var(--ink) }
+
+/* ---- 汎用2カラム帯 ---- */
+.two{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line) }
+.two > div{ background:var(--ink); padding:52px 40px }
+.two h3{ font-family:var(--serif); font-weight:500; font-size:1.25rem; margin:0 0 12px }
+.two p{ font-size:13px; line-height:2; opacity:.65; margin:0 0 18px }
+
+/* ---- 注記（ダミー明示） ---- */
+.dg-note{ margin-top:18px; padding:12px 14px; border:1px solid var(--line);
+  font-size:11px; line-height:1.9; opacity:.72 }
+.dg-note b{ color:var(--accent); font-weight:500 }
+
+/* ---- フッター ---- */
+.dg-footer{ border-top:1px solid var(--line); padding:56px 4vw 34px; font-size:12px }
+.f-top{ display:flex; gap:40px; flex-wrap:wrap; margin-bottom:34px }
+.f-top .b{ font-family:var(--serif); font-size:16px; letter-spacing:.2em; margin-right:auto }
+.f-top a{ opacity:.62 } .f-top a:hover{ opacity:1 }
+.f-bot{ display:flex; justify-content:space-between; opacity:.35; font-size:11px }
+
+@media(max-width:900px){
+  .dg-nav{ display:none }
+  .two{ grid-template-columns:1fr }
+}

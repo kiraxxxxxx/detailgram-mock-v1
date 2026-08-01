@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Brand ｜ DETAIL GRAM（下層モック）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/br-kit.css">
+<link rel="stylesheet" href="assets/dg-base.css">
+<link rel="stylesheet" href="assets/dg-sub.css">
+<style>
+  /* Brand専用 */
+  .origin{ display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center }
+  .origin .im{ background:#0b0c0e; overflow:hidden; aspect-ratio:3/4; max-height:560px }
+  .origin .im img{ width:100%; height:100%; object-fit:cover }
+  .origin h3{ font-family:var(--serif); font-weight:500; font-size:1.6rem; margin:0 0 18px; letter-spacing:.06em }
+  .origin p{ line-height:2.1; font-size:14px; opacity:.72; margin:0 0 12px }
+  .word{ display:flex; gap:26px; margin-top:24px }
+  .word .w{ border:1px solid var(--line); padding:18px 22px; flex:1 }
+  .word .w b{ display:block; font-family:var(--serif); font-weight:500; color:var(--accent); letter-spacing:.14em; margin-bottom:8px }
+  .word .w span{ font-size:12.5px; line-height:1.9; opacity:.68 }
+
+  .cores{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px }
+  .core{ border:1px solid var(--line); padding:34px 28px; background:var(--ink-2) }
+  .core .n{ font-family:var(--serif); color:var(--accent); font-size:12px; letter-spacing:.2em }
+  .core h3{ font-family:var(--serif); font-weight:500; font-size:1.15rem; margin:12px 0 12px }
+  .core p{ font-size:13px; line-height:2; opacity:.66; margin:0 }
+
+  .detail-list{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line) }
+  .detail-list > div{ background:var(--ink); padding:30px 28px }
+  .detail-list b{ display:block; font-family:var(--serif); font-weight:500; font-size:14.5px; margin-bottom:8px; letter-spacing:.06em }
+  .detail-list b i{ font-style:normal; font-size:11px; color:var(--accent); margin-left:8px; letter-spacing:.08em }
+  .detail-list p{ margin:0; font-size:12.5px; line-height:2; opacity:.62 }
+
+  .letter{ background:var(--ink-2); border-block:1px solid var(--line) }
+  .letter .in{ max-width:680px; margin-inline:auto; text-align:center; padding:96px 4vw }
+  .letter blockquote{ margin:0 0 20px; font-family:var(--serif); font-weight:500;
+    font-size:clamp(1.1rem,.9rem+.9vw,1.6rem); line-height:2.1; letter-spacing:.04em }
+  .letter .src{ font-size:11.5px; letter-spacing:.14em; opacity:.5 }
+
+  .founder{ display:grid; grid-template-columns:.9fr 1.1fr; gap:56px; align-items:center }
+  .founder .im{ background:#0b0c0e; overflow:hidden; aspect-ratio:4/3 }
+  .founder .im img{ width:100%; height:100%; object-fit:cover; filter:grayscale(.2) }
+  .founder h3{ font-family:var(--serif); font-weight:500; font-size:1.4rem; margin:0 0 16px }
+  .founder p{ font-size:13.5px; line-height:2.1; opacity:.7; margin:0 0 12px }
+  .founder .sig{ margin-top:18px; font-size:12px; letter-spacing:.14em; opacity:.55 }
+
+  @media(max-width:900px){
+    .origin,.founder{ grid-template-columns:1fr }
+    .cores{ grid-template-columns:1fr }
+    .detail-list{ grid-template-columns:1fr }
+    .word{ flex-direction:column }
+  }
+</style>
+</head>
+<body>
+<div class="br-grain" aria-hidden="true"></div>
+
+<!-- ===== header（Horizon: header-group は触らない／確認用） ===== -->
+<header class="dg-header">
+  <a class="dg-logo" href="final.html">DETAIL GRAM</a>
+  <nav class="dg-nav">
+    <a href="brand.html" class="is-current">Brand</a><a href="product.html">Product</a><a href="stockist.html">Stockist</a>
+    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="store.html" class="is-store">Store</a><a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- ===== SECTION: page-head → detailgram-brand-head.liquid ===== -->
+<section class="dg-section page-head">
+  <div class="bg"><img src="assets/dummy/scene_hero.jpg" alt=""></div>
+  <div class="dg-wrap in">
+    <span class="crumb">BRAND / ABOUT</span>
+    <h1 data-br="chars">名前の理由は、細部にある。</h1>
+    <p class="lead" data-br="reveal" data-br-delay=".3s">ディテールグラムは、機能をすべて満たした上で、やりすぎないカジュアルをつくる大人のアイウェアブランドです。企画・デザインは埼玉のアトリエで。製造は福井・鯖江で、全工程を日本国内で行っています。</p>
+  </div>
+</section>
+
+<!-- ===== SECTION: origin（社名の由来） → detailgram-brand-origin.liquid ===== -->
+<section class="dg-section sec">
+  <div class="dg-wrap origin">
+    <div class="im r-frame" data-br="reveal">
+      <img src="assets/wearing/wear_as_m.jpg" alt="着用イメージ（AI生成・仮）">
+    </div>
+    <div>
+      <div class="sec-head" style="margin-bottom:24px"><span class="no">01</span><h2>社名の由来</h2><span class="en">DETAIL + GRAM</span></div>
+      <p data-br="reveal">掛けたときに消えてしまうほどの軽さと、指先が触れる場所の精度。名前は、そのふたつからできています。</p>
+      <p data-br="reveal" data-br-delay=".1s">シンプルに見えて、よく見るとこだわっている。見えないところまで作り込むから、「ディテール（詳細）」を名乗っています。</p>
+      <div class="word" data-br="stagger">
+        <div class="w"><b>DETAIL</b><span>細部。設計・軽さ・耐久性を満たした上で、飾りではなく造形で美しさを出すこと。</span></div>
+        <div class="w"><b>GRAM</b><span>軽さの単位。掛けていることを忘れるほどの、負担のなさへのこだわり。</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: cores（3つの核） → detailgram-brand-cores.liquid ===== -->
+<section class="dg-section sec" style="padding-top:0">
+  <div class="dg-wrap">
+    <div class="sec-head" data-br="reveal"><span class="no">02</span><h2>ブランドが信じていること</h2><span class="en">THREE CORES</span></div>
+    <div class="cores" data-br="stagger" data-br-step="0.08">
+      <div class="core r-card"><span class="n">CORE 01</span><h3>機能がデザインの土台</h3><p>カジュアルに見えて、その下には全機能があります。設計・軽さ・耐久性を満たさないデザインはしない。それがこのブランドの一線です。</p></div>
+      <div class="core r-card"><span class="n">CORE 02</span><h3>日本人・アジア人の骨格に最適化</h3><p>欧米のメガネは、日本人の顔でははずれやすい。だから、かけている時に内側へ締まるバネ性と、全モデル共通の2mmテンプル段差で、"似合う・ずれない・疲れない"を構造で実現しています。</p></div>
+      <div class="core r-card"><span class="n">CORE 03</span><h3>鯖江・全工程日本製</h3><p>日本で全部つくれば、日本にお金が回り、技術が廃れない。小ロットを受け、約束を守る日本の工場が、お客様への安定供給を支えています。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: craftsmanship（造形のこだわり） → detailgram-brand-details.liquid ===== -->
+<section class="dg-section sec" style="padding-top:0">
+  <div class="dg-wrap">
+    <div class="sec-head" data-br="reveal"><span class="no">03</span><h2>細部のはなし</h2><span class="en">CRAFTSMANSHIP</span></div>
+    <div class="detail-list" data-br="stagger" data-br-step="0.06">
+      <div><b>継ぎ目のない一枚板<i>TITANIUM</i></b><p>外側にチタンの一枚板を使い、内側にリムを巻く。レンズを入れても継ぎ目が見えず、意匠がきれいに収まります。</p></div>
+      <div><b>2mmのテンプル段差<i>ALL MODELS</i></b><p>テンプルに2mmの段差を入れ、実質1サイズ大きく。こめかみと耳への圧迫を和らげ、ズレを最小限に抑えます。全モデル共通です。</p></div>
+      <div><b>細く仕上げた鎧<i>YOROI</i></b><p>鎧（フロントとテンプルの境目）を、あえて細く。スッキリ感と、静かな高級感のために。</p></div>
+      <div><b>8割の人に似合う玉型<i>LENS SHAPE</i></b><p>凝りすぎた玉型は、似合う人を選びます。卵型を基本に、強度近視でも厚みが目立たず、顔の大きい方でも掛けられるサイズ設計にしています。</p></div>
+      <div><b>マットと光沢の対比<i>FINISH</i></b><p>一部をマット、一部を光沢に。飾りを足すのではなく、仕上げの対比で、シンプルなまま手の込んだ表情をつくります。</p></div>
+      <div><b>FC七宝の色<i>SHIPPO</i></b><p>焼き付けた色は褪せず、金属のままの温度で発色します。ここだけは急げない工程です。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: letter（お客様の声＝コンプレックスをポジティブに） → detailgram-brand-letter.liquid ===== -->
+<section class="dg-section letter">
+  <div class="in">
+    <blockquote data-br="reveal">「長年メガネがコンプレックスだったけれど、<br>初めて周りに"おしゃれだね"と言われました」</blockquote>
+    <span class="src" data-br="reveal" data-br-delay=".2s">— お客様からいただいた手紙より</span>
+    <p style="margin:26px 0 0; font-size:13px; line-height:2.1; opacity:.66" data-br="reveal" data-br-delay=".3s">メガネは、人の印象を一番変えやすいアイテムだと思っています。悩みやコンプレックスを、その人の長所に変えられたら。それが、このブランドの誇りです。</p>
+  </div>
+</section>
+
+<!-- ===== SECTION: founder（代表のことば・10年） → detailgram-brand-founder.liquid ===== -->
+<section class="dg-section sec">
+  <div class="dg-wrap founder">
+    <div class="im r-frame" data-br="reveal">
+      <img src="assets/dummy/scene_craft3.jpg" alt="仕上げの様子（仮画像）">
+    </div>
+    <div>
+      <div class="sec-head" style="margin-bottom:20px"><span class="no">04</span><h2>代表のことば</h2><span class="en">FOUNDER</span></div>
+      <h3 data-br="reveal">細く、長く。100年続くブランドへ。</h3>
+      <p data-br="reveal" data-br-delay=".1s">シェアの何割を取りたい、という考えはありません。一部の好きな人と共に楽しめて、幸せにできて、一緒に仕事ができたら。それがいいと思っています。</p>
+      <p data-br="reveal" data-br-delay=".2s">創業から約10年。買ってくださったお客様への一番の提供は、ブランドが残り続けることだと考えています。だから目の前の売上だけでなく、どうすれば続くかから逆算して、今を選んでいます。</p>
+      <p class="sig" data-br="reveal" data-br-delay=".3s">株式会社ディテールグラム 代表／メガネフレームデザイナー　橋本</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: next（回遊導線） → detailgram-brand-next.liquid ===== -->
+<section class="dg-section two">
+  <div data-br="reveal">
+    <h3>かたちを見る</h3>
+    <p>4つのライン、実働37型。気分やTPOで、形と色を選ぶ愉しみを。</p>
+    <a class="btn r-pill" href="product.html">PRODUCT を見る</a>
+  </div>
+  <div data-br="reveal" data-br-delay=".1s">
+    <h3>試せる店を探す</h3>
+    <p>眼鏡は、掛けてみないと分からない。全国の取扱店でお試しください。</p>
+    <a class="btn r-pill" href="stockist.html">STOCKIST を見る</a>
+  </div>
+</section>
+
+<!-- ===== footer（Horizon: footer-group は触らない／確認用） ===== -->
+<footer class="dg-footer">
+  <div class="f-top">
+    <span class="b">DETAIL GRAM</span>
+    <a href="brand.html">Brand</a><a href="product.html">Product</a><a href="stockist.html">Stockist</a>
+    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="store.html">Store</a><a href="contact.html">Contact（採用も）</a><a href="https://www.instagram.com/detailgram_inc/" rel="noopener">Instagram</a>
+  </div>
+  <div class="f-bot"><span>© DETAIL GRAM</span><span>下層モック ｜ Brand ｜ デザイン検討用・仮画像あり</span></div>
+  <div class="dg-note"><b>※ 画像について</b>：着用イメージはAI生成の仮画像、工房の写真は位置を示す仮画像です。本番は撮影／ご提供写真に差し替えます。</div>
+</footer>
+
+<script src="assets/br-kit.js"></script>
+</body>
+</html>

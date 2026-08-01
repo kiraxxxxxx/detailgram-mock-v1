@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Stockist ｜ DETAIL GRAM（下層モック）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/br-kit.css">
+<link rel="stylesheet" href="assets/dg-base.css">
+<link rel="stylesheet" href="assets/dg-sub.css">
+<style>
+  /* Stockist専用 */
+  .regions{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:34px; font-size:12px }
+  .regions a{ border:1px solid var(--line); padding:7px 15px; opacity:.75; letter-spacing:.06em }
+  .regions a:hover{ opacity:1; border-color:var(--accent); color:var(--accent) }
+
+  .region{ margin-bottom:44px }
+  .region h3{ font-family:var(--serif); font-weight:500; font-size:1.2rem; letter-spacing:.1em;
+    margin:0 0 4px; display:flex; align-items:baseline; gap:14px }
+  .region h3 .en{ font-size:10.5px; letter-spacing:.22em; opacity:.4 }
+  .region .cnt{ margin-left:auto; font-size:11px; opacity:.45 }
+  .shops{ border-top:1px solid var(--line) }
+  .shop{ display:grid; grid-template-columns:9em 1fr 12em; gap:16px; align-items:baseline;
+    padding:15px 2px; border-bottom:1px solid var(--line); font-size:13px; transition:padding-left .25s }
+  .shop:hover{ padding-left:9px; background:rgba(255,255,255,.02) }
+  .shop .pref{ font-size:11px; letter-spacing:.12em; color:var(--accent) }
+  .shop .name{ letter-spacing:.04em }
+  .shop .city{ font-size:11.5px; opacity:.5; text-align:right }
+
+  .feature-shop{ display:grid; grid-template-columns:1.1fr .9fr; gap:0; border:1px solid var(--line); background:var(--ink-2) }
+  .feature-shop .im{ overflow:hidden; min-height:320px }
+  .feature-shop img{ width:100%; height:100%; object-fit:cover; filter:grayscale(.25) }
+  .feature-shop .tx{ padding:44px; display:flex; flex-direction:column; justify-content:center; gap:12px }
+  .feature-shop .k{ font-size:11px; letter-spacing:.2em; color:var(--accent) }
+  .feature-shop h3{ font-family:var(--serif); font-weight:500; font-size:1.3rem; margin:0 }
+  .feature-shop p{ font-size:13px; line-height:2; opacity:.66; margin:0 }
+
+  @media(max-width:900px){
+    .shop{ grid-template-columns:1fr; gap:2px }
+    .shop .city{ text-align:left }
+    .feature-shop{ grid-template-columns:1fr }
+  }
+</style>
+</head>
+<body>
+<div class="br-grain" aria-hidden="true"></div>
+
+<!-- ===== header（Horizon: header-group は触らない／確認用） ===== -->
+<header class="dg-header">
+  <a class="dg-logo" href="final.html">DETAIL GRAM</a>
+  <nav class="dg-nav">
+    <a href="brand.html">Brand</a><a href="product.html">Product</a><a href="stockist.html" class="is-current">Stockist</a>
+    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="store.html" class="is-store">Store</a><a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- ===== SECTION: page-head → detailgram-stockist-head.liquid ===== -->
+<section class="dg-section page-head">
+  <div class="bg"><img src="assets/dummy/scene_stockist.jpg" alt=""></div>
+  <div class="dg-wrap in">
+    <span class="crumb">STOCKIST</span>
+    <h1 data-br="chars">試せる店を探す</h1>
+    <p class="lead" data-br="reveal" data-br-delay=".3s">眼鏡は、掛けてみないと分かりません。サイズ感・掛け心地・色の見え方は、ぜひ店頭でお確かめください。全国の取扱店と、海外の取扱先を掲載しています。修理・調整のご相談も、お近くの取扱店へ。</p>
+  </div>
+</section>
+
+<!-- ===== SECTION: featured（取扱店ピックアップ） → detailgram-stockist-featured.liquid ===== -->
+<section class="dg-section sec">
+  <div class="dg-wrap">
+    <div class="feature-shop r-card" data-br="reveal">
+      <div class="im"><img src="assets/dummy/scene_stockist.jpg" alt="取扱店 店頭（仮画像）"></div>
+      <div class="tx">
+        <span class="k">PICK UP STOCKIST</span>
+        <h3>取扱店名（実店舗写真と入れ替え）</h3>
+        <p>多くの型番を取り扱っていただいている店舗を、写真つきで紹介する枠です。店頭の雰囲気が伝わると、「行ってみよう」までの距離が縮まります。</p>
+        <p style="font-size:11px; opacity:.45">※写真・店舗名は、ご提供いただく実店舗のものに差し替えます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: list（地域別リスト） → detailgram-stockist-list.liquid ===== -->
+<section class="dg-section sec" style="padding-top:0">
+  <div class="dg-wrap">
+    <div class="sec-head" data-br="reveal"><span class="no">01</span><h2>取扱店一覧</h2><span class="en">BY REGION</span></div>
+    <nav class="regions" data-br="reveal" aria-label="地域で移動">
+      <a href="#r-hokkaido">北海道・東北</a><a href="#r-kanto">関東</a><a href="#r-chubu">中部</a>
+      <a href="#r-kansai">関西</a><a href="#r-chugoku">中国・四国</a><a href="#r-kyushu">九州・沖縄</a><a href="#r-asia">ASIA</a>
+    </nav>
+
+    <div class="region" id="r-kanto" data-br="reveal">
+      <h3>関東 <span class="en">KANTO</span><span class="cnt">掲載◯件（実データ流し込み）</span></h3>
+      <div class="shops">
+        <div class="shop"><span class="pref">東京都</span><span class="name">取扱店名（ダミー）</span><span class="city">市区町村（ダミー）</span></div>
+        <div class="shop"><span class="pref">東京都</span><span class="name">取扱店名（ダミー）</span><span class="city">市区町村（ダミー）</span></div>
+        <div class="shop"><span class="pref">埼玉県</span><span class="name">取扱店名（ダミー）</span><span class="city">市区町村（ダミー）</span></div>
+        <div class="shop"><span class="pref">神奈川県</span><span class="name">取扱店名（ダミー）</span><span class="city">市区町村（ダミー）</span></div>
+      </div>
+    </div>
+
+    <div class="region" id="r-kansai" data-br="reveal">
+      <h3>関西 <span class="en">KANSAI</span><span class="cnt">掲載◯件（実データ流し込み）</span></h3>
+      <div class="shops">
+        <div class="shop"><span class="pref">大阪府</span><span class="name">取扱店名（ダミー）</span><span class="city">市区町村（ダミー）</span></div>
+        <div class="shop"><span class="pref">兵庫県</span><span class="name">取扱店名（ダミー）</span><span class="city">市区町村（ダミー）</span></div>
+      </div>
+    </div>
+
+    <div class="region" id="r-asia" data-br="reveal">
+      <h3>ASIA <span class="en">OVERSEAS</span><span class="cnt">掲載◯件（実データ流し込み）</span></h3>
+      <div class="shops">
+        <div class="shop"><span class="pref">台湾</span><span class="name">取扱先名（ダミー）</span><span class="city">都市（ダミー）</span></div>
+        <div class="shop"><span class="pref">香港</span><span class="name">取扱先名（ダミー）</span><span class="city">都市（ダミー）</span></div>
+      </div>
+    </div>
+
+    <div class="dg-note" data-br="reveal"><b>※ モックの表示範囲</b>：店舗名・地域はすべてダミーです。本実装では現行サイトの取扱店一覧＋橋本さんの最新リストを流し込み、地域見出し（北海道・東北／関東／中部／関西／中国・四国／九州・沖縄／ASIA）で整理します。多くお取り扱いいただいている店舗を優先掲載します。</div>
+  </div>
+</section>
+
+<!-- ===== SECTION: next → detailgram-stockist-next.liquid ===== -->
+<section class="dg-section two">
+  <div data-br="reveal">
+    <h3>お取扱いをご検討の店舗様へ</h3>
+    <p>新規のお取扱いのご相談・カタログ請求は、事業者様窓口から承っています。</p>
+    <a class="btn gold r-pill" href="for-business.html">FOR BUSINESS へ</a>
+  </div>
+  <div data-br="reveal" data-br-delay=".1s">
+    <h3>かたちを見る</h3>
+    <p>お店に行く前に、気になる一本を見つけておく。</p>
+    <a class="btn r-pill" href="product.html">PRODUCT を見る</a>
+  </div>
+</section>
+
+<!-- ===== footer（Horizon: footer-group は触らない／確認用） ===== -->
+<footer class="dg-footer">
+  <div class="f-top">
+    <span class="b">DETAIL GRAM</span>
+    <a href="brand.html">Brand</a><a href="product.html">Product</a><a href="stockist.html">Stockist</a>
+    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="store.html">Store</a><a href="contact.html">Contact（採用も）</a><a href="https://www.instagram.com/detailgram_inc/" rel="noopener">Instagram</a>
+  </div>
+  <div class="f-bot"><span>© DETAIL GRAM</span><span>下層モック ｜ Stockist ｜ デザイン検討用・店舗名ダミー</span></div>
+</footer>
+
+<script src="assets/br-kit.js"></script>
+</body>
+</html>
