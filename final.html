@@ -33,7 +33,10 @@
 
   /* --- HERO：写真1枚を映画のカットに（br-cinema） --- */
   .hero{ position:relative; }
-  .hero .br-cinema{ background:#000 }
+  .hero .br-cinema{ background:#000; overflow:hidden }
+  .hero .br-cinema img{ animation:heroKB 18s ease-in-out infinite alternate; will-change:transform }
+  @keyframes heroKB{ from{ transform:scale(1) } to{ transform:scale(1.12) } }
+  @media (prefers-reduced-motion: reduce){ .hero .br-cinema img{ animation:none } }
   .hero-copy{ position:absolute; inset:auto 0 12% 0; text-align:center; }
   .hero-copy h1{ font-family:var(--serif); font-weight:500; margin:0 0 14px;
     font-size:clamp(1.6rem,.9rem+2.4vw,3.1rem); letter-spacing:.06em; }
@@ -71,6 +74,14 @@
   .detail-in{ display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center; padding:88px 0 }
   .lens{ position:relative; overflow:hidden; background:#0b0c0e; aspect-ratio:4/5; max-height:560px }
   .lens img{ width:100%; height:100%; object-fit:cover; object-position:center 32%; display:block }
+  /* Ken Burns スライダー：重ねてクロスフェード＋微速ズーム */
+  .kb-slider{ position:relative }
+  .kb-slider .kb{ position:absolute; inset:0; opacity:0; transition:opacity 1.6s ease; will-change:opacity,transform }
+  .kb-slider .kb.on{ opacity:1; animation:kbzoom 7s ease-out both }
+  @keyframes kbzoom{ from{ transform:scale(1) } to{ transform:scale(1.09) } }
+  @media (prefers-reduced-motion: reduce){
+    .kb-slider .kb{ transition:none } .kb-slider .kb.on{ animation:none }
+  }
   .lens::after{ content:""; position:absolute; inset:0; box-shadow:inset 0 0 0 1px rgba(0,0,0,.08) }
   /* --- 着用写真スライド（BRANDセクション左） --- */
   .wear-slider{ position:relative; overflow:hidden; background:#0b0c0e; aspect-ratio:3/4 }
@@ -221,8 +232,13 @@
 <!--        → detailgram-home-brand.liquid -->
 <section class="dg-section detail">
   <div class="dg-wrap detail-in">
-    <div class="lens r-frame" data-br="reveal">
-      <img src="assets/wearing/wear_fx_01.jpg" alt="着用イメージ（AI生成・仮）">
+    <div class="lens r-frame kb-slider" data-br="reveal">
+      <img class="kb on" src="assets/wearing/wear_wh_m.jpg" alt="着用イメージ（AI生成・仮）">
+      <img class="kb" src="assets/wearing/wear_as_f.jpg" alt="着用イメージ（AI生成・仮）">
+      <img class="kb" src="assets/wearing/wear_bk_m.jpg" alt="着用イメージ（AI生成・仮）">
+      <img class="kb" src="assets/wearing/wear_wh_f.jpg" alt="着用イメージ（AI生成・仮）">
+      <img class="kb" src="assets/wearing/wear_as_m.jpg" alt="着用イメージ（AI生成・仮）">
+      <img class="kb" src="assets/wearing/wear_bk_f.jpg" alt="着用イメージ（AI生成・仮）">
       <span class="ws-note">着用イメージ（AI生成・仮）</span>
     </div>
     <div>
@@ -311,19 +327,23 @@
 
 <script src="assets/br-kit.js"></script>
 <script>
-  /* 着用写真スライド：自動送り＋ドット（reduced-motionは自動送りしない） */
+  /* 着用イメージ Ken Burns スライダー：重ねてクロスフェード＋各カットで微速ズーム */
   (function(){
-    var track = document.querySelector('.ws-track');
-    if(!track) return;
-    var imgs = track.querySelectorAll('img');
-    var dotsWrap = document.querySelector('.ws-dots');
-    var i = 0, n = imgs.length;
-    for(var k=0;k<n;k++){ var d=document.createElement('i'); if(k===0)d.className='on'; dotsWrap.appendChild(d); }
-    var dots = dotsWrap.querySelectorAll('i');
-    function go(x){ i=(x+n)%n; track.style.transform='translateX(-'+(i*100)+'%)';
-      dots.forEach(function(d,j){ d.className = j===i?'on':''; }); }
+    var slider = document.querySelector('.kb-slider');
+    if(!slider) return;
+    var imgs = slider.querySelectorAll('.kb');
+    if(imgs.length < 2) return;
     var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(!reduce){ setInterval(function(){ go(i+1); }, 3200); }
+    if(reduce) return; /* 動きを抑える設定なら1枚目のまま静止 */
+    var i = 0, n = imgs.length;
+    setInterval(function(){
+      imgs[i].classList.remove('on');
+      i = (i + 1) % n;
+      var next = imgs[i];
+      /* ズームをリスタートさせる（アニメを再適用） */
+      next.style.animation = 'none'; void next.offsetWidth; next.style.animation = '';
+      next.classList.add('on');
+    }, 4200);
   })();
 </script>
 </body>
