@@ -34,9 +34,21 @@
   /* --- HERO：写真1枚を映画のカットに（br-cinema） --- */
   .hero{ position:relative; }
   .hero .br-cinema{ background:#000; overflow:hidden }
-  .hero .br-cinema img{ animation:heroKB 18s ease-in-out infinite alternate; will-change:transform }
-  @keyframes heroKB{ from{ transform:scale(1) } to{ transform:scale(1.12) } }
-  @media (prefers-reduced-motion: reduce){ .hero .br-cinema img{ animation:none } }
+  /* ヒーロー・スライドショー：フワッとクロスフェード＋弧を描くドリフト(クラシックKen Burns) */
+  .hero-slider{ position:relative }
+  .hero-slider .hs{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    opacity:0; transition:opacity 2s ease; }
+  /* br-kitの .br-cinema>img{animation:none!important} を上書きするため !important 指定 */
+  .hero-slider .hs.on{ opacity:1; animation:heroDrift 20s ease-in-out infinite alternate !important; }
+  .hero-slider .hs:nth-child(2).on{ animation:heroDrift2 20s ease-in-out infinite alternate !important; }
+  .hero-slider .hs:nth-child(3).on{ animation:heroDrift3 20s ease-in-out infinite alternate !important; }
+  .hero-slider .hs:nth-child(4).on{ animation:heroDrift4 20s ease-in-out infinite alternate !important; }
+  /* 弧を描くように移動しながら微ズーム（円運動感） */
+  @keyframes heroDrift{ 0%{transform:scale(1.12) translate(-1.5%,-1%)} 50%{transform:scale(1.16) translate(1.5%,0.5%)} 100%{transform:scale(1.12) translate(1%,1.5%)} }
+  @keyframes heroDrift2{ 0%{transform:scale(1.12) translate(1.5%,-1%)} 50%{transform:scale(1.16) translate(-1%,1%)} 100%{transform:scale(1.12) translate(-1.5%,-1.5%)} }
+  @keyframes heroDrift3{ 0%{transform:scale(1.13) translate(-1%,1.5%)} 50%{transform:scale(1.17) translate(1%,-1%)} 100%{transform:scale(1.13) translate(1.5%,0.5%)} }
+  @keyframes heroDrift4{ 0%{transform:scale(1.12) translate(1%,1%)} 50%{transform:scale(1.16) translate(-1.5%,-0.5%)} 100%{transform:scale(1.12) translate(-1%,1.5%)} }
+  @media (prefers-reduced-motion: reduce){ .hero-slider .hs.on{ animation:none !important; transform:scale(1.05) } }
   .hero-copy{ position:absolute; inset:auto 0 12% 0; text-align:center; }
   .hero-copy h1{ font-family:var(--serif); font-weight:500; margin:0 0 14px;
     font-size:clamp(1.6rem,.9rem+2.4vw,3.1rem); letter-spacing:.06em; }
@@ -178,8 +190,11 @@
 
 <!-- ===== SECTION: hero  → detailgram-home-hero.liquid ===== -->
 <section class="dg-section hero">
-  <div class="br-cinema">
-    <img src="assets/dummy/scene_hero.jpg" alt="鯖江の工房（ダミー）">
+  <div class="br-cinema hero-slider">
+    <img class="hs on" src="assets/dummy/scene_hero.jpg" alt="鯖江の工房（ダミー）">
+    <img class="hs" src="assets/dummy/hero_2.jpg" alt="鯖江の工房（ダミー）">
+    <img class="hs" src="assets/dummy/hero_3.jpg" alt="仕上げ（ダミー）">
+    <img class="hs" src="assets/dummy/hero_4.jpg" alt="完成（ダミー）">
   </div>
   <div class="hero-copy">
     <h1 data-br="chars">機能の上に立つ、引き算</h1>
@@ -344,6 +359,23 @@
       next.style.animation = 'none'; void next.offsetWidth; next.style.animation = '';
       next.classList.add('on');
     }, 4200);
+  })();
+
+  /* ヒーロー・スライドショー切替（クロスフェード） */
+  (function(){
+    var hero = document.querySelector('.hero-slider');
+    if(!hero) return;
+    var imgs = hero.querySelectorAll('.hs');
+    if(imgs.length < 2) return;
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var i = 0, n = imgs.length;
+    setInterval(function(){
+      imgs[i].classList.remove('on');
+      i = (i + 1) % n;
+      var nx = imgs[i];
+      nx.style.animation='none'; void nx.offsetWidth; nx.style.animation='';
+      nx.classList.add('on');
+    }, 6000);
   })();
 </script>
 </body>
