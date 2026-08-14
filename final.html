@@ -152,6 +152,15 @@
   .z-more a{ display:inline-block; border:1px solid var(--paper); padding:12px 30px; font-size:12.5px; letter-spacing:.08em; opacity:.85 }
   .z-more a:hover{ background:var(--paper); color:var(--ink); opacity:1 }
 
+  /* --- LINES（4ブランド紹介） --- */
+  .lines-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line) }
+  .line-card{ background:var(--ink); padding:38px 26px 30px; display:flex; flex-direction:column; gap:14px; transition:background .3s }
+  .line-card:hover{ background:var(--ink-2) }
+  .line-card .lg{ height:56px; display:flex; align-items:center }
+  .line-card .lg img{ max-height:100%; max-width:82%; width:auto; object-fit:contain }
+  .line-card p{ margin:0; font-size:12px; line-height:1.95; opacity:.62; flex:1 }
+  .line-card .go{ font-size:11px; letter-spacing:.14em; color:var(--accent) }
+
   /* --- STOCKIST / BUSINESS --- */
   .two{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line) }
   .two > div{ background:var(--ink); padding:52px 40px }
@@ -172,6 +181,7 @@
     .grid{ grid-template-columns:repeat(2,1fr) }
     .z-grid{ grid-template-columns:repeat(2,1fr) }
     .gates,.detail-in,.panel,.two{ grid-template-columns:1fr }
+    .lines-grid{ grid-template-columns:repeat(2,1fr) }
     .dg-nav{ display:none }
   }
 </style>
@@ -184,7 +194,7 @@
   <span class="dg-logo">DETAIL GRAM</span>
   <nav class="dg-nav">
     <a href="brand.html">Brand</a><a href="product.html">Product</a><a href="stockist.html">Stockist</a>
-    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="store.html" class="is-store">Store</a><a href="contact.html">Contact</a>
+    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="product.html" class="is-store">Store</a><a href="contact.html">Contact</a>
   </nav>
 </header>
 
@@ -231,7 +241,7 @@
     </div>
     <div class="z-grid" data-br="stagger" data-br-step="0.06">
       <a class="z-card" href="product-detail.html"><figure><span class="z-no">No.01</span><img src="assets/products/DG0025.jpg" alt="DG0025"></figure><div class="z-body"><div class="z-name">DG0025</div><div class="z-sub">チタン／6色展開</div><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥52,000</span></div></div></a>
-      <a class="z-card" href="product-detail.html"><figure><span class="z-no">No.02</span><img src="assets/products/DG0015.jpg" alt="DG0015"></figure><div class="z-body"><div class="z-name">DG0015</div><div class="z-sub">Line series</div><span class="z-tag">メガネ大賞</span><div class="z-foot"><span class="z-line">quadro</span><span class="z-price">¥52,000</span></div></div></a>
+      <a class="z-card" href="product-detail.html"><figure><span class="z-no">No.02</span><img src="assets/products/DG0015.jpg" alt="DG0015"></figure><div class="z-body"><div class="z-name">DG0015</div><div class="z-sub">Line series</div><span class="z-tag">M.E.E グランプリ</span><div class="z-foot"><span class="z-line">quadro</span><span class="z-price">¥52,000</span></div></div></a>
       <a class="z-card" href="product-detail.html"><figure><span class="z-no">No.03</span><img src="assets/products/PE001.jpg" alt="PE001"></figure><div class="z-body"><div class="z-name">PE001</div><div class="z-sub">10周年記念モデル</div><span class="z-tag">10th</span><div class="z-foot"><span class="z-line">pellicule</span><span class="z-price">¥72,000</span></div></div></a>
       <a class="z-card" href="product-detail.html"><figure><span class="z-no">No.04</span><img src="assets/products/TH004.jpg" alt="TH004"></figure><div class="z-body"><div class="z-name">TH004</div><div class="z-sub">デザイナーライン</div><span class="z-tag">NEW</span><div class="z-foot"><span class="z-line">TAKAHIRO HASHIMOTO</span><span class="z-price">¥47,000</span></div></div></a>
       <a class="z-card" href="product-detail.html"><figure><span class="z-no">No.05</span><img src="assets/products/DG0010.jpg" alt="DG0010"></figure><div class="z-body"><div class="z-name">DG0010</div><div class="z-sub">14色展開</div><div class="z-foot"><span class="z-line">quadro</span><span class="z-price">¥39,000</span></div></div></a>
@@ -267,6 +277,37 @@
   </div>
 </section>
 
+<!-- ===== SECTION: lines（4ブランド紹介） → detailgram-home-lines.liquid ===== -->
+<section class="dg-section sec" style="padding-top:0">
+  <div class="dg-wrap">
+    <div class="sec-head" data-br="reveal">
+      <span class="no">—</span><h2>4つのライン</h2><span class="en">BRANDS</span>
+    </div>
+    <div class="lines-grid" data-br="stagger" data-br-step="0.07">
+      <a class="line-card" href="brand.html#line-dg">
+        <span class="lg"><img src="assets/logo/dg_w.png" alt="DETAIL GRAM"></span>
+        <p>詳細（DETAIL）と重さ（GRAM）を合わせた造語。細部まで妥協しない「大人のカジュアル・アイウェア」の中核ライン。</p>
+        <span class="go">詳しく →</span>
+      </a>
+      <a class="line-card" href="brand.html#line-quadro">
+        <span class="lg"><img src="assets/logo/quadro_w.png" alt="quadro"></span>
+        <p>イタリア語で「額縁」。掛けることで、その人の魅力を何倍にも高めることを目的にしたシリーズ。</p>
+        <span class="go">詳しく →</span>
+      </a>
+      <a class="line-card" href="brand.html#line-pellicule">
+        <span class="lg"><img src="assets/logo/pellicule_w.png" alt="pellicule"></span>
+        <p>フランス語で「映画・フィルム」。クラシカルなデザインに現代の掛け心地を融合した、ネオ・レトロのライン。</p>
+        <span class="go">詳しく →</span>
+      </a>
+      <a class="line-card" href="brand.html#line-th">
+        <span class="lg"><img src="assets/logo/th_w.png" alt="TAKAHIRO HASHIMOTO"></span>
+        <p>SILMO PARISで発表されたデザイナーライン。一個智構造とアンティークゴールド仕上げ、技術の象徴。</p>
+        <span class="go">詳しく →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ===== SECTION: craft（工程の章立て・積層） → detailgram-home-craft.liquid ===== -->
 <section class="dg-section sec craft">
   <div class="dg-wrap">
@@ -298,9 +339,10 @@
       <span class="no">03</span><h2>受賞とメディア</h2><span class="en">NEWS / MEDIA</span>
     </div>
     <div class="awards" data-br="stagger" data-br-step="0.06">
-      <span><b>受賞</b>メガネ大賞 デザイン部門（DG0015）</span>
+      <span><b>受賞</b>IOFT 2021 アイウェア・オブ・ザ・イヤー メンズ部門（DG0008）</span>
+      <span><b>受賞</b>IOFT 2023 デザイン部門（DG0015）</span>
+      <span><b>受賞</b>M.E.E 2023 フレームデザイン部門 グランプリ（DG0015）</span>
       <span><b>出展</b>SILMO PARIS</span>
-      <span><b>出展</b>M.E.E（Meets Eyewear Exhibition）</span>
       <span><b>掲載</b>本格眼鏡大全</span>
     </div>
     <div class="news" data-br="reveal">
@@ -332,7 +374,7 @@
   <div class="f-top">
     <span class="b">DETAIL GRAM</span>
     <a href="brand.html">Brand</a><a href="product.html">Product</a><a href="stockist.html">Stockist</a>
-    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="store.html">Store</a><a href="contact.html">Contact（採用も）</a><a href="https://www.instagram.com/detailgram_inc/" rel="noopener">Instagram</a>
+    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="product.html">Store</a><a href="contact.html">Contact（採用も）</a><a href="https://www.instagram.com/detailgram_inc/" rel="noopener">Instagram</a>
   </div>
   <div class="f-bot"><span>© DETAIL GRAM</span><span>確定版 ｜ 黒基調＋製品図録（白）｜デザイン検討用・仮画像あり</span></div>
   <div style="margin-top:18px;padding:12px 14px;border:1px solid var(--line);font-size:11px;line-height:1.9;opacity:.72">

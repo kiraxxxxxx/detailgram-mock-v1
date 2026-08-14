@@ -35,6 +35,17 @@
   .detail-list b i{ font-style:normal; font-size:11px; color:var(--accent); margin-left:8px; letter-spacing:.08em }
   .detail-list p{ margin:0; font-size:12.5px; line-height:2; opacity:.62 }
 
+  /* 4ブランド（ライン）詳説 */
+  .line-block{ display:grid; grid-template-columns:.42fr .58fr; gap:1px; background:var(--line); border:1px solid var(--line); margin-bottom:22px }
+  .line-block > div{ background:var(--ink); padding:40px 36px }
+  .line-block .lg{ background:var(--ink-2); display:flex; align-items:center; justify-content:center; min-height:180px }
+  .line-block .lg img{ max-width:62%; max-height:120px; object-fit:contain }
+  .line-block h3{ font-family:var(--serif); font-weight:500; font-size:1.15rem; margin:0 0 6px; letter-spacing:.06em }
+  .line-block .yomi{ font-size:11px; letter-spacing:.16em; color:var(--accent); display:block; margin-bottom:14px }
+  .line-block p{ margin:0 0 10px; font-size:13px; line-height:2.05; opacity:.7 }
+  .line-block .facts{ margin-top:14px; display:flex; flex-wrap:wrap; gap:8px }
+  .line-block .facts span{ border:1px solid var(--line); padding:5px 11px; font-size:10.5px; letter-spacing:.08em; opacity:.65 }
+
   .letter{ background:var(--ink-2); border-block:1px solid var(--line) }
   .letter .in{ max-width:680px; margin-inline:auto; text-align:center; padding:96px 4vw }
   .letter blockquote{ margin:0 0 20px; font-family:var(--serif); font-weight:500;
@@ -53,6 +64,8 @@
     .cores{ grid-template-columns:1fr }
     .detail-list{ grid-template-columns:1fr }
     .word{ flex-direction:column }
+    .line-block{ grid-template-columns:1fr }
+    .line-block .lg{ min-height:120px }
   }
 </style>
 </head>
@@ -64,7 +77,7 @@
   <a class="dg-logo" href="final.html">DETAIL GRAM</a>
   <nav class="dg-nav">
     <a href="brand.html" class="is-current">Brand</a><a href="product.html">Product</a><a href="stockist.html">Stockist</a>
-    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="store.html" class="is-store">Store</a><a href="contact.html">Contact</a>
+    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="product.html" class="is-store">Store</a><a href="contact.html">Contact</a>
   </nav>
 </header>
 
@@ -123,6 +136,51 @@
   </div>
 </section>
 
+<!-- ===== SECTION: lines（4ブランド詳説） → detailgram-brand-lines.liquid ===== -->
+<section class="dg-section sec" style="padding-top:0">
+  <div class="dg-wrap">
+    <div class="sec-head" data-br="reveal"><span class="no">04</span><h2>4つのライン</h2><span class="en">BRANDS</span></div>
+
+    <div class="line-block r-card" id="line-dg" data-br="reveal">
+      <div class="lg"><img src="assets/logo/dg_w.png" alt="DETAIL GRAM"></div>
+      <div>
+        <h3>DETAIL GRAM</h3><span class="yomi">ディテールグラム ｜ 2016年創業の中核ライン</span>
+        <p>英語で意味は詳細、重さを合わせた造語。細部まで妥協せず品質・デザイン・掛け心地にこだわる『大人のカジュアル・アイウェア』。この思いをブランドのベースに置き、鯖江にて匠の技で作られた純国産フレームブランド。</p>
+        <p>軽くて丈夫な純チタン板のフロントに、FC（フラット七宝）による上質で美しいカラー。βチタンテンプルの2mm段差が、抱きこむような優しい掛け心地をつくります。</p>
+        <div class="facts"><span>受賞 ｜ IOFT 2021 メンズ部門（DG0008）</span><span>受賞 ｜ IOFT 2023 デザイン部門（DG0015）</span><span>受賞 ｜ M.E.E 2023 グランプリ（DG0015）</span></div>
+      </div>
+    </div>
+
+    <div class="line-block r-card" id="line-quadro" data-br="reveal">
+      <div class="lg"><img src="assets/logo/quadro_w.png" alt="quadro"></div>
+      <div>
+        <h3>quadro</h3><span class="yomi">クアドロ</span>
+        <p>イタリア語で意味は、額縁。名作と呼ばれる絵画も、額縁に入れることで魅力は何倍にも膨れ上がる。同じように、クアドロシリーズを掛けることで魅力を何倍にも高めることを目的としたシリーズ。</p>
+        <p>チタン板を切り抜き、角を残した構造に。鮮やかな七宝を際立たせ、個性を表現しています。</p>
+      </div>
+    </div>
+
+    <div class="line-block r-card" id="line-pellicule" data-br="reveal">
+      <div class="lg"><img src="assets/logo/pellicule_w.png" alt="pellicule"></div>
+      <div>
+        <h3>pellicule</h3><span class="yomi">ペリクール ｜ IOFT2023で発表</span>
+        <p>フランス語で意味は映画、フィルム。歴史を感じながらも今を生きる現代人に影響を与え続け、色褪せない存在感を生み出す『ネオ・レトロ スタイル アイウェア』。</p>
+        <p>レトロを感じさせる色合いのイタリア・マツケリー社製アセテート生地とクラシカルデザイン。そして現代の快適な掛け心地を、βチタンの最適なバネ圧で実現。歴史と現代を高次元で融合させたシリーズです。45〜48mmの小ぶりな玉型で、近視レンズの厚みも目立ちにくく。</p>
+      </div>
+    </div>
+
+    <div class="line-block r-card" id="line-th" data-br="reveal">
+      <div class="lg"><img src="assets/logo/th_w.png" alt="TAKAHIRO HASHIMOTO"></div>
+      <div>
+        <h3>TAKAHIRO HASHIMOTO</h3><span class="yomi">タカヒロ ハシモト ｜ SILMO 2024（パリ）で発表・2025年4月発売</span>
+        <p>フロントには剛性に優れたピュアチタン、テンプルにはしなやかなβチタン。高い精度が求められる一個智（いっこち）構造を、リム加工やロー付けまで熟練職人の精密な管理で仕上げています。</p>
+        <p>独自のアンティークゴールド仕上げが特徴。軽さ・強さ・快適な掛け心地を兼ね備えた、DETAIL GRAMの技術力を象徴するデザイナーラインです。</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ===== SECTION: letter（お客様の声＝コンプレックスをポジティブに） → detailgram-brand-letter.liquid ===== -->
 <section class="dg-section letter">
   <div class="in">
@@ -139,7 +197,7 @@
       <img src="assets/dummy/scene_craft3.jpg" alt="仕上げの様子（仮画像）">
     </div>
     <div>
-      <div class="sec-head" style="margin-bottom:20px"><span class="no">04</span><h2>代表のことば</h2><span class="en">FOUNDER</span></div>
+      <div class="sec-head" style="margin-bottom:20px"><span class="no">05</span><h2>代表のことば</h2><span class="en">FOUNDER</span></div>
       <h3 data-br="reveal">細く、長く。100年続くブランドへ。</h3>
       <p data-br="reveal" data-br-delay=".1s">シェアの何割を取りたい、という考えはありません。一部の好きな人と共に楽しめて、幸せにできて、一緒に仕事ができたら。それがいいと思っています。</p>
       <p data-br="reveal" data-br-delay=".2s">創業から約10年。買ってくださったお客様への一番の提供は、ブランドが残り続けることだと考えています。だから目の前の売上だけでなく、どうすれば続くかから逆算して、今を選んでいます。</p>
@@ -167,7 +225,7 @@
   <div class="f-top">
     <span class="b">DETAIL GRAM</span>
     <a href="brand.html">Brand</a><a href="product.html">Product</a><a href="stockist.html">Stockist</a>
-    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="store.html">Store</a><a href="contact.html">Contact（採用も）</a><a href="https://www.instagram.com/detailgram_inc/" rel="noopener">Instagram</a>
+    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="product.html">Store</a><a href="contact.html">Contact（採用も）</a><a href="https://www.instagram.com/detailgram_inc/" rel="noopener">Instagram</a>
   </div>
   <div class="f-bot"><span>© DETAIL GRAM</span><span>下層モック ｜ Brand ｜ デザイン検討用・仮画像あり</span></div>
   <div class="dg-note"><b>※ 画像について</b>：着用イメージはAI生成の仮画像、工房の写真は位置を示す仮画像です。本番は撮影／ご提供写真に差し替えます。</div>

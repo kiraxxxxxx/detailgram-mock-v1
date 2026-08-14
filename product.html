@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Product ｜ DETAIL GRAM（下層モック）</title>
+<title>Product / Store ｜ DETAIL GRAM（下層モック）</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -44,6 +44,16 @@
   .z-card.is-empty .z-price{ color:var(--paper) }
   .z-card.is-empty .z-foot{ border-top:1px dashed var(--line) }
 
+  /* Store統合：お知らせバー・カート導線・機能フィルタ */
+  .notice{ background:var(--accent); color:#14130e; font-size:11.5px; letter-spacing:.08em; text-align:center; padding:8px 4vw }
+  .z-cart{ display:block; margin:10px 13px 13px; text-align:center; border:1px solid #14171a; padding:9px 8px;
+    font-size:11px; letter-spacing:.14em; color:#14171a; transition:.2s }
+  .z-card:hover .z-cart{ background:#14171a; color:#fff }
+  .z-card.is-empty .z-cart{ border-color:var(--line); color:var(--paper-dim) }
+  .fn-filters{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 30px; font-size:11px; align-items:center }
+  .fn-filters .lbl{ letter-spacing:.14em; opacity:.45; margin-right:4px }
+  .fn-filters span{ border:1px dashed var(--line); padding:5px 12px; opacity:.55; letter-spacing:.08em }
+
   @media(max-width:900px){ .z-grid{ grid-template-columns:repeat(2,1fr) } }
 </style>
 </head>
@@ -55,17 +65,20 @@
   <a class="dg-logo" href="final.html">DETAIL GRAM</a>
   <nav class="dg-nav">
     <a href="brand.html">Brand</a><a href="product.html" class="is-current">Product</a><a href="stockist.html">Stockist</a>
-    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="store.html" class="is-store">Store</a><a href="contact.html">Contact</a>
+    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="product.html" class="is-store">Store</a><a href="contact.html">Contact</a>
   </nav>
 </header>
+
+<!-- ===== SECTION: notice（お知らせバー） → detailgram-product-notice.liquid ===== -->
+<div class="dg-section notice">オンラインでのご購入に対応しています ｜ 度付き眼鏡のフィッティングは、お近くの取扱店で</div>
 
 <!-- ===== SECTION: page-head → detailgram-product-head.liquid ===== -->
 <section class="dg-section page-head">
   <div class="bg"><img src="assets/products/DG0025.jpg" alt="" style="object-fit:contain; background:#0b0c0e"></div>
   <div class="dg-wrap in">
-    <span class="crumb">PRODUCT INDEX</span>
+    <span class="crumb">PRODUCT / STORE</span>
     <h1 data-br="chars">かたちを見る</h1>
-    <p class="lead" data-br="reveal" data-br-delay=".3s">4つのライン、実働37型。玉型は8割の人に似合う卵型を基本に、気分やTPOで形と色を選べます。眼鏡は掛けてみないと分からないもの。気になる一本は、お近くの取扱店でお試しください。</p>
+    <p class="lead" data-br="reveal" data-br-delay=".3s">4つのライン、実働37型。玉型は8割の人に似合う卵型を基本に、気分やTPOで形と色を選べます。気になる一本は、そのままオンラインで。サイズ感を確かめたい方は、お近くの取扱店でお試しいただけます。</p>
   </div>
 </section>
 
@@ -79,26 +92,27 @@
       <button data-line="pellicule">pellicule</button>
       <button data-line="TAKAHIRO HASHIMOTO">TAKAHIRO HASHIMOTO</button>
     </div>
-    <div class="subfilters" data-br="reveal">
-      <span>NEW</span><span>受賞モデル</span><span>10周年</span><span>タイプ別（実装時）</span>
+    <div class="fn-filters" data-br="reveal">
+      <span class="lbl">機能・タイプで探す（実装時に動作）</span>
+      <span>サングラス</span><span>NEW</span><span>受賞モデル</span><span>10周年</span><span>強度近視向け</span><span>遠近対応</span>
     </div>
 
     <div class="z-grid" data-br="stagger" data-br-step="0.05" id="grid">
-      <a class="z-card" href="product-detail.html" data-line="DETAIL GRAM"><figure><span class="z-no">DG0025</span><img src="assets/products/DG0025.jpg" alt="DG0025"></figure><div class="z-body"><div class="z-name">DG0025</div><div class="z-sub">チタン／6色展開</div><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥52,000</span></div></div></a>
-      <a class="z-card" href="product-detail.html" data-line="quadro"><figure><span class="z-no">DG0015</span><img src="assets/products/DG0015.jpg" alt="DG0015"></figure><div class="z-body"><div class="z-name">DG0015</div><div class="z-sub">5色展開</div><span class="z-tag">メガネ大賞</span><div class="z-foot"><span class="z-line">quadro</span><span class="z-price">¥52,000</span></div></div></a>
-      <a class="z-card" href="product-detail.html" data-line="pellicule"><figure><span class="z-no">PE001</span><img src="assets/products/PE001.jpg" alt="PE001"></figure><div class="z-body"><div class="z-name">PE001</div><div class="z-sub">10周年記念モデル／6色展開</div><span class="z-tag">10th</span><div class="z-foot"><span class="z-line">pellicule</span><span class="z-price">¥72,000</span></div></div></a>
-      <a class="z-card" href="product-detail.html" data-line="TAKAHIRO HASHIMOTO"><figure><span class="z-no">TH004</span><img src="assets/products/TH004.jpg" alt="TH004"></figure><div class="z-body"><div class="z-name">TH004</div><div class="z-sub">デザイナーライン／7色展開</div><span class="z-tag">NEW</span><div class="z-foot"><span class="z-line">TAKAHIRO HASHIMOTO</span><span class="z-price">¥47,000</span></div></div></a>
-      <a class="z-card" href="product-detail.html" data-line="quadro"><figure><span class="z-no">DG0010</span><img src="assets/products/DG0010.jpg" alt="DG0010"></figure><div class="z-body"><div class="z-name">DG0010</div><div class="z-sub">14色展開</div><div class="z-foot"><span class="z-line">quadro</span><span class="z-price">¥39,000</span></div></div></a>
-      <a class="z-card" href="product-detail.html" data-line="DETAIL GRAM"><figure><span class="z-no">DG0008</span><img src="assets/products/DG0008.jpg" alt="DG0008"></figure><div class="z-body"><div class="z-name">DG0008</div><div class="z-sub">FC七宝／12色展開</div><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥52,000</span></div></div></a>
-      <a class="z-card" href="product-detail.html" data-line="DETAIL GRAM"><figure><span class="z-no">DG0009</span><img src="assets/products/DG0009.jpg" alt="DG0009"></figure><div class="z-body"><div class="z-name">DG0009</div><div class="z-sub">6色展開</div><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥38,000</span></div></div></a>
-      <a class="z-card" href="product-detail.html" data-line="TAKAHIRO HASHIMOTO"><figure><span class="z-no">TH001</span><img src="assets/products/TH001.jpg" alt="TH001"></figure><div class="z-body"><div class="z-name">TH001</div><div class="z-sub">デザイナーライン／6色展開</div><div class="z-foot"><span class="z-line">TAKAHIRO HASHIMOTO</span><span class="z-price">¥47,000</span></div></div></a>
-      <a class="z-card" href="product-detail.html" data-line="DETAIL GRAM"><figure><span class="z-no">DG0001</span><img src="assets/products/DG0001.jpg" alt="DG0001"></figure><div class="z-body"><div class="z-name">DG0001</div><div class="z-sub">7色展開</div><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥52,000</span></div></div></a>
-      <a class="z-card" href="product-detail.html" data-line="DETAIL GRAM"><figure><span class="z-no">DG0026</span><img src="assets/products/DG0026.jpg" alt="DG0026"></figure><div class="z-body"><div class="z-name">DG0026</div><div class="z-sub">3色展開</div><span class="z-tag">NEW</span><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥53,000</span></div></div></a>
-      <a class="z-card is-empty" href="#" data-line="quadro"><figure><div class="ph">PHOTO COMING SOON</div></figure><div class="z-body"><div class="z-name">DG0030</div><div class="z-sub">4色展開（撮影予定）</div><div class="z-foot"><span class="z-line">quadro</span><span class="z-price">¥40,000</span></div></div></a>
-      <a class="z-card is-empty" href="#" data-line="pellicule"><figure><div class="ph">PHOTO COMING SOON</div></figure><div class="z-body"><div class="z-name">PE002</div><div class="z-sub">6色展開</div><div class="z-foot"><span class="z-line">pellicule</span><span class="z-price">¥63,000</span></div></div></a>
+      <a class="z-card" href="product-detail.html" data-line="DETAIL GRAM"><figure><span class="z-no">DG0025</span><img src="assets/products/DG0025.jpg" alt="DG0025"></figure><div class="z-body"><div class="z-name">DG0025</div><div class="z-sub">チタン／6色展開</div><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥52,000</span></div></div><span class="z-cart">カートに入れる</span></a>
+      <a class="z-card" href="product-detail.html" data-line="quadro"><figure><span class="z-no">DG0015</span><img src="assets/products/DG0015.jpg" alt="DG0015"></figure><div class="z-body"><div class="z-name">DG0015</div><div class="z-sub">5色展開</div><span class="z-tag">M.E.E グランプリ</span><div class="z-foot"><span class="z-line">quadro</span><span class="z-price">¥52,000</span></div></div><span class="z-cart">カートに入れる</span></a>
+      <a class="z-card" href="product-detail.html" data-line="pellicule"><figure><span class="z-no">PE001</span><img src="assets/products/PE001.jpg" alt="PE001"></figure><div class="z-body"><div class="z-name">PE001</div><div class="z-sub">10周年記念モデル／6色展開</div><span class="z-tag">10th</span><div class="z-foot"><span class="z-line">pellicule</span><span class="z-price">¥72,000</span></div></div><span class="z-cart">カートに入れる</span></a>
+      <a class="z-card" href="product-detail.html" data-line="TAKAHIRO HASHIMOTO"><figure><span class="z-no">TH004</span><img src="assets/products/TH004.jpg" alt="TH004"></figure><div class="z-body"><div class="z-name">TH004</div><div class="z-sub">デザイナーライン／7色展開</div><span class="z-tag">NEW</span><div class="z-foot"><span class="z-line">TAKAHIRO HASHIMOTO</span><span class="z-price">¥47,000</span></div></div><span class="z-cart">カートに入れる</span></a>
+      <a class="z-card" href="product-detail.html" data-line="quadro"><figure><span class="z-no">DG0010</span><img src="assets/products/DG0010.jpg" alt="DG0010"></figure><div class="z-body"><div class="z-name">DG0010</div><div class="z-sub">14色展開</div><div class="z-foot"><span class="z-line">quadro</span><span class="z-price">¥39,000</span></div></div><span class="z-cart">カートに入れる</span></a>
+      <a class="z-card" href="product-detail.html" data-line="DETAIL GRAM"><figure><span class="z-no">DG0008</span><img src="assets/products/DG0008.jpg" alt="DG0008"></figure><div class="z-body"><div class="z-name">DG0008</div><div class="z-sub">FC七宝／12色展開</div><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥52,000</span></div></div><span class="z-cart">カートに入れる</span></a>
+      <a class="z-card" href="product-detail.html" data-line="DETAIL GRAM"><figure><span class="z-no">DG0009</span><img src="assets/products/DG0009.jpg" alt="DG0009"></figure><div class="z-body"><div class="z-name">DG0009</div><div class="z-sub">6色展開</div><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥38,000</span></div></div><span class="z-cart">カートに入れる</span></a>
+      <a class="z-card" href="product-detail.html" data-line="TAKAHIRO HASHIMOTO"><figure><span class="z-no">TH001</span><img src="assets/products/TH001.jpg" alt="TH001"></figure><div class="z-body"><div class="z-name">TH001</div><div class="z-sub">デザイナーライン／6色展開</div><div class="z-foot"><span class="z-line">TAKAHIRO HASHIMOTO</span><span class="z-price">¥47,000</span></div></div><span class="z-cart">カートに入れる</span></a>
+      <a class="z-card" href="product-detail.html" data-line="DETAIL GRAM"><figure><span class="z-no">DG0001</span><img src="assets/products/DG0001.jpg" alt="DG0001"></figure><div class="z-body"><div class="z-name">DG0001</div><div class="z-sub">7色展開</div><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥52,000</span></div></div><span class="z-cart">カートに入れる</span></a>
+      <a class="z-card" href="product-detail.html" data-line="DETAIL GRAM"><figure><span class="z-no">DG0026</span><img src="assets/products/DG0026.jpg" alt="DG0026"></figure><div class="z-body"><div class="z-name">DG0026</div><div class="z-sub">3色展開</div><span class="z-tag">NEW</span><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥53,000</span></div></div><span class="z-cart">カートに入れる</span></a>
+      <a class="z-card is-empty" href="#" data-line="quadro"><figure><div class="ph">PHOTO COMING SOON</div></figure><div class="z-body"><div class="z-name">DG0030</div><div class="z-sub">4色展開（撮影予定）</div><div class="z-foot"><span class="z-line">quadro</span><span class="z-price">¥40,000</span></div></div><span class="z-cart">準備中（撮影予定）</span></a>
+      <a class="z-card is-empty" href="#" data-line="pellicule"><figure><div class="ph">PHOTO COMING SOON</div></figure><div class="z-body"><div class="z-name">PE002</div><div class="z-sub">6色展開</div><div class="z-foot"><span class="z-line">pellicule</span><span class="z-price">¥63,000</span></div></div><span class="z-cart">準備中（撮影予定）</span></a>
     </div>
 
-    <div class="dg-note" data-br="reveal"><b>※ モックの表示範囲</b>：ここでは代表12型のみ掲載しています。本実装（Shopify）では掲載候補リスト（実働37型）を流し込み、ライン／新作／受賞／タイプのフィルタを動作させます。価格は参考上代・税抜表記の想定（表記方法は要確認）。</div>
+    <div class="dg-note" data-br="reveal"><b>※ Product＋Store統合版（8/3定例の決定を反映）</b>：商品カタログと購入を1ページに統合しました。ここでは代表12型のみ掲載。本実装（Shopify）では実働37型を流し込み、掲載する/しない（在庫なし商品）は商品ごとに調整できます。機能・タイプのフィルタは商品側のタグ付け後に動作。度付きレンズの販売条件・価格表記（税込等）は実装時に確定します。</div>
   </div>
 </section>
 
@@ -121,7 +135,7 @@
   <div class="f-top">
     <span class="b">DETAIL GRAM</span>
     <a href="brand.html">Brand</a><a href="product.html">Product</a><a href="stockist.html">Stockist</a>
-    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="store.html">Store</a><a href="contact.html">Contact（採用も）</a><a href="https://www.instagram.com/detailgram_inc/" rel="noopener">Instagram</a>
+    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="product.html">Store</a><a href="contact.html">Contact（採用も）</a><a href="https://www.instagram.com/detailgram_inc/" rel="noopener">Instagram</a>
   </div>
   <div class="f-bot"><span>© DETAIL GRAM</span><span>下層モック ｜ Product ｜ デザイン検討用</span></div>
 </footer>
