@@ -39,8 +39,13 @@
   .feature-shop p{ font-size:13px; line-height:2; opacity:.66; margin:0 }
 
   .shop.s2{ grid-template-columns:9em 1fr }
+  .shop.s3{ grid-template-columns:7em 1fr 11em; align-items:start }
+  .shop .nm{ display:flex; flex-direction:column; gap:3px }
+  .shop .addr{ font-size:11px; opacity:.5; line-height:1.7 }
+  .shop .tel{ font-size:11.5px; opacity:.55; text-align:right; letter-spacing:.04em }
   @media(max-width:900px){
     .shop{ grid-template-columns:1fr; gap:2px }
+    .shop .tel{ text-align:left }
     .shop .city{ text-align:left }
     .feature-shop{ grid-template-columns:1fr }
   }
@@ -99,180 +104,180 @@
     <div class="region" id="r-hokkaido" data-br="reveal">
       <h3>北海道・東北 <span class="en">HOKKAIDO / TOHOKU</span><span class="cnt">35店</span></h3>
       <div class="shops">
-        <div class="shop"><span class="pref">北海道</span><span class="name">メガネのナカムラ ウェスタン川端店</span><span class="city">旭川市</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">メガネのナカムラ 北彩都店</span><span class="city">旭川市</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">メガネのナカムラ 末広店</span><span class="city">旭川市</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">メガネのナカムラ 本店</span><span class="city">旭川市</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ 5588琴似店</span><span class="city">西区</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ アピア店</span><span class="city">中央区</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ アリオ札幌店</span><span class="city">東区</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ イオン千歳店</span><span class="city">千歳市</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ イオン東札幌店</span><span class="city">白石区</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ デュオ店</span><span class="city">厚別区</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ トナリエ北広島店</span><span class="city">北広島市</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ ラソラ札幌店</span><span class="city">白石区</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ 円山店</span><span class="city">中央区</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ 函館美原店</span><span class="city">函館市</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ 北43条店</span><span class="city">東区</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ 名寄店</span><span class="city">名寄市</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ 室蘭店</span><span class="city">室蘭市</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ 帯広白樺店</span><span class="city">帯広市</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ 平岡店</span><span class="city">清田区</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ 新札幌店</span><span class="city">厚別区</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ 旭川東光店</span><span class="city">旭川市</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ 栗山店</span><span class="city">夕張郡栗山町</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ 清田店</span><span class="city">清田区</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ 狸小路本店</span><span class="city">中央区</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ 琴似店</span><span class="city">西区</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ 真駒内店</span><span class="city">南区</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ 苫小牧イオン前店</span><span class="city">苫小牧市</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ 釧路桂木店</span><span class="city">釧路郡釧路町</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">富士メガネ 麻生店</span><span class="city">北区</span></div>
-        <div class="shop"><span class="pref">北海道</span><span class="name">有限会社 札幌メガネコンタクト工房</span><span class="city">札幌市</span></div>
-        <div class="shop"><span class="pref">青森県</span><span class="name">富士メガネ 弘前さくら野店</span><span class="city">弘前市</span></div>
-        <div class="shop"><span class="pref">岩手県</span><span class="name">東京メガネ 盛岡カワトク店</span><span class="city">盛岡市</span></div>
-        <div class="shop"><span class="pref">秋田県</span><span class="name">カモヤ</span><span class="city">秋田市</span></div>
-        <div class="shop"><span class="pref">秋田県</span><span class="name">メガネの和光 東バイパス店</span><span class="city">由利本荘市</span></div>
-        <div class="shop"><span class="pref">秋田県</span><span class="name">メガネの平川</span><span class="city">秋田市</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">メガネのナカムラ ウェスタン川端店</span><span class="addr">北海道旭川市川端町７条10丁目</span></div><span class="tel">TEL 0166-52-3123</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">メガネのナカムラ 北彩都店</span><span class="addr">北海道旭川市南６条通18　スーパーアークスウェスタン北彩都内</span></div><span class="tel">TEL 0166-37-7551</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">メガネのナカムラ 末広店</span><span class="addr">北海道旭川市春光１条9丁目1-21</span></div><span class="tel">TEL 0166-54-1021</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">メガネのナカムラ 本店</span><span class="addr">北海道旭川市豊岡４条2-2-27</span></div><span class="tel">TEL 0166-34-1726</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ 5588琴似店</span><span class="addr">西区琴似２条１丁目２　５５８８ＫＯＴＯＮＩ １Ｆ</span></div><span class="tel">TEL 011-633-7151</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ アピア店</span><span class="addr">中央区北５条西３丁目　アピア地下１階</span></div><span class="tel">TEL 011-209-1545</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ アリオ札幌店</span><span class="addr">東区北７条東９丁目２番２０号　アリオ札幌３Ｆ</span></div><span class="tel">TEL 011-721-0200</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ イオン千歳店</span><span class="addr">千歳市栄町６丁目５１番地　イオン千歳ＳＣ１Ｆ</span></div><span class="tel">TEL 0123-26-1809</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ イオン東札幌店</span><span class="addr">白石区東札幌３条２丁目１番地　イオン東札幌１Ｆ</span></div><span class="tel">TEL 011-823-7151</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ デュオ店</span><span class="addr">厚別区厚別中央２条５丁目６－２　デュオⅠ、４Ｆ</span></div><span class="tel">TEL 011-890-2577</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ トナリエ北広島店</span><span class="addr">北海道北広島市栄町1丁目52　トナリエ北広島3F</span></div><span class="tel">TEL 011-372-6022</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ ラソラ札幌店</span><span class="addr">白石区東札幌3条1丁目1-1　ラソラ札幌　Ａタウン２Ｆ</span></div><span class="tel">TEL 011-832-7151</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ 円山店</span><span class="addr">中央区大通西２７丁目２－１０　富士メガネ円山ビル１Ｆ</span></div><span class="tel">TEL 011-640-3770</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ 函館美原店</span><span class="addr">函館市美原２丁目５番２８号</span></div><span class="tel">TEL 0138-46-2221</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ 北43条店</span><span class="addr">東区北４３条東８丁目１－７</span></div><span class="tel">TEL 011-752-6220</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ 名寄店</span><span class="addr">名寄市徳田８０－１　イオン名寄ＳＣ２Ｆ</span></div><span class="tel">TEL 016-542-7151</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ 室蘭店</span><span class="addr">室蘭市中島町１丁目１９番地　MEGAドン・キホーテ２Ｆ</span></div><span class="tel">TEL 0143-45-3341</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ 帯広白樺店</span><span class="addr">帯広市西２１条南２丁目５０</span></div><span class="tel">TEL 0155-36-0885</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ 平岡店</span><span class="addr">清田区平岡３条５丁目３－１　イオンモール札幌平岡２Ｆ</span></div><span class="tel">TEL 011-889-6215</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ 新札幌店</span><span class="addr">厚別区厚別中央２条６丁目５－４　札幌北辰病院隣り）</span></div><span class="tel">TEL 011-892-1761</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ 旭川東光店</span><span class="addr">旭川市東光８条１丁目１－６</span></div><span class="tel">TEL 0166-32-6900</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ 栗山店</span><span class="addr">夕張郡栗山町松風３丁目１１５番地</span></div><span class="tel">TEL 0123-72-5030</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ 清田店</span><span class="addr">清田区清田２条２丁目１９－１０</span></div><span class="tel">TEL 011-883-7151</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ 狸小路本店</span><span class="addr">中央区南２条西４丁目７番地　狸小路４丁目</span></div><span class="tel">TEL 011-231-7151</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ 琴似店</span><span class="addr">西区琴似２条５丁目１－３　（地下鉄駅前）</span></div><span class="tel">TEL 011-644-7151</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ 真駒内店</span><span class="addr">南区真駒内幸町２丁目１－１１　ミュ―クリスタル２Ｆ</span></div><span class="tel">TEL 011-583-8631</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ 苫小牧イオン前店</span><span class="addr">苫小牧市明野新町１丁目１番３号　（イオンモール前）</span></div><span class="tel">TEL 0144-52-5725</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ 釧路桂木店</span><span class="addr">釧路郡釧路町桂木４丁目２　桂木ショッピングプラザ</span></div><span class="tel">TEL 0154-38-6331</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">富士メガネ 麻生店</span><span class="addr">北区北４０条西４丁目２－２０　（地下鉄駅前）</span></div><span class="tel">TEL 011-746-7151</span></div>
+        <div class="shop s3"><span class="pref">北海道</span><div class="nm"><span class="name">有限会社 札幌メガネコンタクト工房</span><span class="addr">北海道札幌市白石区本通6丁目北2-1　（大橋眼科内）</span></div><span class="tel">TEL 011-860-1103</span></div>
+        <div class="shop s3"><span class="pref">青森県</span><div class="nm"><span class="name">富士メガネ 弘前さくら野店</span><span class="addr">青森県弘前市城東北３丁目　１０－１ さくら野弘前店３Ｆ</span></div><span class="tel">TEL 0172-26-2651</span></div>
+        <div class="shop s3"><span class="pref">岩手県</span><div class="nm"><span class="name">東京メガネ 盛岡カワトク店</span><span class="addr">岩手県盛岡市菜園1-10-1　盛岡カワトク店5階</span></div><span class="tel">TEL 019-622-6652</span></div>
+        <div class="shop s3"><span class="pref">秋田県</span><div class="nm"><span class="name">カモヤ</span><span class="addr">秋田県秋田市保戸野通町3-26</span></div><span class="tel">TEL 018-862-6837</span></div>
+        <div class="shop s3"><span class="pref">秋田県</span><div class="nm"><span class="name">メガネの和光 東バイパス店</span><span class="addr">秋田県由利本荘市東梵天264-2</span></div><span class="tel">TEL 0184-23-7750</span></div>
+        <div class="shop s3"><span class="pref">秋田県</span><div class="nm"><span class="name">メガネの平川</span><span class="addr">秋田県秋田市仁井田栄町2-36</span></div><span class="tel">TEL 018-829-0880</span></div>
       </div>
     </div>
 
     <div class="region" id="r-kanto" data-br="reveal">
       <h3>関東 <span class="en">KANTO</span><span class="cnt">54店</span></h3>
       <div class="shops">
-        <div class="shop"><span class="pref">茨城県</span><span class="name">イナリヤ石下店</span><span class="city">常総市</span></div>
-        <div class="shop"><span class="pref">茨城県</span><span class="name">トーキョードー</span><span class="city">つくば市</span></div>
-        <div class="shop"><span class="pref">茨城県</span><span class="name">東京メガネ つくば店</span><span class="city">つくば市</span></div>
-        <div class="shop"><span class="pref">栃木県</span><span class="name">高田眼鏡店 宇都宮店</span><span class="city">宇都宮市</span></div>
-        <div class="shop"><span class="pref">群馬県</span><span class="name">板垣</span><span class="city">伊勢崎市</span></div>
-        <div class="shop"><span class="pref">群馬県</span><span class="name">眼鏡工房 凜</span><span class="city">高崎市</span></div>
-        <div class="shop"><span class="pref">埼玉県</span><span class="name">アイウェア カヤノ イオンモール川口前川店</span><span class="city">川口市</span></div>
-        <div class="shop"><span class="pref">埼玉県</span><span class="name">アイウェア カヤノ 川口駅前店</span><span class="city">川口市</span></div>
-        <div class="shop"><span class="pref">埼玉県</span><span class="name">アオヤギ 北浦和店</span><span class="city">さいたま市</span></div>
-        <div class="shop"><span class="pref">埼玉県</span><span class="name">メガネのアラキダ 杉戸店(ウインク)</span><span class="city">北葛飾郡杉戸町</span></div>
-        <div class="shop"><span class="pref">埼玉県</span><span class="name">メガネのウインク明光堂</span><span class="city">さいたま市</span></div>
-        <div class="shop"><span class="pref">埼玉県</span><span class="name">メガネのヤジマ</span><span class="city">桶川市</span></div>
-        <div class="shop"><span class="pref">埼玉県</span><span class="name">メガネステーション</span><span class="city">本庄市</span></div>
-        <div class="shop"><span class="pref">埼玉県</span><span class="name">ヤジマ マイン店</span><span class="city">桶川市</span></div>
-        <div class="shop"><span class="pref">埼玉県</span><span class="name">東京メガネ そごう大宮店</span><span class="city">さいたま市</span></div>
-        <div class="shop"><span class="pref">埼玉県</span><span class="name">東京メガネ 八木橋熊谷店</span><span class="city">熊谷市</span></div>
-        <div class="shop"><span class="pref">埼玉県</span><span class="name">東京メガネ 西部所沢店</span><span class="city">所沢市</span></div>
-        <div class="shop"><span class="pref">埼玉県</span><span class="name">高田眼鏡店 大宮店</span><span class="city">さいたま市</span></div>
-        <div class="shop"><span class="pref">千葉県</span><span class="name">イワキ 柏店</span><span class="city">柏市</span></div>
-        <div class="shop"><span class="pref">千葉県</span><span class="name">コンタクト&メガネのフィットイン</span><span class="city">成田市</span></div>
-        <div class="shop"><span class="pref">千葉県</span><span class="name">メガネのタニ アリオ蘇我店</span><span class="city">千葉市</span></div>
-        <div class="shop"><span class="pref">千葉県</span><span class="name">東京メガネ そごう千葉店</span><span class="city">中央区</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">HOYA Vision Care Studio TOKYO</span><span class="city">港区</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">Lux Vision Optical</span><span class="city">新宿区</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">optelia Glassias</span><span class="city">武蔵野市</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">あんだーらいん</span><span class="city">千代田区</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">イワキ 京王店</span><span class="city">新宿区</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">イワキ 渋谷店</span><span class="city">渋谷区</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">オリゾン</span><span class="city">大田区</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">オリゾン 池上店</span><span class="city">大田区</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">オリゾン 荏原中延店</span><span class="city">品川区</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">メガネのササガワ</span><span class="city">北区</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">メガネのタニ 昭島モリタウン店</span><span class="city">昭島市</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">メガネのタニ 東大和店</span><span class="city">東大和市</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">メガネのタニ 神田本店</span><span class="city">千代田区</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">メガネのタニ 良眼工房 中野店</span><span class="city">中野区</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">メガネのタニ 良眼工房 北千住店</span><span class="city">足立区</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">メガネのタニ 良眼工房 国分寺店</span><span class="city">国分寺市</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">メガネのタニ 良眼工房 錦糸町店</span><span class="city">墨田区</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">メガネの和光 丸の内店</span><span class="city">千代田区</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">医療メガネ専門店 Elite troops</span><span class="city">文京区</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">和光メガネ 府中駅前店</span><span class="city">府中市</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">富士メガネ 大手町ビル店</span><span class="city">千代田区</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">富士メガネ 武蔵境店</span><span class="city">武蔵野市</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">東京メガネ 日本橋人形町店(006)</span><span class="city">中央区</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">東京メガネ 松屋銀座店</span><span class="city">中央区</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">東京メガネ 西武池袋店</span><span class="city">豊島区</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">東京メガネ 西武渋谷店</span><span class="city">渋谷区</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">片山メガネ 京成小岩店</span><span class="city">江戸川区</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">片山メガネ松江本店</span><span class="city">江戸川区</span></div>
-        <div class="shop"><span class="pref">東京都</span><span class="name">片山メガネ篠崎店</span><span class="city">江戸川区</span></div>
-        <div class="shop"><span class="pref">神奈川県</span><span class="name">イワキ ランドマークプラザ店</span><span class="city">横浜市</span></div>
-        <div class="shop"><span class="pref">神奈川県</span><span class="name">メガネのタニ 良眼工房 海老名店</span><span class="city">海老名市</span></div>
-        <div class="shop"><span class="pref">神奈川県</span><span class="name">東京メガネ そごう横浜店</span><span class="city">横浜市</span></div>
+        <div class="shop s3"><span class="pref">茨城県</span><div class="nm"><span class="name">イナリヤ石下店</span><span class="addr">茨城県常総市新石下3936</span></div><span class="tel">TEL 0297-30-4801</span></div>
+        <div class="shop s3"><span class="pref">茨城県</span><div class="nm"><span class="name">トーキョードー</span><span class="addr">茨城県つくば市春日1-4-3</span></div><span class="tel">TEL 029-852-8515</span></div>
+        <div class="shop s3"><span class="pref">茨城県</span><div class="nm"><span class="name">東京メガネ つくば店</span><span class="addr">茨城県つくば市学園の森1-19-9</span></div><span class="tel">TEL 029-855-0308</span></div>
+        <div class="shop s3"><span class="pref">栃木県</span><div class="nm"><span class="name">高田眼鏡店 宇都宮店</span><span class="addr">宇都宮市平松本町１１２５−９</span></div><span class="tel">TEL 028-638-7141</span></div>
+        <div class="shop s3"><span class="pref">群馬県</span><div class="nm"><span class="name">板垣</span><span class="addr">群馬県伊勢崎市本町4-1　(板垣第2ビル)　 株式会社 板垣　商品部</span></div><span class="tel">TEL 0270-24-1808</span></div>
+        <div class="shop s3"><span class="pref">群馬県</span><div class="nm"><span class="name">眼鏡工房 凜</span><span class="addr">群馬県高崎市棟高町698-1</span></div><span class="tel">TEL 027-386-9141</span></div>
+        <div class="shop s3"><span class="pref">埼玉県</span><div class="nm"><span class="name">アイウェア カヤノ イオンモール川口前川店</span><span class="addr">埼玉県川口市前川1-1-11　イオンモール川口前川店</span></div><span class="tel">TEL 048-263-5328</span></div>
+        <div class="shop s3"><span class="pref">埼玉県</span><div class="nm"><span class="name">アイウェア カヤノ 川口駅前店</span><span class="addr">埼玉県川口市栄町3-8-4</span></div><span class="tel">TEL 048-253-4375</span></div>
+        <div class="shop s3"><span class="pref">埼玉県</span><div class="nm"><span class="name">アオヤギ 北浦和店</span><span class="addr">埼玉県さいたま市浦和区北浦和1-9-5</span></div><span class="tel">TEL 048-882-5620</span></div>
+        <div class="shop s3"><span class="pref">埼玉県</span><div class="nm"><span class="name">メガネのアラキダ 杉戸店(ウインク)</span><span class="addr">埼玉県北葛飾郡杉戸町杉戸2-12-29　第５ヒノマルビル1F</span></div><span class="tel">TEL 0480-34-1833</span></div>
+        <div class="shop s3"><span class="pref">埼玉県</span><div class="nm"><span class="name">メガネのウインク明光堂</span><span class="addr">埼玉県さいたま市岩槻区本町3-2-5　WATSU東館１F</span></div><span class="tel">TEL 048-757-8663</span></div>
+        <div class="shop s3"><span class="pref">埼玉県</span><div class="nm"><span class="name">メガネのヤジマ</span><span class="addr">埼玉県桶川市寿1－1－5</span></div><span class="tel">TEL 048-773-3820</span></div>
+        <div class="shop s3"><span class="pref">埼玉県</span><div class="nm"><span class="name">メガネステーション</span><span class="addr">埼玉県本庄市南1丁目2番10号</span></div><span class="tel">TEL 0495-24-7889</span></div>
+        <div class="shop s3"><span class="pref">埼玉県</span><div class="nm"><span class="name">ヤジマ マイン店</span><span class="addr">埼玉県桶川市若宮1丁目5-2　マイン店3階</span></div><span class="tel">TEL 048-787-6633</span></div>
+        <div class="shop s3"><span class="pref">埼玉県</span><div class="nm"><span class="name">東京メガネ そごう大宮店</span><span class="addr">埼玉県さいたま市大宮区桜木町1-6-2　そごう大宮店5Fメガネサロン</span></div><span class="tel">TEL 048-646-2335</span></div>
+        <div class="shop s3"><span class="pref">埼玉県</span><div class="nm"><span class="name">東京メガネ 八木橋熊谷店</span><span class="addr">埼玉県熊谷市 仲町 ７４　八木橋5F</span></div><span class="tel">TEL 048-598-5182</span></div>
+        <div class="shop s3"><span class="pref">埼玉県</span><div class="nm"><span class="name">東京メガネ 西部所沢店</span><span class="addr">埼玉県所沢市日吉町12-1　西武所沢店７階メガネサロン</span></div><span class="tel">TEL 04-2927-3368</span></div>
+        <div class="shop s3"><span class="pref">埼玉県</span><div class="nm"><span class="name">高田眼鏡店 大宮店</span><span class="addr">埼玉県さいたま市大宮区桜木町1-7-5　ソニックシティ4階</span></div><span class="tel">TEL 048-647-4107</span></div>
+        <div class="shop s3"><span class="pref">千葉県</span><div class="nm"><span class="name">イワキ 柏店</span><span class="addr">千葉県柏市末広町1-1　柏髙島屋ステーションモール6階</span></div><span class="tel">TEL 04-7148-2264</span></div>
+        <div class="shop s3"><span class="pref">千葉県</span><div class="nm"><span class="name">コンタクト&メガネのフィットイン</span><span class="addr">千葉県成田市美郷台1-15-1</span></div><span class="tel">TEL 047-622-6650</span></div>
+        <div class="shop s3"><span class="pref">千葉県</span><div class="nm"><span class="name">メガネのタニ アリオ蘇我店</span><span class="addr">千葉県千葉市中央区川崎町 52番地7　アリオ蘇我 ２階</span></div><span class="tel">TEL 043-208-1220</span></div>
+        <div class="shop s3"><span class="pref">千葉県</span><div class="nm"><span class="name">東京メガネ そごう千葉店</span><span class="addr">千葉県中央区新町1000番　そごう千葉店メガネサロン6階</span></div><span class="tel">TEL 043-245-8380</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">HOYA Vision Care Studio TOKYO</span><span class="addr">東京都港区北青山3-2-2　AY Buildimg 4F</span></div><span class="tel">TEL 03-3497-1491</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">Lux Vision Optical</span><span class="addr">東京都新宿区高田馬場3丁目12-8　高田馬場センタービル502号室（悦目メガネ）</span></div><span class="tel">TEL 03-6908-7779</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">optelia Glassias</span><span class="addr">東京都武蔵野市吉祥寺本町1-11-21　せのおビル１F</span></div><span class="tel">TEL 0422-21-6755</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">あんだーらいん</span><span class="addr">東京都千代田区神田和泉町1-2-2　文華堂ビル</span></div><span class="tel">TEL 03-5825-7077</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">イワキ 京王店</span><span class="addr">東京都新宿区西新宿1-1-4　新宿京王百貨店6階</span></div><span class="tel">TEL 03-3342-1613</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">イワキ 渋谷店</span><span class="addr">東京都渋谷区道玄坂2-9-11</span></div><span class="tel">TEL 03-3463-7511</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">オリゾン</span><span class="addr">東京都大田区南雪谷2-15-8</span></div><span class="tel">TEL 03-3727-5230</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">オリゾン 池上店</span><span class="addr">東京都大田区池上7-6-2</span></div><span class="tel">TEL 03-3754-9105</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">オリゾン 荏原中延店</span><span class="addr">東京都品川区中延3-2-9　ブレーメン95</span></div><span class="tel">TEL 03-3494-3820</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">メガネのササガワ</span><span class="addr">東京都北区十条仲原1-4-7</span></div><span class="tel">TEL 03-3900-6054</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">メガネのタニ 昭島モリタウン店</span><span class="addr">東京都昭島市代官山2-3-1　モリタウン専門店本館 ２階</span></div><span class="tel">TEL 042-545-3930</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">メガネのタニ 東大和店</span><span class="addr">東京都東大和市桜が丘2-142-1　イトーヨーカドー東大和店１階</span></div><span class="tel">TEL 042-563-7007</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">メガネのタニ 神田本店</span><span class="addr">東京都千代田区神田小川町3-1</span></div><span class="tel">TEL 03-3291-1007</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">メガネのタニ 良眼工房 中野店</span><span class="addr">東京都中野区中野 3-34-28　中野マルイ ４階</span></div><span class="tel">TEL 03-3384-0381</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">メガネのタニ 良眼工房 北千住店</span><span class="addr">東京都足立区千住3-92　北千住マルイ8F</span></div><span class="tel">TEL 03-6806-2731</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">メガネのタニ 良眼工房 国分寺店</span><span class="addr">東京都国分寺市南町3-20-3　国分寺マルイ ５階</span></div><span class="tel">TEL 042-312-0541</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">メガネのタニ 良眼工房 錦糸町店</span><span class="addr">東京都墨田区江東橋3-9-10　丸井錦糸町店6F</span></div><span class="tel">TEL 03-6240-2261</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">メガネの和光 丸の内店</span><span class="addr">千代田区丸の内1-6-4　丸善丸の内本店４階　「丸の内オアゾ」内</span></div><span class="tel">TEL 03-3272-1414</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">医療メガネ専門店 Elite troops</span><span class="addr">東京都文京区湯島4-4-2</span></div><span class="tel">TEL 03-6801-8010</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">和光メガネ 府中駅前店</span><span class="addr">東京都府中市宮町1-100　ル・シーニュ2F</span></div><span class="tel">TEL 042-368-2230</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">富士メガネ 大手町ビル店</span><span class="addr">東京都千代田区大手町１－６－１　大手町ビル１Ｆ</span></div><span class="tel">TEL 03-3214-4751</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">富士メガネ 武蔵境店</span><span class="addr">東京都武蔵野市境南町２-２-２０　イト―ヨ―カド―東館４Ｆ</span></div><span class="tel">TEL 0422-34-6156</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">東京メガネ 日本橋人形町店(006)</span><span class="addr">東京都中央区日本橋人形町1-18-9　A.Tビル 102</span></div><span class="tel">TEL 03-3661-2906</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">東京メガネ 松屋銀座店</span><span class="addr">東京都中央区銀座3丁目6-1　松屋銀座本店7階メガネサロン</span></div><span class="tel">TEL 03-3561-4643</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">東京メガネ 西武池袋店</span><span class="addr">東京都豊島区南池袋1-28-1　西武池袋本店9階メガネサロン</span></div><span class="tel">TEL 03-5949-2671</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">東京メガネ 西武渋谷店</span><span class="addr">渋谷区宇田川町21−1　B館 8F 西武渋谷店</span></div><span class="tel">TEL 03-6433–7808</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">片山メガネ 京成小岩店</span><span class="addr">東京都江戸川区北小岩6-17-3</span></div><span class="tel">TEL 03-6458-0151</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">片山メガネ松江本店</span><span class="addr">東京都江戸川区西一之江4-8-22</span></div><span class="tel">TEL 03-3656-0817</span></div>
+        <div class="shop s3"><span class="pref">東京都</span><div class="nm"><span class="name">片山メガネ篠崎店</span><span class="addr">東京都江戸川区篠崎町2-3-10</span></div><span class="tel">TEL 03-3676-0813</span></div>
+        <div class="shop s3"><span class="pref">神奈川県</span><div class="nm"><span class="name">イワキ ランドマークプラザ店</span><span class="addr">神奈川県横浜市西区みなとみらい2-2-1-2　ランドマークプラザ5階</span></div><span class="tel">TEL 045-222-5540</span></div>
+        <div class="shop s3"><span class="pref">神奈川県</span><div class="nm"><span class="name">メガネのタニ 良眼工房 海老名店</span><span class="addr">神奈川県海老名市中央1-6-1　マルイファミリー海老名 ５階</span></div><span class="tel">TEL 046-232-8927</span></div>
+        <div class="shop s3"><span class="pref">神奈川県</span><div class="nm"><span class="name">東京メガネ そごう横浜店</span><span class="addr">神奈川県横浜市西区高島2-18-1　そごう横浜メガネサロン</span></div><span class="tel">TEL 045-465-2606</span></div>
       </div>
     </div>
 
     <div class="region" id="r-chubu" data-br="reveal">
       <h3>中部 <span class="en">CHUBU</span><span class="cnt">23店</span></h3>
       <div class="shops">
-        <div class="shop"><span class="pref">山梨県</span><span class="name">サンワ</span><span class="city">甲府市</span></div>
-        <div class="shop"><span class="pref">山梨県</span><span class="name">昭和堂 和真メガネフレンドショップ</span><span class="city">甲州市</span></div>
-        <div class="shop"><span class="pref">長野県</span><span class="name">オプティカルワークス コミヤマ</span><span class="city">小諸市</span></div>
-        <div class="shop"><span class="pref">長野県</span><span class="name">合同会社なかむら</span><span class="city">伊那市</span></div>
-        <div class="shop"><span class="pref">岐阜県</span><span class="name">光華眼鏡店岡本店</span><span class="city">高山市</span></div>
-        <div class="shop"><span class="pref">静岡県</span><span class="name">めがねの春田 静岡駅店</span><span class="city">静岡市</span></div>
-        <div class="shop"><span class="pref">静岡県</span><span class="name">アイヒキノ</span><span class="city">静岡市</span></div>
-        <div class="shop"><span class="pref">静岡県</span><span class="name">メガネの春田 (草薙)</span><span class="city">静岡市</span></div>
-        <div class="shop"><span class="pref">静岡県</span><span class="name">メガネの春田 清水駅前店 真砂町</span><span class="city">静岡市</span></div>
-        <div class="shop"><span class="pref">静岡県</span><span class="name">東京メガネ 松坂屋静岡店</span><span class="city">静岡市</span></div>
-        <div class="shop"><span class="pref">静岡県</span><span class="name">梅屋眼鏡店</span><span class="city">三島市</span></div>
-        <div class="shop"><span class="pref">愛知県</span><span class="name">(株)モミヤマ本店</span><span class="city">半田市</span></div>
-        <div class="shop"><span class="pref">愛知県</span><span class="name">メガネのリザック</span><span class="city">一宮市</span></div>
-        <div class="shop"><span class="pref">愛知県</span><span class="name">メガネーゼ中川店</span><span class="city">名古屋市</span></div>
-        <div class="shop"><span class="pref">愛知県</span><span class="name">メガネーゼ徳重店</span><span class="city">名古屋市</span></div>
-        <div class="shop"><span class="pref">愛知県</span><span class="name">メガネーゼ極楽店</span><span class="city">名古屋市</span></div>
-        <div class="shop"><span class="pref">愛知県</span><span class="name">メガネーゼ稲沢店</span><span class="city">稲沢市</span></div>
-        <div class="shop"><span class="pref">愛知県</span><span class="name">メガネーゼ蟹江店</span><span class="city">海部郡蟹江町</span></div>
-        <div class="shop"><span class="pref">愛知県</span><span class="name">メガネーゼ高畑店</span><span class="city">名古屋市</span></div>
-        <div class="shop"><span class="pref">愛知県</span><span class="name">岩田眼鏡店</span><span class="city">常滑市</span></div>
-        <div class="shop"><span class="pref">愛知県</span><span class="name">東京メガネ JR名古屋高島屋店</span><span class="city">名古屋市</span></div>
-        <div class="shop"><span class="pref">愛知県</span><span class="name">株式会社メガネの和光 瑞穂店</span><span class="city">名古屋市</span></div>
-        <div class="shop"><span class="pref">愛知県</span><span class="name">株式会社メガネの和光 藤が丘店</span><span class="city">名古屋市</span></div>
+        <div class="shop s3"><span class="pref">山梨県</span><div class="nm"><span class="name">サンワ</span><span class="addr">山梨県甲府市中央１丁目２−１</span></div><span class="tel">TEL 055-222-2422</span></div>
+        <div class="shop s3"><span class="pref">山梨県</span><div class="nm"><span class="name">昭和堂 和真メガネフレンドショップ</span><span class="addr">山梨県甲州市塩山下於曽1541-1</span></div><span class="tel">TEL 0553-32-1325</span></div>
+        <div class="shop s3"><span class="pref">長野県</span><div class="nm"><span class="name">オプティカルワークス コミヤマ</span><span class="addr">長野県小諸市御影新田2585-1</span></div><span class="tel">TEL 0267-23-0573</span></div>
+        <div class="shop s3"><span class="pref">長野県</span><div class="nm"><span class="name">合同会社なかむら</span><span class="addr">長野県伊那市中央4572-1</span></div><span class="tel">TEL 0265-72-3856</span></div>
+        <div class="shop s3"><span class="pref">岐阜県</span><div class="nm"><span class="name">光華眼鏡店岡本店</span><span class="addr">岐阜県高山市岡本町1-22-3</span></div><span class="tel">TEL 0577-32-3715</span></div>
+        <div class="shop s3"><span class="pref">静岡県</span><div class="nm"><span class="name">めがねの春田 静岡駅店</span><span class="addr">静岡県静岡市葵区紺屋町1-9</span></div><span class="tel">TEL 054-253-0029</span></div>
+        <div class="shop s3"><span class="pref">静岡県</span><div class="nm"><span class="name">アイヒキノ</span><span class="addr">静岡県静岡市駿河区南町2-4</span></div><span class="tel">TEL 054-285-1663</span></div>
+        <div class="shop s3"><span class="pref">静岡県</span><div class="nm"><span class="name">メガネの春田 (草薙)</span><span class="addr">静岡県静岡市清水区草薙１－１５－２</span></div><span class="tel">TEL 054-368-7772</span></div>
+        <div class="shop s3"><span class="pref">静岡県</span><div class="nm"><span class="name">メガネの春田 清水駅前店 真砂町</span><span class="addr">静岡県静岡市清水区真砂町2-19</span></div><span class="tel">TEL 0554-367-0543</span></div>
+        <div class="shop s3"><span class="pref">静岡県</span><div class="nm"><span class="name">東京メガネ 松坂屋静岡店</span><span class="addr">静岡県静岡市葵区御幸町10番地の2　松坂屋静岡店本館4階</span></div><span class="tel">TEL 054-205-2144</span></div>
+        <div class="shop s3"><span class="pref">静岡県</span><div class="nm"><span class="name">梅屋眼鏡店</span><span class="addr">静岡県三島市本町１−３６</span></div><span class="tel">TEL 0559-75-2555</span></div>
+        <div class="shop s3"><span class="pref">愛知県</span><div class="nm"><span class="name">(株)モミヤマ本店</span><span class="addr">愛知県半田市東郷町3-35-2</span></div><span class="tel">TEL 0569-21-1450</span></div>
+        <div class="shop s3"><span class="pref">愛知県</span><div class="nm"><span class="name">メガネのリザック</span><span class="addr">愛知県一宮市小信中島仁井西40-5</span></div><span class="tel">TEL 0586-62-7372</span></div>
+        <div class="shop s3"><span class="pref">愛知県</span><div class="nm"><span class="name">メガネーゼ中川店</span><span class="addr">愛知県名古屋市中川区　中島新町４丁目２６１３番</span></div><span class="tel">TEL 052-383-0022</span></div>
+        <div class="shop s3"><span class="pref">愛知県</span><div class="nm"><span class="name">メガネーゼ徳重店</span><span class="addr">愛知県名古屋市緑区黒沢台5-1209</span></div><span class="tel">TEL 052-876-0011</span></div>
+        <div class="shop s3"><span class="pref">愛知県</span><div class="nm"><span class="name">メガネーゼ極楽店</span><span class="addr">愛知県名古屋市名東区極楽5-5</span></div><span class="tel">TEL 052-705-2488</span></div>
+        <div class="shop s3"><span class="pref">愛知県</span><div class="nm"><span class="name">メガネーゼ稲沢店</span><span class="addr">愛知県稲沢市朝府町２−１１４</span></div><span class="tel">TEL 0587-23-4092</span></div>
+        <div class="shop s3"><span class="pref">愛知県</span><div class="nm"><span class="name">メガネーゼ蟹江店</span><span class="addr">愛知県海部郡蟹江町緑2−１２３</span></div><span class="tel">TEL 0567-96-1005</span></div>
+        <div class="shop s3"><span class="pref">愛知県</span><div class="nm"><span class="name">メガネーゼ高畑店</span><span class="addr">愛知県名古屋市中川区高畑3-56　アベニュー21 1F</span></div><span class="tel">TEL 052-352-1177</span></div>
+        <div class="shop s3"><span class="pref">愛知県</span><div class="nm"><span class="name">岩田眼鏡店</span><span class="addr">愛知県常滑市北条３丁目６４</span></div><span class="tel">TEL 0569-47-81-61</span></div>
+        <div class="shop s3"><span class="pref">愛知県</span><div class="nm"><span class="name">東京メガネ JR名古屋高島屋店</span><span class="addr">愛知県名古屋市中村区名駅1-1-4　JR名古屋高島屋11階メガネサロン</span></div><span class="tel">TEL 052-581-6783</span></div>
+        <div class="shop s3"><span class="pref">愛知県</span><div class="nm"><span class="name">株式会社メガネの和光 瑞穂店</span><span class="addr">愛知県名古屋市瑞穂区瑞穂通1-23-2　キングビル1F</span></div><span class="tel">TEL 052-853-1802</span></div>
+        <div class="shop s3"><span class="pref">愛知県</span><div class="nm"><span class="name">株式会社メガネの和光 藤が丘店</span><span class="addr">愛知県名古屋市守山区森孝東1-509　清水屋藤ヶ丘店3F</span></div><span class="tel">TEL 052-775-8855</span></div>
       </div>
     </div>
 
     <div class="region" id="r-kansai" data-br="reveal">
       <h3>関西 <span class="en">KANSAI</span><span class="cnt">2店</span></h3>
       <div class="shops">
-        <div class="shop"><span class="pref">大阪府</span><span class="name">東京メガネ 阪急高槻店</span><span class="city">高槻市</span></div>
-        <div class="shop"><span class="pref">兵庫県</span><span class="name">東京メガネ 神戸阪急店</span><span class="city">神戸市</span></div>
+        <div class="shop s3"><span class="pref">大阪府</span><div class="nm"><span class="name">東京メガネ 阪急高槻店</span><span class="addr">大阪府高槻市白梅町　４−１ 高槻阪急 3階</span></div><span class="tel">TEL 072-682-8002</span></div>
+        <div class="shop s3"><span class="pref">兵庫県</span><div class="nm"><span class="name">東京メガネ 神戸阪急店</span><span class="addr">兵庫県神戸市中央区小野柄通8-1-8　神戸阪急本館８階メガネサロン</span></div><span class="tel">TEL 078-251-8118</span></div>
       </div>
     </div>
 
     <div class="region" id="r-chugoku" data-br="reveal">
       <h3>中国・四国 <span class="en">CHUGOKU / SHIKOKU</span><span class="cnt">7店</span></h3>
       <div class="shops">
-        <div class="shop"><span class="pref">岡山県</span><span class="name">メガネのひらまつ 総社店</span><span class="city">総社市</span></div>
-        <div class="shop"><span class="pref">広島県</span><span class="name">東京メガネ そごう広島店</span><span class="city">広島市</span></div>
-        <div class="shop"><span class="pref">香川県</span><span class="name">アイアイイスズ イースト メガネコーナー</span><span class="city">高松市</span></div>
-        <div class="shop"><span class="pref">香川県</span><span class="name">メガネのヒラタ</span><span class="city">高松市</span></div>
-        <div class="shop"><span class="pref">香川県</span><span class="name">貴美屋</span><span class="city">さぬき市</span></div>
-        <div class="shop"><span class="pref">香川県</span><span class="name">長安眼鏡店</span><span class="city">高松市</span></div>
-        <div class="shop"><span class="pref">愛媛県</span><span class="name">アイ・アイ・エー余戸店</span><span class="city">松山市</span></div>
+        <div class="shop s3"><span class="pref">岡山県</span><div class="nm"><span class="name">メガネのひらまつ 総社店</span><span class="addr">岡山県総社市駅前2-7-12</span></div><span class="tel">TEL 0866-94-1010</span></div>
+        <div class="shop s3"><span class="pref">広島県</span><div class="nm"><span class="name">東京メガネ そごう広島店</span><span class="addr">広島県広島市中区基町6-27　そごう広島店本館8階</span></div><span class="tel">TEL 082-512-7351</span></div>
+        <div class="shop s3"><span class="pref">香川県</span><div class="nm"><span class="name">アイアイイスズ イースト メガネコーナー</span><span class="addr">香川県高松市多肥下町1523-3</span></div><span class="tel">TEL 087-864-5775</span></div>
+        <div class="shop s3"><span class="pref">香川県</span><div class="nm"><span class="name">メガネのヒラタ</span><span class="addr">香川県高松市香川町川東下1857-1</span></div><span class="tel">TEL 087-879-7070</span></div>
+        <div class="shop s3"><span class="pref">香川県</span><div class="nm"><span class="name">貴美屋</span><span class="addr">香川県さぬき市寒川町石田東816-6</span></div><span class="tel">TEL 0879-43-2104</span></div>
+        <div class="shop s3"><span class="pref">香川県</span><div class="nm"><span class="name">長安眼鏡店</span><span class="addr">香川県高松市浜ノ町49-20　LIVLOV-2F-A</span></div><span class="tel">TEL 087-887-1642</span></div>
+        <div class="shop s3"><span class="pref">愛媛県</span><div class="nm"><span class="name">アイ・アイ・エー余戸店</span><span class="addr">愛媛県松山市余戸東1-3-3</span></div><span class="tel">TEL 089-972-7288</span></div>
       </div>
     </div>
 
     <div class="region" id="r-kyushu" data-br="reveal">
       <h3>九州・沖縄 <span class="en">KYUSHU / OKINAWA</span><span class="cnt">19店</span></h3>
       <div class="shops">
-        <div class="shop"><span class="pref">福岡県</span><span class="name">めがねのヨシダ</span><span class="city">北九州市</span></div>
-        <div class="shop"><span class="pref">福岡県</span><span class="name">めがね工房中代</span><span class="city">宗像市</span></div>
-        <div class="shop"><span class="pref">福岡県</span><span class="name">めがね科ダム</span><span class="city">北九州市</span></div>
-        <div class="shop"><span class="pref">福岡県</span><span class="name">メガネのツカハラ</span><span class="city">飯塚市</span></div>
-        <div class="shop"><span class="pref">福岡県</span><span class="name">メガネの正美堂</span><span class="city">太宰府市</span></div>
-        <div class="shop"><span class="pref">福岡県</span><span class="name">メガネサロンW</span><span class="city">北九州市</span></div>
-        <div class="shop"><span class="pref">福岡県</span><span class="name">天神愛眼</span><span class="city">福岡市</span></div>
-        <div class="shop"><span class="pref">福岡県</span><span class="name">岸川眼鏡</span><span class="city">福岡市</span></div>
-        <div class="shop"><span class="pref">福岡県</span><span class="name">福之眼堂</span><span class="city">福岡市</span></div>
-        <div class="shop"><span class="pref">長崎県</span><span class="name">rafin永田メガネ</span><span class="city">佐世保市</span></div>
-        <div class="shop"><span class="pref">熊本県</span><span class="name">フランクール</span><span class="city">上益城郡御船町</span></div>
-        <div class="shop"><span class="pref">大分県</span><span class="name">メガネの正視堂 賀来店</span><span class="city">大分市</span></div>
-        <div class="shop"><span class="pref">大分県</span><span class="name">メガネ・補聴器ヒガシホ</span><span class="city">別府市</span></div>
-        <div class="shop"><span class="pref">沖縄県</span><span class="name">メガネ一番 中の町店</span><span class="city">沖縄市</span></div>
-        <div class="shop"><span class="pref">沖縄県</span><span class="name">メガネ一番 名護店</span><span class="city">名護市</span></div>
-        <div class="shop"><span class="pref">沖縄県</span><span class="name">メガネ一番 愛知店</span><span class="city">宜野湾市</span></div>
-        <div class="shop"><span class="pref">沖縄県</span><span class="name">メガネ一番 読谷店</span><span class="city">中頭郡読谷村</span></div>
-        <div class="shop"><span class="pref">沖縄県</span><span class="name">メガネ一番 豊見城店</span><span class="city">豊見城市</span></div>
-        <div class="shop"><span class="pref">沖縄県</span><span class="name">東江メガネ店</span><span class="city">那覇市</span></div>
+        <div class="shop s3"><span class="pref">福岡県</span><div class="nm"><span class="name">めがねのヨシダ</span><span class="addr">福岡県北九州市門司区　中町1-21</span></div><span class="tel">TEL 093-391-3333</span></div>
+        <div class="shop s3"><span class="pref">福岡県</span><div class="nm"><span class="name">めがね工房中代</span><span class="addr">福岡県宗像市赤間駅前2-4-13</span></div><span class="tel">TEL 0940-33-7738</span></div>
+        <div class="shop s3"><span class="pref">福岡県</span><div class="nm"><span class="name">めがね科ダム</span><span class="addr">福岡県北九州市戸畑区一枝3-1-5</span></div><span class="tel">TEL 093-882-0049</span></div>
+        <div class="shop s3"><span class="pref">福岡県</span><div class="nm"><span class="name">メガネのツカハラ</span><span class="addr">福岡県飯塚市堀池155-3</span></div><span class="tel">TEL 0948-29-3610</span></div>
+        <div class="shop s3"><span class="pref">福岡県</span><div class="nm"><span class="name">メガネの正美堂</span><span class="addr">福岡県太宰府市五条2-6-30</span></div><span class="tel">TEL 092-925-5461</span></div>
+        <div class="shop s3"><span class="pref">福岡県</span><div class="nm"><span class="name">メガネサロンW</span><span class="addr">福岡県北九州市八幡東区祇園1-8-5-101</span></div><span class="tel">TEL 093-671-6964</span></div>
+        <div class="shop s3"><span class="pref">福岡県</span><div class="nm"><span class="name">天神愛眼</span><span class="addr">福岡県福岡市中央区天神１丁目7-15　天神愛眼ビル</span></div><span class="tel">TEL 092-716-0001</span></div>
+        <div class="shop s3"><span class="pref">福岡県</span><div class="nm"><span class="name">岸川眼鏡</span><span class="addr">福岡県福岡市早良区飯倉　6-35-25</span></div><span class="tel">TEL 092-986-1001</span></div>
+        <div class="shop s3"><span class="pref">福岡県</span><div class="nm"><span class="name">福之眼堂</span><span class="addr">福岡県福岡市中央区白金1-16-4　コレンテいのくちビル102</span></div><span class="tel">TEL 092-707-0578</span></div>
+        <div class="shop s3"><span class="pref">長崎県</span><div class="nm"><span class="name">rafin永田メガネ</span><span class="addr">長崎県佐世保市上京町3-18</span></div><span class="tel">TEL 0956-22-0110</span></div>
+        <div class="shop s3"><span class="pref">熊本県</span><div class="nm"><span class="name">フランクール</span><span class="addr">熊本県上益城郡御船町御船１０４１－1　マイン店内</span></div><span class="tel">TEL 096-282-0121</span></div>
+        <div class="shop s3"><span class="pref">大分県</span><div class="nm"><span class="name">メガネの正視堂 賀来店</span><span class="addr">大分県大分市賀来南1-7-1</span></div><span class="tel">TEL 097-549-3663</span></div>
+        <div class="shop s3"><span class="pref">大分県</span><div class="nm"><span class="name">メガネ・補聴器ヒガシホ</span><span class="addr">大分県別府市元町５ー１７</span></div><span class="tel">TEL 0977-21-1887</span></div>
+        <div class="shop s3"><span class="pref">沖縄県</span><div class="nm"><span class="name">メガネ一番 中の町店</span><span class="addr">沖縄県沖縄市上地1-11-3　1F</span></div><span class="tel">TEL 098-930-0231</span></div>
+        <div class="shop s3"><span class="pref">沖縄県</span><div class="nm"><span class="name">メガネ一番 名護店</span><span class="addr">沖縄県名護市宮里6-4-21</span></div><span class="tel">TEL 0980-52-4543</span></div>
+        <div class="shop s3"><span class="pref">沖縄県</span><div class="nm"><span class="name">メガネ一番 愛知店</span><span class="addr">沖縄県宜野湾市愛知１丁目２−３</span></div><span class="tel">TEL 098-892-3745</span></div>
+        <div class="shop s3"><span class="pref">沖縄県</span><div class="nm"><span class="name">メガネ一番 読谷店</span><span class="addr">沖縄県中頭郡読谷村大木460-1</span></div><span class="tel">TEL 098-982-8888</span></div>
+        <div class="shop s3"><span class="pref">沖縄県</span><div class="nm"><span class="name">メガネ一番 豊見城店</span><span class="addr">沖縄県豊見城市高安317-1</span></div><span class="tel">TEL 098-851-1800</span></div>
+        <div class="shop s3"><span class="pref">沖縄県</span><div class="nm"><span class="name">東江メガネ店</span><span class="addr">沖縄県那覇市上間290-6</span></div><span class="tel">TEL 098-833-2888</span></div>
       </div>
     </div>
 
-    <div class="dg-note" data-br="reveal"><b>※ 掲載リストについて</b>：橋本さんご提供の「ECサイト掲載店」名簿（得意先シート・表記修正版）の140店をエリア別に掲載しています。※「和真メガネ二宮店（FC）」のみ住所未記入のため保留中（住所確認後に追加）。番地までの住所・地図リンクは本実装（Shopify）時に整備します。</div>
+    <div class="dg-note" data-br="reveal"><b>※ 掲載リストについて</b>：橋本さんご提供の「ECサイト掲載店」名簿の140店を、住所・電話番号つきでエリア別に掲載しています（8/24定例の仕様＝郵便番号・FAXは非掲載）。※「和真メガネ二宮店（FC）」のみ住所未記入のため保留中。店舗URL・地図リンクは本実装（Shopify）時に検討します。</div>
   </div>
 </section>
 

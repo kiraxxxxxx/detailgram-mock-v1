@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>DETAIL GRAM ｜ トップページ 白背景版</title>
+<title>DETAIL GRAM ｜ トップページ 白背景 比較版</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -16,8 +16,8 @@
      固有の仕掛け＝"DETAIL"＝ディテールへ寄る（拡大鏡セクション）
      ======================================================= */
   :root{
-    --ink:#eef0f2; --ink-2:#e4e7ea; --paper:#16181c; --paper-dim:#6b7280;
-    --line:#c9ced4; --accent:#a07d2c; /* 真鍮(白地で沈むので少し濃く) */
+    --ink:#0e0f11; --ink-2:#16181c; --paper:#e8e6e2; --paper-dim:#a8a9ad;
+    --line:#2b2f35; --accent:#c8b273; /* 真鍮 */
     --sans:'Inter',system-ui,'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
     --serif:'Shippori Mincho','Hiragino Mincho ProN',serif;
   }
@@ -25,7 +25,7 @@
 
   /* --- ヘッダー（Horizonのheader-groupは触らない前提。見た目確認用） --- */
   .dg-header{ position:sticky; top:0; z-index:50; display:flex; align-items:center; gap:28px;
-    padding:16px 4vw; border-bottom:1px solid var(--line); background:rgba(238,240,242,.82); backdrop-filter:blur(14px); }
+    padding:16px 4vw; border-bottom:1px solid var(--line); background:rgba(14,15,17,.72); backdrop-filter:blur(14px); }
   .dg-logo{ font-family:var(--serif); font-size:19px; letter-spacing:.22em; }
   .dg-nav{ display:flex; gap:22px; margin-left:auto; font-size:12.5px; letter-spacing:.08em; }
   .dg-nav a{ opacity:.72 } .dg-nav a:hover{ opacity:1 }
@@ -33,8 +33,23 @@
 
   /* --- HERO：写真1枚を映画のカットに（br-cinema） --- */
   .hero{ position:relative; }
-  .hero .br-cinema{ background:#000 }
-  .hero-copy{ position:absolute; inset:auto 0 12% 0; text-align:center; color:#f4f2ee; text-shadow:0 2px 20px rgba(0,0,0,.5); }
+  .hero .br-cinema{ background:#000; overflow:hidden }
+  /* ヒーロー・スライドショー：フワッとクロスフェード＋弧を描くドリフト(クラシックKen Burns) */
+  .hero-slider{ position:relative }
+  .hero-slider .hs{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    opacity:0; transition:opacity 2s ease; }
+  /* br-kitの .br-cinema>img{animation:none!important} を上書きするため !important 指定 */
+  .hero-slider .hs.on{ opacity:1; animation:heroDrift 20s ease-in-out infinite alternate !important; }
+  .hero-slider .hs:nth-child(2).on{ animation:heroDrift2 20s ease-in-out infinite alternate !important; }
+  .hero-slider .hs:nth-child(3).on{ animation:heroDrift3 20s ease-in-out infinite alternate !important; }
+  .hero-slider .hs:nth-child(4).on{ animation:heroDrift4 20s ease-in-out infinite alternate !important; }
+  /* 弧を描くように移動しながら微ズーム（円運動感） */
+  @keyframes heroDrift{ 0%{transform:scale(1.12) translate(-1.5%,-1%)} 50%{transform:scale(1.16) translate(1.5%,0.5%)} 100%{transform:scale(1.12) translate(1%,1.5%)} }
+  @keyframes heroDrift2{ 0%{transform:scale(1.12) translate(1.5%,-1%)} 50%{transform:scale(1.16) translate(-1%,1%)} 100%{transform:scale(1.12) translate(-1.5%,-1.5%)} }
+  @keyframes heroDrift3{ 0%{transform:scale(1.13) translate(-1%,1.5%)} 50%{transform:scale(1.17) translate(1%,-1%)} 100%{transform:scale(1.13) translate(1.5%,0.5%)} }
+  @keyframes heroDrift4{ 0%{transform:scale(1.12) translate(1%,1%)} 50%{transform:scale(1.16) translate(-1.5%,-0.5%)} 100%{transform:scale(1.12) translate(-1%,1.5%)} }
+  @media (prefers-reduced-motion: reduce){ .hero-slider .hs.on{ animation:none !important; transform:scale(1.05) } }
+  .hero-copy{ position:absolute; inset:auto 0 12% 0; text-align:center; }
   .hero-copy h1{ font-family:var(--serif); font-weight:500; margin:0 0 14px;
     font-size:clamp(1.6rem,.9rem+2.4vw,3.1rem); letter-spacing:.06em; }
   .hero-copy p{ margin:0; font-size:13px; letter-spacing:.18em; opacity:.66 }
@@ -69,11 +84,19 @@
   /* --- 固有の仕掛け：DETAILへ寄る（拡大鏡） --- */
   .detail{ background:var(--ink-2); border-block:1px solid var(--line) }
   .detail-in{ display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center; padding:88px 0 }
-  .lens{ position:relative; overflow:hidden; background:#e4e7ea; aspect-ratio:4/5; max-height:560px }
+  .lens{ position:relative; overflow:hidden; background:#0b0c0e; aspect-ratio:4/5; max-height:560px }
   .lens img{ width:100%; height:100%; object-fit:cover; object-position:center 32%; display:block }
+  /* Ken Burns スライダー：重ねてクロスフェード＋微速ズーム */
+  .kb-slider{ position:relative }
+  .kb-slider .kb{ position:absolute; inset:0; opacity:0; transition:opacity 1.6s ease; will-change:opacity,transform }
+  .kb-slider .kb.on{ opacity:1; animation:kbzoom 7s ease-out both }
+  @keyframes kbzoom{ from{ transform:scale(1) } to{ transform:scale(1.09) } }
+  @media (prefers-reduced-motion: reduce){
+    .kb-slider .kb{ transition:none } .kb-slider .kb.on{ animation:none }
+  }
   .lens::after{ content:""; position:absolute; inset:0; box-shadow:inset 0 0 0 1px rgba(0,0,0,.08) }
   /* --- 着用写真スライド（BRANDセクション左） --- */
-  .wear-slider{ position:relative; overflow:hidden; background:#e4e7ea; aspect-ratio:3/4 }
+  .wear-slider{ position:relative; overflow:hidden; background:#0b0c0e; aspect-ratio:3/4 }
   .ws-track{ display:flex; width:100%; height:100%; transition:transform .8s cubic-bezier(.6,.01,.2,1) }
   .ws-track img{ width:100%; height:100%; flex:0 0 100%; object-fit:cover }
   .ws-dots{ position:absolute; left:0; right:0; bottom:14px; display:flex; gap:7px; justify-content:center; z-index:2 }
@@ -85,8 +108,8 @@
   .detail .spec{ margin-top:22px; display:flex; gap:26px; font-size:11.5px; letter-spacing:.12em; opacity:.55 }
 
   /* --- CRAFT：積み重なる章（br-sticky-story） --- */
-  .craft{ background:#e4e7ea }
-  .panel{ display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--line); overflow:hidden; background:#e4e7ea }
+  .craft{ background:#0b0c0e }
+  .panel{ display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--line); overflow:hidden; background:#0b0c0e }
   .panel img{ width:100%; height:100%; object-fit:cover; min-height:300px }
   .panel .tx{ padding:44px; display:flex; flex-direction:column; justify-content:center; gap:12px }
   .panel .n{ font-family:var(--serif); color:var(--accent); font-size:12px; letter-spacing:.2em }
@@ -114,7 +137,7 @@
   .z-lines span:first-child{ border-color:var(--accent); color:var(--accent); opacity:1 }
   .z-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px }
   .z-card{ background:#fff; border:1px solid #e3e5e8; display:block; transition:transform .25s, box-shadow .25s }
-  .z-card:hover{ transform:translateY(-3px); box-shadow:0 12px 26px rgba(20,30,50,.14) }
+  .z-card:hover{ transform:translateY(-3px); box-shadow:0 14px 30px rgba(0,0,0,.5) }
   .z-card figure{ margin:0; position:relative; border-bottom:1px solid #e3e5e8 }
   .z-card img{ width:100%; aspect-ratio:4/3; object-fit:contain; padding:14px; mix-blend-mode:multiply }
   .z-no{ position:absolute; top:8px; left:9px; font-family:var(--serif); font-size:10px; letter-spacing:.14em; color:#8a929c }
@@ -128,6 +151,15 @@
   .z-more{ margin-top:30px; text-align:center }
   .z-more a{ display:inline-block; border:1px solid var(--paper); padding:12px 30px; font-size:12.5px; letter-spacing:.08em; opacity:.85 }
   .z-more a:hover{ background:var(--paper); color:var(--ink); opacity:1 }
+
+  /* --- LINES（4ブランド紹介） --- */
+  .lines-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line) }
+  .line-card{ background:var(--ink); padding:38px 26px 30px; display:flex; flex-direction:column; gap:14px; transition:background .3s }
+  .line-card:hover{ background:var(--ink-2) }
+  .line-card .lg{ height:56px; display:flex; align-items:center }
+  .line-card .lg img{ max-height:100%; max-width:82%; width:auto; object-fit:contain }
+  .line-card p{ margin:0; font-size:12px; line-height:1.95; opacity:.62; flex:1 }
+  .line-card .go{ font-size:11px; letter-spacing:.14em; color:var(--accent) }
 
   /* --- STOCKIST / BUSINESS --- */
   .two{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line) }
@@ -149,26 +181,51 @@
     .grid{ grid-template-columns:repeat(2,1fr) }
     .z-grid{ grid-template-columns:repeat(2,1fr) }
     .gates,.detail-in,.panel,.two{ grid-template-columns:1fr }
+    .lines-grid{ grid-template-columns:repeat(2,1fr) }
     .dg-nav{ display:none }
   }
+
+  /* ===== 白背景 比較版オーバーライド（2026-08-24 橋本氏リクエスト） ===== */
+  :root{
+    --ink:#f4f3f0; --ink-2:#eae8e3; --paper:#1b1d20; --paper-dim:#5c6066;
+    --line:#d8d5cf; --accent:#8a6d2f;
+  }
+  .dg-header{ background:rgba(244,243,240,.82); border-bottom-color:var(--line) }
+  .hero .br-cinema{ background:#101113 }
+  .hero-copy h1, .hero-copy p{ color:#f4f3f0 }
+  .hero-scroll{ background:linear-gradient(#f4f3f0,transparent) }
+  .news .nrow:hover{ background:rgba(0,0,0,.03) }
+  .z-card{ border-color:#dcd9d2; box-shadow:0 1px 0 rgba(0,0,0,.03) }
+  .z-card:hover{ box-shadow:0 14px 30px rgba(20,23,26,.14) }
+  .line-card .lg img{ filter:invert(1) brightness(.15) }
+  .ws-note{ color:rgba(255,255,255,.85) }
+  .kb-slider + div .no{ color:var(--accent) }
+  .two img{ filter:grayscale(.15) }
+  .br-grain{ opacity:.35 }
+  .craft{ color:#e8e6e2 }
+  .craft .sec-head h2{ color:#e8e6e2 }
+  .craft .sec-head .en, .craft .sec-head .no{ color:#c8b273 }
 </style>
 </head>
 <body>
-<div class="br-grain" aria-hidden="true" style="display:none"></div>
+<div class="br-grain" aria-hidden="true"></div>
 
 <!-- ===== header（Horizon: header-group は触らない／確認用） ===== -->
 <header class="dg-header">
   <span class="dg-logo">DETAIL GRAM</span>
   <nav class="dg-nav">
-    <a href="#">Brand</a><a href="#">Product</a><a href="#">Stockist</a>
-    <a href="#">取扱店・バイヤーの方へ</a><a href="#" class="is-store">Store</a><a href="#">Contact</a>
+    <a href="brand.html">Brand</a><a href="product.html">Product</a><a href="stockist.html">Stockist</a>
+    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="contact.html">Contact</a>
   </nav>
 </header>
 
 <!-- ===== SECTION: hero  → detailgram-home-hero.liquid ===== -->
 <section class="dg-section hero">
-  <div class="br-cinema">
-    <img src="assets/dummy/scene_hero.jpg" alt="鯖江の工房（ダミー）">
+  <div class="br-cinema hero-slider">
+    <img class="hs on" src="assets/dummy/scene_hero.jpg" alt="鯖江の工房（ダミー）">
+    <img class="hs" src="assets/dummy/hero_2.jpg" alt="鯖江の工房（ダミー）">
+    <img class="hs" src="assets/dummy/hero_3.jpg" alt="仕上げ（ダミー）">
+    <img class="hs" src="assets/dummy/hero_4.jpg" alt="完成（ダミー）">
   </div>
   <div class="hero-copy">
     <h1 data-br="chars">機能の上に立つ、引き算</h1>
@@ -179,13 +236,13 @@
 
 <!-- ===== SECTION: gates（2導線） → detailgram-home-gates.liquid ===== -->
 <section class="dg-section gates" data-br="stagger">
-  <a class="gate" href="#">
+  <a class="gate" href="product.html">
     <span class="k">FOR CUSTOMERS</span>
     <span class="t">眼鏡を見る／試せる店を探す</span>
     <span class="d">かたちと色を見て、近くの取扱店で掛けてみる。</span>
     <span class="go">→ Product / Stockist</span>
   </a>
-  <a class="gate" href="#">
+  <a class="gate" href="for-business.html">
     <span class="k">FOR BUSINESS</span>
     <span class="t">取扱店・バイヤーの方へ</span>
     <span class="d">お取扱いのご相談、カタログ請求、OEM・デザイン受託。</span>
@@ -204,16 +261,16 @@
       <span>DETAIL GRAM</span><span>quadro</span><span>pellicule</span><span>TAKAHIRO HASHIMOTO</span>
     </div>
     <div class="z-grid" data-br="stagger" data-br-step="0.06">
-      <a class="z-card" href="#"><figure><span class="z-no">No.01</span><img src="assets/products/DG0025.jpg" alt="DG0025"></figure><div class="z-body"><div class="z-name">DG0025</div><div class="z-sub">チタン／6色展開</div><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥52,000</span></div></div></a>
-      <a class="z-card" href="#"><figure><span class="z-no">No.02</span><img src="assets/products/DG0015.jpg" alt="DG0015"></figure><div class="z-body"><div class="z-name">DG0015</div><div class="z-sub">Line series</div><span class="z-tag">メガネ大賞</span><div class="z-foot"><span class="z-line">quadro</span><span class="z-price">¥52,000</span></div></div></a>
-      <a class="z-card" href="#"><figure><span class="z-no">No.03</span><img src="assets/products/PE001.jpg" alt="PE001"></figure><div class="z-body"><div class="z-name">PE001</div><div class="z-sub">10周年記念モデル</div><span class="z-tag">10th</span><div class="z-foot"><span class="z-line">pellicule</span><span class="z-price">¥72,000</span></div></div></a>
-      <a class="z-card" href="#"><figure><span class="z-no">No.04</span><img src="assets/products/TH004.jpg" alt="TH004"></figure><div class="z-body"><div class="z-name">TH004</div><div class="z-sub">デザイナーライン</div><span class="z-tag">NEW</span><div class="z-foot"><span class="z-line">TAKAHIRO HASHIMOTO</span><span class="z-price">¥47,000</span></div></div></a>
-      <a class="z-card" href="#"><figure><span class="z-no">No.05</span><img src="assets/products/DG0010.jpg" alt="DG0010"></figure><div class="z-body"><div class="z-name">DG0010</div><div class="z-sub">14色展開</div><div class="z-foot"><span class="z-line">quadro</span><span class="z-price">¥39,000</span></div></div></a>
-      <a class="z-card" href="#"><figure><span class="z-no">No.06</span><img src="assets/products/DG0008.jpg" alt="DG0008"></figure><div class="z-body"><div class="z-name">DG0008</div><div class="z-sub">FC七宝</div><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥52,000</span></div></div></a>
-      <a class="z-card" href="#"><figure><span class="z-no">No.07</span><img src="assets/products/DG0009.jpg" alt="DG0009"></figure><div class="z-body"><div class="z-name">DG0009</div><div class="z-sub">6色展開</div><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥38,000</span></div></div></a>
-      <a class="z-card" href="#"><figure><span class="z-no">No.08</span><img src="assets/products/TH001.jpg" alt="TH001"></figure><div class="z-body"><div class="z-name">TH001</div><div class="z-sub">デザイナーライン</div><div class="z-foot"><span class="z-line">TAKAHIRO HASHIMOTO</span><span class="z-price">¥47,000</span></div></div></a>
+      <a class="z-card" href="product-detail.html"><figure><span class="z-no">No.01</span><img src="assets/products/DG0025.jpg" alt="DG0025"></figure><div class="z-body"><div class="z-name">DG0025</div><div class="z-sub">チタン／6色展開</div><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥52,000</span></div></div></a>
+      <a class="z-card" href="product-detail.html"><figure><span class="z-no">No.02</span><img src="assets/products/DG0015.jpg" alt="DG0015"></figure><div class="z-body"><div class="z-name">DG0015</div><div class="z-sub">Line series</div><span class="z-tag">M.E.E グランプリ</span><div class="z-foot"><span class="z-line">quadro</span><span class="z-price">¥52,000</span></div></div></a>
+      <a class="z-card" href="product-detail.html"><figure><span class="z-no">No.03</span><img src="assets/products/PE001.jpg" alt="PE001"></figure><div class="z-body"><div class="z-name">PE001</div><div class="z-sub">10周年記念モデル</div><span class="z-tag">10th</span><div class="z-foot"><span class="z-line">pellicule</span><span class="z-price">¥72,000</span></div></div></a>
+      <a class="z-card" href="product-detail.html"><figure><span class="z-no">No.04</span><img src="assets/products/TH004.jpg" alt="TH004"></figure><div class="z-body"><div class="z-name">TH004</div><div class="z-sub">デザイナーライン</div><span class="z-tag">NEW</span><div class="z-foot"><span class="z-line">TAKAHIRO HASHIMOTO</span><span class="z-price">¥47,000</span></div></div></a>
+      <a class="z-card" href="product-detail.html"><figure><span class="z-no">No.05</span><img src="assets/products/DG0010.jpg" alt="DG0010"></figure><div class="z-body"><div class="z-name">DG0010</div><div class="z-sub">14色展開</div><div class="z-foot"><span class="z-line">quadro</span><span class="z-price">¥39,000</span></div></div></a>
+      <a class="z-card" href="product-detail.html"><figure><span class="z-no">No.06</span><img src="assets/products/DG0008.jpg" alt="DG0008"></figure><div class="z-body"><div class="z-name">DG0008</div><div class="z-sub">FC七宝</div><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥52,000</span></div></div></a>
+      <a class="z-card" href="product-detail.html"><figure><span class="z-no">No.07</span><img src="assets/products/DG0009.jpg" alt="DG0009"></figure><div class="z-body"><div class="z-name">DG0009</div><div class="z-sub">6色展開</div><div class="z-foot"><span class="z-line">DETAIL GRAM</span><span class="z-price">¥38,000</span></div></div></a>
+      <a class="z-card" href="product-detail.html"><figure><span class="z-no">No.08</span><img src="assets/products/TH001.jpg" alt="TH001"></figure><div class="z-body"><div class="z-name">TH001</div><div class="z-sub">デザイナーライン</div><div class="z-foot"><span class="z-line">TAKAHIRO HASHIMOTO</span><span class="z-price">¥47,000</span></div></div></a>
     </div>
-    <div class="z-more" data-br="reveal"><a href="#">すべての製品を見る（37型）→</a></div>
+    <div class="z-more" data-br="reveal"><a href="product.html">すべての製品を見る（37型）→</a></div>
   </div>
 </section>
 
@@ -221,8 +278,13 @@
 <!--        → detailgram-home-brand.liquid -->
 <section class="dg-section detail">
   <div class="dg-wrap detail-in">
-    <div class="lens r-frame" data-br="reveal">
-      <img src="assets/wearing/wear_fx_01.jpg" alt="着用イメージ（AI生成・仮）">
+    <div class="lens r-frame kb-slider" data-br="reveal">
+      <img class="kb on" src="assets/wearing/wear_wh_m.jpg" alt="着用イメージ（AI生成・仮）">
+      <img class="kb" src="assets/wearing/wear_as_f.jpg" alt="着用イメージ（AI生成・仮）">
+      <img class="kb" src="assets/wearing/wear_bk_m.jpg" alt="着用イメージ（AI生成・仮）">
+      <img class="kb" src="assets/wearing/wear_wh_f.jpg" alt="着用イメージ（AI生成・仮）">
+      <img class="kb" src="assets/wearing/wear_as_m.jpg" alt="着用イメージ（AI生成・仮）">
+      <img class="kb" src="assets/wearing/wear_bk_f.jpg" alt="着用イメージ（AI生成・仮）">
       <span class="ws-note">着用イメージ（AI生成・仮）</span>
     </div>
     <div>
@@ -232,6 +294,37 @@
       <p data-br="reveal" data-br-delay=".2s">企画・デザインは埼玉のアトリエで。製造は福井・鯖江で、削り出しから七宝、仕上げまで全工程を日本国内で行っています。</p>
       <p data-br="reveal" data-br-delay=".3s">流行のかたちを追いかけるより、掛ける人の輪郭を邪魔しないことを選んできました。引き算の結果として残ったものが、このブランドのかたちです。</p>
       <div class="spec" data-br="reveal" data-br-delay=".4s"><span>TITANIUM</span><span>FC 七宝</span><span>MADE IN SABAE</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: lines（4ブランド紹介） → detailgram-home-lines.liquid ===== -->
+<section class="dg-section sec" style="padding-top:0">
+  <div class="dg-wrap">
+    <div class="sec-head" data-br="reveal">
+      <span class="no">—</span><h2>4つのライン</h2><span class="en">BRANDS</span>
+    </div>
+    <div class="lines-grid" data-br="stagger" data-br-step="0.07">
+      <a class="line-card" href="brand.html#line-dg">
+        <span class="lg"><img src="assets/logo/dg_w.png" alt="DETAIL GRAM"></span>
+        <p>詳細（DETAIL）と重さ（GRAM）を合わせた造語。細部まで妥協しない「大人のカジュアル・アイウェア」の中核ライン。</p>
+        <span class="go">詳しく →</span>
+      </a>
+      <a class="line-card" href="brand.html#line-quadro">
+        <span class="lg"><img src="assets/logo/quadro_w.png" alt="quadro"></span>
+        <p>イタリア語で「額縁」。掛けることで、その人の魅力を何倍にも高めることを目的にしたシリーズ。</p>
+        <span class="go">詳しく →</span>
+      </a>
+      <a class="line-card" href="brand.html#line-pellicule">
+        <span class="lg"><img src="assets/logo/pellicule_w.png" alt="pellicule"></span>
+        <p>フランス語で「映画・フィルム」。クラシカルなデザインに現代の掛け心地を融合した、ネオ・レトロのライン。</p>
+        <span class="go">詳しく →</span>
+      </a>
+      <a class="line-card" href="brand.html#line-th">
+        <span class="lg"><img src="assets/logo/th_w.png" alt="TAKAHIRO HASHIMOTO"></span>
+        <p>SILMO PARISで発表されたデザイナーライン。一個智構造とアンティークゴールド仕上げ、技術の象徴。</p>
+        <span class="go">詳しく →</span>
+      </a>
     </div>
   </div>
 </section>
@@ -267,9 +360,10 @@
       <span class="no">03</span><h2>受賞とメディア</h2><span class="en">NEWS / MEDIA</span>
     </div>
     <div class="awards" data-br="stagger" data-br-step="0.06">
-      <span><b>受賞</b>メガネ大賞 デザイン部門（DG0015）</span>
+      <span><b>受賞</b>IOFT 2021 アイウェア・オブ・ザ・イヤー メンズ部門（DG0008）</span>
+      <span><b>受賞</b>IOFT 2023 デザイン部門（DG0015）</span>
+      <span><b>受賞</b>M.E.E 2023 フレームデザイン部門 グランプリ（DG0015）</span>
       <span><b>出展</b>SILMO PARIS</span>
-      <span><b>出展</b>M.E.E（Meets Eyewear Exhibition）</span>
       <span><b>掲載</b>本格眼鏡大全</span>
     </div>
     <div class="news" data-br="reveal">
@@ -286,13 +380,13 @@
     <img class="r-card" src="assets/dummy/scene_stockist.jpg" alt="店頭（ダミー）">
     <h3>試せる店を探す</h3>
     <p>眼鏡は、掛けてみないと分からない。全国の取扱店と、海外の取扱先を掲載しています。</p>
-    <a class="btn r-pill" href="#">STOCKIST を見る</a>
+    <a class="btn r-pill" href="stockist.html">STOCKIST を見る</a>
   </div>
   <div data-br="reveal" data-br-delay=".1s">
     <img class="r-card" src="assets/dummy/scene_oem.jpg" alt="OEM（ダミー）">
     <h3>取扱店・バイヤーの方へ</h3>
     <p>新規お取扱いのご相談、カタログ・価格表の請求。OEM・デザイン受託も承っています。</p>
-    <a class="btn r-pill" href="#">お問い合わせ</a>
+    <a class="btn r-pill" href="for-business.html">お問い合わせ</a>
   </div>
 </section>
 
@@ -300,10 +394,10 @@
 <footer class="dg-footer">
   <div class="f-top">
     <span class="b">DETAIL GRAM</span>
-    <a href="#">Brand</a><a href="#">Product</a><a href="#">Stockist</a>
-    <a href="#">取扱店・バイヤーの方へ</a><a href="#">Store</a><a href="#">Contact（採用も）</a><a href="#">Instagram</a>
+    <a href="brand.html">Brand</a><a href="product.html">Product</a><a href="stockist.html">Stockist</a>
+    <a href="for-business.html">取扱店・バイヤーの方へ</a><a href="contact.html">Contact（採用も）</a><a href="https://www.instagram.com/detailgram_inc/" rel="noopener">Instagram</a>
   </div>
-  <div class="f-bot"><span>© DETAIL GRAM</span><span>白背景版 ｜ デザイン検討用・仮画像あり</span></div>
+  <div class="f-bot"><span>© DETAIL GRAM</span><span>白背景 比較版 ｜ デザイン検討用・仮画像あり（確定は黒・比較用）</span></div>
   <div style="margin-top:18px;padding:12px 14px;border:1px solid var(--line);font-size:11px;line-height:1.9;opacity:.72">
     <b style="color:var(--accent);font-weight:500">※ 画像について</b>：眼鏡の写真は実物です。ヒーロー（最上部）・工房・店頭の画像は<b>位置を示す仮画像</b>で、本番は撮影／AI生成で差し替えます。文言・色味・余白も調整中です。
   </div>
@@ -311,19 +405,40 @@
 
 <script src="assets/br-kit.js"></script>
 <script>
-  /* 着用写真スライド：自動送り＋ドット（reduced-motionは自動送りしない） */
+  /* 着用イメージ Ken Burns スライダー：重ねてクロスフェード＋各カットで微速ズーム */
   (function(){
-    var track = document.querySelector('.ws-track');
-    if(!track) return;
-    var imgs = track.querySelectorAll('img');
-    var dotsWrap = document.querySelector('.ws-dots');
-    var i = 0, n = imgs.length;
-    for(var k=0;k<n;k++){ var d=document.createElement('i'); if(k===0)d.className='on'; dotsWrap.appendChild(d); }
-    var dots = dotsWrap.querySelectorAll('i');
-    function go(x){ i=(x+n)%n; track.style.transform='translateX(-'+(i*100)+'%)';
-      dots.forEach(function(d,j){ d.className = j===i?'on':''; }); }
+    var slider = document.querySelector('.kb-slider');
+    if(!slider) return;
+    var imgs = slider.querySelectorAll('.kb');
+    if(imgs.length < 2) return;
     var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(!reduce){ setInterval(function(){ go(i+1); }, 3200); }
+    if(reduce) return; /* 動きを抑える設定なら1枚目のまま静止 */
+    var i = 0, n = imgs.length;
+    setInterval(function(){
+      imgs[i].classList.remove('on');
+      i = (i + 1) % n;
+      var next = imgs[i];
+      /* ズームをリスタートさせる（アニメを再適用） */
+      next.style.animation = 'none'; void next.offsetWidth; next.style.animation = '';
+      next.classList.add('on');
+    }, 4200);
+  })();
+
+  /* ヒーロー・スライドショー切替（クロスフェード） */
+  (function(){
+    var hero = document.querySelector('.hero-slider');
+    if(!hero) return;
+    var imgs = hero.querySelectorAll('.hs');
+    if(imgs.length < 2) return;
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var i = 0, n = imgs.length;
+    setInterval(function(){
+      imgs[i].classList.remove('on');
+      i = (i + 1) % n;
+      var nx = imgs[i];
+      nx.style.animation='none'; void nx.offsetWidth; nx.style.animation='';
+      nx.classList.add('on');
+    }, 6000);
   })();
 </script>
 </body>
