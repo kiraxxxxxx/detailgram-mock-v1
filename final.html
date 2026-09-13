@@ -194,6 +194,25 @@
   .hero .br-cinema{ background:#101113 }
   .hero-copy h1, .hero-copy p{ color:#f4f3f0 }
   .hero-scroll{ background:linear-gradient(#ffffff,transparent) }
+
+  /* ===== HERO：上下の黒枠を外して全画面に（2026-09-07 橋本氏リクエスト） ===== */
+  .hero{ overflow:hidden }
+  .hero .br-cinema{
+    aspect-ratio:auto;
+    height:calc(100vh - 62px); height:calc(100svh - 62px);
+    min-height:520px;
+  }
+  .hero .br-cinema::before, .hero .br-cinema::after{ content:none }   /* レターボックス帯を消す */
+  .hero::after{                                                        /* 文字の可読性：下だけ薄く落とす */
+    content:""; position:absolute; left:0; right:0; bottom:0; height:42%; z-index:1; pointer-events:none;
+    background:linear-gradient(to top, rgba(0,0,0,.46), rgba(0,0,0,0));
+  }
+  .hero-copy{ inset:auto 0 10% 0; z-index:2 }
+  .hero-scroll{ z-index:2 }
+  @media (max-width:760px){
+    .hero .br-cinema{ height:calc(100vh - 58px); height:calc(100svh - 58px); min-height:460px }
+    .hero-copy{ bottom:12% }
+  }
   .news .nrow:hover{ background:rgba(0,0,0,.03) }
   .z-card{ border-color:#dcd9d2; box-shadow:0 1px 0 rgba(0,0,0,.03) }
   .z-card:hover{ box-shadow:0 14px 30px rgba(20,23,26,.14) }
