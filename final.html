@@ -191,9 +191,10 @@
     --line:#e3e3e3; --accent:#8a6d2f;
   }
   .dg-header{ background:rgba(255,255,255,.85); border-bottom-color:var(--line) }
-  .hero .br-cinema{ background:#101113 }
-  .hero-copy h1, .hero-copy p{ color:#f4f3f0 }
-  .hero-scroll{ background:linear-gradient(#ffffff,transparent) }
+  .hero .br-cinema{ background:#ffffff }
+  .hero-copy h1, .hero-copy p{ color:#14161a }
+  .hero-copy p{ opacity:.78 }
+  .hero-scroll{ background:linear-gradient(#14161a,transparent) }
 
   /* ===== HERO：上下の黒枠を外して全画面に（2026-09-07 橋本氏リクエスト） ===== */
   .hero{ overflow:hidden }
@@ -203,9 +204,9 @@
     min-height:520px;
   }
   .hero .br-cinema::before, .hero .br-cinema::after{ content:none }   /* レターボックス帯を消す */
-  .hero::after{                                                        /* 文字の可読性：下だけ薄く落とす */
-    content:""; position:absolute; left:0; right:0; bottom:0; height:42%; z-index:1; pointer-events:none;
-    background:linear-gradient(to top, rgba(0,0,0,.46), rgba(0,0,0,0));
+  .hero::after{                                                        /* 明るい写真：下だけ白を敷いて文字を読ませる */
+    content:""; position:absolute; left:0; right:0; bottom:0; height:46%; z-index:1; pointer-events:none;
+    background:linear-gradient(to top, rgba(255,255,255,.92), rgba(255,255,255,.55) 40%, rgba(255,255,255,0));
   }
   .hero-copy{ inset:auto 0 10% 0; z-index:2 }
   .hero-scroll{ z-index:2 }
@@ -242,10 +243,8 @@
 <!-- ===== SECTION: hero  → detailgram-home-hero.liquid ===== -->
 <section class="dg-section hero">
   <div class="br-cinema hero-slider">
-    <img class="hs on" src="assets/real/hero_1_hands.jpg" alt="鯖江の工房：手作業の工程">
-    <img class="hs" src="assets/real/hero_2_factory.jpg" alt="鯖江の工房：製造設備">
-    <img class="hs" src="assets/real/hero_3_machines.jpg" alt="鯖江の工房：加工機の並ぶ現場">
-    <img class="hs" src="assets/real/hero_4_cutting.jpg" alt="鯖江の工房：輪郭を削り出す">
+    <img class="hs on" src="assets/real/hero_frame.jpg" alt="DETAIL GRAM のアイウェア">
+    <img class="hs" src="assets/real/hero_frame2.jpg" alt="DETAIL GRAM のアイウェア">
   </div>
   <div class="hero-copy">
     <h1 data-br="chars">機能の上に立つ、引き算</h1>
