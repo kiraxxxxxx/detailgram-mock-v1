@@ -196,23 +196,20 @@
   .hero-copy p{ opacity:.78 }
   .hero-scroll{ background:linear-gradient(#14161a,transparent) }
 
-  /* ===== HERO：上下の黒枠を外して全画面に（2026-09-07 橋本氏リクエスト） ===== */
-  .hero{ overflow:hidden }
+  /* ===== HERO：先方の表紙ビジュアル（2面構成）をロゴなしでそのまま見せる（2026-09-24） =====
+     黒枠は撤去したまま。構図が 2:1 なので全画面に切らず、幅いっぱい＋コピーは写真の下に置く。 */
+  .hero{ overflow:hidden; padding-bottom:clamp(34px,6vh,72px) }
   .hero .br-cinema{
-    aspect-ratio:auto;
-    height:calc(100vh - 62px); height:calc(100svh - 62px);
-    min-height:520px;
+    aspect-ratio:2 / 1;
+    max-height:calc(100svh - 150px);
+    background:#ffffff;
   }
   .hero .br-cinema::before, .hero .br-cinema::after{ content:none }   /* レターボックス帯を消す */
-  .hero::after{                                                        /* 明るい写真：下だけ白を敷いて文字を読ませる */
-    content:""; position:absolute; left:0; right:0; bottom:0; height:46%; z-index:1; pointer-events:none;
-    background:linear-gradient(to top, rgba(255,255,255,.92), rgba(255,255,255,.55) 40%, rgba(255,255,255,0));
-  }
-  .hero-copy{ inset:auto 0 10% 0; z-index:2 }
-  .hero-scroll{ z-index:2 }
+  .hero-copy{ position:static; inset:auto; text-align:center; padding:clamp(26px,4.4vh,52px) 4vw 0 }
+  .hero-scroll{ position:static; display:block; margin:22px auto 0; height:34px }
   @media (max-width:760px){
-    .hero .br-cinema{ height:calc(100vh - 58px); height:calc(100svh - 58px); min-height:460px }
-    .hero-copy{ bottom:12% }
+    .hero .br-cinema{ aspect-ratio:1 / 1 }                            /* 縦画面は左のフレーム側を見せる */
+    .hero-slider .hs{ object-position:18% center }
   }
   .news .nrow:hover{ background:rgba(0,0,0,.03) }
   .z-card{ border-color:#dcd9d2; box-shadow:0 1px 0 rgba(0,0,0,.03) }
@@ -243,8 +240,8 @@
 <!-- ===== SECTION: hero  → detailgram-home-hero.liquid ===== -->
 <section class="dg-section hero">
   <div class="br-cinema hero-slider">
-    <img class="hs on" src="assets/real/hero_frame.jpg" alt="DETAIL GRAM のアイウェア">
-    <img class="hs" src="assets/real/hero_frame2.jpg" alt="DETAIL GRAM のアイウェア">
+    <img class="hs on" src="assets/real/hero_split_b.jpg" alt="DETAIL GRAM のアイウェアと花">
+    <img class="hs" src="assets/real/hero_split_a.jpg" alt="DETAIL GRAM のアイウェアと花">
   </div>
   <div class="hero-copy">
     <h1 data-br="chars">機能の上に立つ、引き算</h1>
