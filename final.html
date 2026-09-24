@@ -198,15 +198,15 @@
 
   /* ===== HERO：先方の表紙ビジュアル（2面構成）をロゴなしでそのまま見せる（2026-09-24） =====
      黒枠は撤去したまま。構図が 2:1 なので全画面に切らず、幅いっぱい＋コピーは写真の下に置く。 */
-  .hero{ overflow:hidden; padding-bottom:clamp(34px,6vh,72px) }
+  .hero{ overflow:hidden; padding-bottom:clamp(28px,4.6vh,56px) }
   .hero .br-cinema{
-    aspect-ratio:2 / 1;
-    max-height:calc(100svh - 150px);
+    aspect-ratio:2.4 / 1;          /* 2/1 だと背が高すぎたので上下を少し詰める（白い余白が減るだけ） */
+    max-height:min(calc(100svh - 190px), 620px);
     background:#ffffff;
   }
   .hero .br-cinema::before, .hero .br-cinema::after{ content:none }   /* レターボックス帯を消す */
-  .hero-copy{ position:static; inset:auto; text-align:center; padding:clamp(26px,4.4vh,52px) 4vw 0 }
-  .hero-scroll{ position:static; display:block; margin:22px auto 0; height:34px }
+  .hero-copy{ position:static; inset:auto; text-align:center; padding:clamp(22px,3.4vh,40px) 4vw 0 }
+  .hero-scroll{ position:static; display:block; margin:18px auto 0; height:30px }
   @media (max-width:760px){
     .hero .br-cinema{ aspect-ratio:1 / 1 }                            /* 縦画面は左のフレーム側を見せる */
     .hero-slider .hs{ object-position:18% center }
